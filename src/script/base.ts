@@ -334,21 +334,10 @@ function initAudio() {
   });
 }
 
-async function createSubpageSection(component: string, closeId: string) {
+async function createSubpageSection(component: string, closeId: string, menuId: string) {
   // Vytvor container pre portfolio
   const subpageContainer = document.createElement('div');
-  subpageContainer.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    transform: translateY(100%);
-    transition: transform 0.5s ease-in-out;
-    z-index: 1000;
-    overflow-y: auto;
-  `;
+  subpageContainer.classList.add('subpage-container');
 
   try {
     // Načítaj HTML obsah zo súboru
@@ -362,6 +351,17 @@ async function createSubpageSection(component: string, closeId: string) {
 
   document.body.appendChild(subpageContainer);
 
+  const closeOnClickOutside = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
+      subpageContainer.style.transform = 'translateY(100%)';
+      setTimeout(() => {
+        document.body.style.overflow = 'auto';
+      }, 500);
+      document.removeEventListener('click', closeOnClickOutside);
+    }
+  };
+
   // Pridaj event listener na zatváracie tlačidlo
   const closeBtn = document.getElementById(closeId);
   if (closeBtn) {
@@ -370,21 +370,29 @@ async function createSubpageSection(component: string, closeId: string) {
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
+      document.removeEventListener('click', closeOnClickOutside);
     });
   }
 
-  return subpageContainer;
+  addSubPageListener(subpageContainer, menuId, closeOnClickOutside);
 }
 
-function addSubPageListener(container: HTMLDivElement, menuUrl: string) {
+function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnClickOutside: any) {
   // Pridaj event listener na portfolio link
-  const sectionLink = document.querySelectorAll('a[href="' + menuUrl + '"]');
+  const sectionLink = document.querySelectorAll('#' + menuId + '');
   if (sectionLink) {
     sectionLink.forEach((sl) =>
       sl.addEventListener('click', (e) => {
         e.preventDefault();
+        const allSubpages = document.querySelectorAll('.subpage-container');
+        allSubpages.forEach((subpage) => {
+          (subpage as HTMLElement).style.transform = 'translateY(100%)';
+        });
+
         document.body.style.overflow = 'hidden';
         container.style.transform = 'translateY(0)';
+
+        document.addEventListener('click', closeOnClickOutside);
       }),
     );
   }
@@ -394,16 +402,11 @@ async function initMenu() {
   new Menu();
 
   // Vytvor portfolio sekciu
-  const portfolioSection = await createSubpageSection('portfolio', 'closePortfolio');
-  addSubPageListener(portfolioSection, '#portfolio');
-
+  await createSubpageSection('portfolio', 'closePortfolio', 'portfolio-button');
   // Vytvor klienti sekciu
-  const klientiSection = await createSubpageSection('klienti', 'closeKlienti');
-  addSubPageListener(klientiSection, '#klienti');
-
+  await createSubpageSection('klienti', 'closeKlienti', 'klienti-button');
   // Vytvor about sekciu
-  const aboutSection = await createSubpageSection('about', 'closeAbout');
-  addSubPageListener(aboutSection, '#about');
+  await createSubpageSection('about', 'closeAbout', 'about-button');
 }
 
 function init() {
