@@ -270,7 +270,7 @@ ul a,
   width: 100%;
   height: 100%;
   /*background: rgba(203, 230, 232, 0.85);*/
-  background-image: linear-gradient(rgb(203, 230, 232, 0.8), rgb(113, 193, 246, 0.9));
+  background-image: linear-gradient(rgb(255, 255, 255, 0.3), rgb(255, 255, 255, 0.2));
   transform: translateY(100%);
   transition: transform 0.5s ease-in-out;
   z-index: 1000;
@@ -282,18 +282,65 @@ ul a,
 }
 
 .subpage-content {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-right: 0; /* Odstránime padding-right z content */
+}
+
+.subpage-header {
+  position: sticky;
+  top: 0;
+  background: var(--background-color); /* Použite vašu farbu pozadia */
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  z-index: 1;
+}
+
+.subpage-grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px 20px;
+  padding-right: 44px; /* 24px pre scrollbar + 20px padding */
+  min-height: 0;
+}
+
+/* Štýlovanie scrollbaru - aplikujeme na grid container */
+.subpage-grid-container::-webkit-scrollbar {
+  width: 24px;
+}
+
+.subpage-grid-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.subpage-grid-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  background-clip: padding-box;
+}
+
+.subpage-grid-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  background-clip: padding-box;
+}
+
+/* Pre Firefox */
+.subpage-grid-container {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1);
 }
 
 .subpage-close-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 1em;
+  right: 1em;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 2em;
   cursor: pointer;
   z-index: 1001;
 }
@@ -305,6 +352,7 @@ ul a,
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 5em;
 }
 
 .subpage-item {
@@ -346,6 +394,14 @@ ul a,
 
   .mobile-menu.active {
     display: flex;
+  }
+  .animate-image {
+    width: 15em; /* alebo iná menšia hodnota podľa potreby */
+    height: auto;
+  }
+
+  .loaderText {
+    font-size: 14px; /* menší text pre loader ak je potrebné */
   }
   #loader {
     transform: translate(-50%, 50%);

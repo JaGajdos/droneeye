@@ -6,6 +6,7 @@ import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import 'plyr/dist/plyr.css';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
+import { isSubpageOpen } from './utils';
 import { Text } from 'troika-three-text';
 
 const videoPositions = [new THREE.Vector3(0, 0, 155), new THREE.Vector3(0, 10, 110), new THREE.Vector3(0, 0, 75)];
@@ -130,7 +131,10 @@ function loadEvents() {
   });
 
   window.addEventListener('wheel', (event) => {
-    speed += event.deltaY * accelerationFactor;
+    // Aplikuj speed len ak nie je otvorená žiadna subpage
+    if (!isSubpageOpen()) {
+      speed += event.deltaY * accelerationFactor;
+    }
   });
 
   // Prevent default touch behaviors
@@ -191,7 +195,7 @@ function loadEvents() {
       const currentY = event.touches[0].clientY;
       const deltaY = currentY - touchStartY;
 
-      if (isMoving) {
+      if (isMoving && !isSubpageOpen()) {
         if (deltaY > 0) {
           // Moving finger downward - go forward
           speed -= deltaY * TOUCH_SPEED;
