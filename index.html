@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Three.js Camera Follow with Multiple Videos</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" href="src/assets/style.css" />
+  </head>
+  <body>
+    <div id="menu">
+      <nav class="menu">
+        <div class="flex-auto padding20 logo">
+          <a href="/" class="logo-link">
+            <img src="src/assets/images/logo1t.png" />
+          </a>
+        </div>
+        <div class="desktop-menu-item margin10tlr padding20 glass-container">
+          <a href="#portfolio">Portfólio</a>
+        </div>
+        <div class="desktop-menu-item margin10tlr padding20 glass-container">
+          <a href="#klienti">Klienti</a>
+        </div>
+        <div class="desktop-menu-item margin10tlr padding20 glass-container">
+          <a href="#about">About</a>
+        </div>
+
+        <div id="hamburger" class="hamburger margin10tlr padding20 glass-container">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="margin10tlr padding20 glass-container">
+            <a href="#portfolio">Portfólio</a>
+          </div>
+          <div class="margin10tlr padding20 glass-container">
+            <a href="#klienti">Klienti</a>
+          </div>
+          <div class="margin10tlr padding20 glass-container">
+            <a href="#about">About</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div id="audio">
+      <div id="audio-control">
+        <button id="toggleAudio" class="audio-btn">
+          <img src="src/assets/images/sound-on.svg" alt="Toggle sound" id="soundIcon" />
+        </button>
+      </div>
+    </div>
+
+    <div id="loader">
+      <img class="animate-image" src="src/assets/images/logo1t.png" />
+      <div class="loaderText"></div>
+    </div>
+
+    <canvas id="threeCanvas"></canvas>
+
+    <audio id="bgMusic" playsinline preload="auto" loop>
+      <source src="src/assets/audio/emotional-movement-270328.mp3" type="audio/mp3" />
+    </audio>
+
+    <script type="module" src="src/script/base.ts"></script>
+  </body>
+</html>
