@@ -19,7 +19,6 @@ let loadingManager: THREE.LoadingManager;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
 let dron: any;
-let canvas: HTMLElement;
 let renderer: THREE.WebGLRenderer;
 let cssRenderer: CSS3DRenderer;
 const textA: any[] = [];
@@ -28,6 +27,11 @@ const modelA: any[] = [];
 const clock = new THREE.Clock();
 let textFont: Font;
 let backgroundAudio: BackgroundAudio;
+let isCanvasReady = false;
+const canvas = document.getElementById('threeCanvas')!;
+const loader = document.getElementById('loader');
+const loaderStatus = document.getElementById('loaderStatus');
+const startButton = document.getElementById('startButton');
 
 const pathPoint: number[][] = [
   [0, 0, 200],
@@ -53,11 +57,38 @@ const pathPoint: number[][] = [
   [-1, 20, 0],
 ];
 
+function startExperience() {
+  if (!isCanvasReady) return;
+
+  if (loader) {
+    loader.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+    loader.style.opacity = '0';
+    loader.style.transform = 'scale(0.25) translate(-200%, 0%)';
+  }
+
+  canvas.style.display = 'block';
+
+  setTimeout(() => {
+    if (loader) {
+      loader.style.display = 'none';
+    }
+  }, 1600);
+
+  init();
+}
+
 function start() {
+  initMenu();
+
+  if (startButton) {
+    startButton.addEventListener('click', startExperience);
+  } else {
+    console.log('startButton_no');
+    return;
+  }
+
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-
-  canvas = document.getElementById('threeCanvas')!;
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.shadowMap.enabled = true;
 
@@ -74,23 +105,26 @@ function start() {
     // onLoad callback
     () => {
       console.log('Loading complete!');
-      document.getElementById('loader')!.style.display = 'none';
-      document.getElementById('threeCanvas')!.style.display = 'block';
-      init();
+      isCanvasReady = true;
+      startButton.style.display = 'block';
+      if (loaderStatus) {
+        loaderStatus.style.display = 'none';
+      }
     },
     // onProgress callback
     (url, itemsLoaded, itemsTotal) => {
-      const text = document.getElementById('loadingText');
-      if (text) {
-        text.textContent = 'Loading: ' + ((itemsLoaded / itemsTotal) * 100).toFixed(2) + '%';
+      if (loaderStatus) {
+        loaderStatus.style.display = 'block';
+        //loaderStatus.textContent = 'Loading: ' + ((itemsLoaded / itemsTotal) * 100).toFixed(2) + '%';
+        loaderStatus.textContent = 'Dron sa pripravuje na svoj štart ... ';
       }
       console.log('Loading file.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
     },
     // onError callback
     (url) => {
-      const text = document.getElementById('loadingText');
-      if (text) {
-        text.textContent = 'Error loading';
+      if (loaderStatus) {
+        loaderStatus.style.display = 'block';
+        loaderStatus.textContent = 'Dronu sa nepodarilo vzlietnuť. Skúste refresh!';
       }
       console.log('There was an error loading');
     },
@@ -151,7 +185,6 @@ function loadEvents() {
     e.preventDefault();
   });
 
-  const canvas = document.getElementById('threeCanvas');
   canvas?.addEventListener(
     'touchmove',
     (e) => {
@@ -417,7 +450,6 @@ function init() {
   loadEvents();
   animate();
   //initAudio();
-  initMenu();
 }
 
 // Function to update the cube's position along the curve

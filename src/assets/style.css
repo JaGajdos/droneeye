@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-image: linear-gradient(rgb(203, 230, 232), rgb(113, 193, 246));
+  background-image: linear-gradient(rgb(156, 202, 255), rgb(205, 249, 252));
   font-family: Georgia, serif;
   overflow: hidden;
   overscroll-behavior: none;
@@ -63,11 +63,6 @@ canvas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.loaderText {
-  text-align: center;
-  padding-top: 10px;
 }
 
 ul a,
@@ -270,7 +265,8 @@ ul a,
   width: 100%;
   height: 100%;
   /*background: rgba(203, 230, 232, 0.85);*/
-  background-image: linear-gradient(rgb(255, 255, 255, 0.3), rgb(255, 255, 255, 0.2));
+  /* background-image: linear-gradient(rgb(255, 255, 255, 0.8), rgb(255, 255, 255, 0.8));*/
+  background-image: linear-gradient(rgb(156, 202, 255), rgb(205, 249, 252));
   transform: translateY(100%);
   transition: transform 0.5s ease-in-out;
   z-index: 1000;
@@ -379,6 +375,47 @@ ul a,
   border: 0;
 }
 
+.startButton-container {
+  min-height: 6em;
+}
+
+.start-button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.2em;
+}
+
+.loaderText {
+  margin: 1em auto;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1em;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loaderText b {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Animácia pre text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loaderText {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
 @media (max-width: 768px) {
   .menu .desktop-menu-item {
     display: none;
@@ -396,14 +433,18 @@ ul a,
     display: flex;
   }
   .animate-image {
-    width: 15em; /* alebo iná menšia hodnota podľa potreby */
+    width: 20em; /* alebo iná menšia hodnota podľa potreby */
     height: auto;
   }
 
   .loaderText {
-    font-size: 14px; /* menší text pre loader ak je potrebné */
+    font-size: 0.9em;
+    margin: 1.5em auto;
+    max-width: 90%;
   }
+
   #loader {
+    top: 2em;
     transform: translate(-50%, 50%);
   }
   #audio {
