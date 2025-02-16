@@ -2,9 +2,8 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-
-  ],
+  base: '/droneeye/',
+  plugins: [],
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
@@ -18,10 +17,9 @@ export default defineConfig({
     esbuildOptions: {
       target: 'es2022',
       supported: {
-        'top-level-await': true
-      }
+        'top-level-await': true,
+      },
     },
-    
   },
   build: {
     target: 'es2022',
@@ -37,5 +35,4 @@ export default defineConfig({
       },
     },
   },
-
 });
