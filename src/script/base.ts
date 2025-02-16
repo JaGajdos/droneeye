@@ -1,15 +1,15 @@
 import * as THREE from 'three';
-import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
-import { loadDron, loadModel } from './model';
-import { addCloud, addVideo, addVideoLocal, loadLights, loadSun, loadText, loadTexture } from './objects';
+import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
+import { loadModel } from './model';
+import { addCloud, loadLights, loadText, loadTexture } from './objects';
 import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import 'plyr/dist/plyr.css';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
 import { isSubpageOpen } from './utils';
-import { Text } from 'troika-three-text';
 
-const videoPositions = [new THREE.Vector3(0, 0, 155), new THREE.Vector3(0, 10, 110), new THREE.Vector3(0, 0, 75)];
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+//const videoPositions = [new THREE.Vector3(0, 0, 155), new THREE.Vector3(0, 10, 110), new THREE.Vector3(0, 0, 75)];
 let positionOnCurve = 0;
 let speed = 0;
 let curve: THREE.CatmullRomCurve3;
@@ -29,9 +29,11 @@ let textFont: Font;
 let backgroundAudio: BackgroundAudio;
 let isCanvasReady = false;
 const canvas = document.getElementById('threeCanvas')!;
-const loader = document.getElementById('loader');
+const loaderContainer = document.getElementById('loader');
+const loaderimg = document.getElementById('loaderImg');
 const loaderStatus = document.getElementById('loaderStatus');
 const startButton = document.getElementById('startButton');
+const topLogo = document.getElementById('topLogo');
 
 const pathPoint: number[][] = [
   [0, 0, 200],
@@ -60,19 +62,45 @@ const pathPoint: number[][] = [
 function startExperience() {
   if (!isCanvasReady) return;
 
-  if (loader) {
-    loader.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
-    loader.style.opacity = '0';
-    loader.style.transform = 'scale(0.25) translate(-200%, 0%)';
+  if (loaderContainer && loaderimg && topLogo) {
+    const logoRect = topLogo.getBoundingClientRect();
+    const loaderRect = loaderimg.getBoundingClientRect();
+
+    // Výpočet rozdielu medzi pozíciami
+    const deltaX = logoRect.left - loaderRect.right - (isMobile ? -60 : 0);
+    const deltaY = logoRect.top - loaderRect.bottom - (isMobile ? -100 : 80);
+
+    console.log(logoRect, loaderRect);
+
+    loaderContainer.style.opacity = '0';
+    loaderContainer.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
+    if (isMobile) {
+      loaderContainer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.6)`;
+    } else {
+      loaderContainer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.4)`;
+    }
   }
 
+  if (startButton) {
+    startButton.style.display = 'none';
+  }
+
+  canvas.style.opacity = '0';
+  canvas.style.transition = 'opacity 1.5s ease';
   canvas.style.display = 'block';
 
   setTimeout(() => {
-    if (loader) {
-      loader.style.display = 'none';
+    canvas.style.opacity = '1';
+  }, 500);
+
+  setTimeout(() => {
+    if (loaderContainer) {
+      loaderContainer.style.display = 'none';
     }
-  }, 1600);
+    if (topLogo) {
+      topLogo.style.opacity = '1';
+    }
+  }, 1500);
 
   init();
 }
@@ -137,9 +165,6 @@ function updateSize() {
   // Get the actual display size
   const width = window.innerWidth;
   const height = window.innerHeight;
-
-  // Detekcia mobilného zariadenia
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   // Uprav FOV kamery pre mobilné zariadenia (zväčší zorné pole = zmenší scénu)
   camera.fov = isMobile ? 110 : 75; // Väčší FOV = menšia scéna
@@ -262,41 +287,6 @@ function loadEvents() {
   );
 }
 
-function create2DText(text: string, position: THREE.Vector3) {
-  // Vytvor HTML element
-  const textElement = document.createElement('div');
-  textElement.textContent = text;
-  textElement.style.fontSize = '0.5px';
-  textElement.style.fontFamily = 'Arial, sans-serif';
-  textElement.style.color = 'black';
-  //textElement.style.padding = '10px';
-
-  // Vytvor CSS3D objekt
-  const textObject = new CSS3DObject(textElement);
-  textObject.position.copy(position);
-
-  return textObject;
-}
-
-function createTroikaText(text: string, position: THREE.Vector3) {
-  const myText = new Text();
-  myText.text = text;
-  myText.fontSize = 2;
-  myText.position.copy(position);
-  myText.color = 0x000000;
-  myText.sync();
-
-  scene.add(myText);
-
-  function updateTextOpacity() {
-    if (myText) {
-      (myText.material as any).opacity = Math.max(0, 1 - Math.abs(camera.position.z - 50 - myText.position.z) / 20);
-    }
-  }
-
-  return { updateTextOpacity };
-}
-
 function loadResources() {
   loadLights(scene);
 
@@ -331,27 +321,36 @@ function loadResources() {
   //videoA.push(addVideoLocal(scene, camera, videoPositions, 1, '/src/assets/videos/scandinavia.mov'));
 
   const loader = new FontLoader(loadingManager);
-  //const text = create2DText('Viac než len obraz', new THREE.Vector3(5, 0, 130));
-  const text1 = createTroikaText('Viac než len obraz', new THREE.Vector3(5, 0, 150));
-  const text2 = createTroikaText(
-    'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
-    new THREE.Vector3(-5, 0, 110),
-  );
-  const text3 = createTroikaText('Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja', new THREE.Vector3(15, 0, 70));
-  const text4 = createTroikaText('Fotografovanie\nmomenty, ktoré hovoria za vás', new THREE.Vector3(-15, 0, 30));
-  textA.push(text1);
-  textA.push(text2);
-  textA.push(text3);
-  textA.push(text4);
+  //const text1 = createTroikaText(scene, camera, 'Viac než len obraz', new THREE.Vector3(5, 0, 150));
+  //textA.push(text1);
 
-  /*
-  loader.load('src/assets/font/Source Sans Pro_Regular.json', function (font) {
+  loader.load('src/assets/font/Montserrat_Regular.json', function (font) {
     textFont = font;
-    textA.push(loadText(scene, camera, textFont, 'Vitajte', 1, -5, 0, 130));
-    textA.push(loadText(scene, camera, textFont, 'Vitajte druhykrat', 1, 10, 0, 50));
-    loadText(scene, camera, textFont, 'Viac než len obraz \n pocit, ktorý zostáva', 1, 5, 0, 190);
+    textA.push(loadText(scene, camera, textFont, 'Viac než len obraz', 1, 0x00000, -5, 0, 130));
+    textA.push(
+      loadText(
+        scene,
+        camera,
+        textFont,
+        'Každý príbeh, každá emócia, každý detail si zaslúži byť zachytený tak, ako ho cítite',
+        1,
+        0x00000,
+        -5,
+        0,
+        130,
+      ),
+    );
+    textA.push(
+      loadText(scene, camera, textFont, 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja', 1, 0x00000, -5, 0, 130),
+    );
+    textA.push(
+      loadText(scene, camera, textFont, 'Fotografovanie\nmomenty, ktoré hovoria za vás', 1, 0x00000, -5, 0, 130),
+    );
+    textA.push(
+      loadText(scene, camera, textFont, 'Letecké zábery dronom\npohľad, ktorý mení perspektívu', 1, 0x00000, 10, 0, 50),
+    );
+    textA.push(loadText(scene, camera, textFont, 'Viac než len obraz \n pocit, ktorý zostáva', 1, 0x00000, 5, 0, 190));
   });
-  */
 }
 
 function initAudio() {

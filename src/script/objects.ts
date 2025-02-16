@@ -4,6 +4,7 @@ import { Group, MathUtils, Mesh, MeshBasicMaterial, Scene, SphereGeometry, Vecto
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer';
 import * as THREE from 'three';
 import Plyr from 'plyr';
+import { Text } from 'troika-three-text';
 
 declare global {
   namespace YT {
@@ -58,19 +59,18 @@ export function addVideoLocal(
   id: number,
   path: string,
 ) {
-
   const width = window.innerWidth * 0.75;
   const height = (width * 9) / 16; // Maintain 16:9 aspect ratio
   // Create container with video element
   const video = document.createElement('video');
   video.id = 'localVideo' + id;
-  video.width =  width;
+  video.width = width;
   video.height = height;
   video.style.border = '0';
   video.loop = true;
   video.muted = true;
   video.playsInline = true; // Better mobile support
-  
+
   // Add source with type
   const source = document.createElement('source');
   source.src = path; // Adjust path based on your project structure
@@ -86,7 +86,7 @@ export function addVideoLocal(
   const container = document.createElement('div');
   container.appendChild(video);
   container.style.cursor = 'pointer';
-  
+
   // Create CSS3DObject and add it to scene
   const cssObject = new CSS3DObject(container);
   cssObject.position.copy(videoPositions[id]);
@@ -99,7 +99,7 @@ export function addVideoLocal(
 
   function updateOpacity() {
     const opacityV = Math.max(0, 1 - Math.abs(camera.position.z - 25 - cssObject.position.z) / 15);
-    if(opacityV > 0.5) {
+    if (opacityV > 0.5) {
       video.play();
     } else {
       video.pause();
@@ -194,6 +194,7 @@ export function loadText(
   textFont: Font,
   text: string,
   fontSize: number,
+  color: THREE.ColorRepresentation,
   x: number,
   y: number,
   z: number,
@@ -213,7 +214,7 @@ export function loadText(
     bevelSegments: 5,
   });
 
-  const textMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00, transparent: true, opacity: 1 });
+  const textMaterial = new THREE.MeshPhongMaterial({ color: color, transparent: true, opacity: 1 });
   textMesh = new THREE.Mesh(textGeometry, textMaterial);
   scene.add(textMesh);
 
@@ -317,4 +318,23 @@ export function loadSun(scene: THREE.Scene, x: number, y: number, z: number) {
   sunGlow.scale.multiplyScalar(1.2);
   sunGlow.position.set(x, y, z);
   scene.add(sunGlow);
+}
+
+export function createTroikaText(scene: Scene, camera: THREE.Camera, text: string, position: THREE.Vector3) {
+  const myText = new Text();
+  myText.text = text;
+  myText.fontSize = 2;
+  myText.position.copy(position);
+  myText.color = 0x000000;
+  myText.sync();
+
+  scene.add(myText);
+
+  function updateTextOpacity() {
+    if (myText) {
+      (myText.material as any).opacity = Math.max(0, 1 - Math.abs(camera.position.z - 50 - myText.position.z) / 20);
+    }
+  }
+
+  return { updateTextOpacity };
 }
