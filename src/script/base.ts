@@ -292,14 +292,14 @@ function loadResources() {
 
   //loadSun(scene, 20, 15, 50);
 
-  const texture = loadTexture(loadingManager, 'public/textures/sunshine-clouds-min.jpg', 1350, 900, 500);
+  const texture = loadTexture(loadingManager, 'src/assets/textures/sunshine-clouds-min.jpg', 1350, 900, 500);
   scene.add(texture);
 
   const startPosition = new THREE.Vector3(0, 0, 200);
 
   createPath(scene, camera, startPosition);
 
-  dron = loadModel(scene, camera, loadingManager, 'public/models/drone6.glb', 3, startPosition);
+  dron = loadModel(scene, camera, loadingManager, 'src/assets/models/drone6.glb', 3, startPosition);
   modelA.push(dron);
 
   addCloud(scene, -5, 0, 190);
@@ -324,7 +324,7 @@ function loadResources() {
   //const text1 = createTroikaText(scene, camera, 'Viac než len obraz', new THREE.Vector3(5, 0, 150));
   //textA.push(text1);
 
-  loader.load('public/font/Montserrat_Regular.json', function (font) {
+  loader.load('src/assets/font/Montserrat_Regular.json', function (font) {
     textFont = font;
     textA.push(loadText(scene, camera, textFont, 'Viac než len obraz', 1, 0x00000, -5, 0, 130));
     textA.push(
