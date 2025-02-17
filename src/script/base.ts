@@ -68,15 +68,15 @@ function startExperience() {
     const loaderRect = loaderimg.getBoundingClientRect();
 
     // Výpočet rozdielu medzi pozíciami
-    const deltaX = logoRect.left - loaderRect.right - (isMobile ? -60 : 0);
-    const deltaY = logoRect.top - loaderRect.bottom - (isMobile ? -100 : 80);
+    const deltaX = logoRect.left - loaderRect.right - (isMobile ? -55 : 0);
+    const deltaY = logoRect.top - loaderRect.bottom - (isMobile ? -120 : 60);
 
     loaderContainer.style.opacity = '0';
     loaderContainer.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
     if (isMobile) {
       loaderContainer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.6)`;
     } else {
-      loaderContainer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.4)`;
+      loaderContainer.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.35)`;
     }
   }
 
@@ -85,12 +85,12 @@ function startExperience() {
   }
 
   canvas.style.opacity = '0';
-  canvas.style.transition = 'opacity 1.5s ease';
   canvas.style.display = 'block';
+  canvas.style.transition = 'opacity 2s ease';
 
   setTimeout(() => {
     canvas.style.opacity = '1';
-  }, 500);
+  }, 10);
 
   setTimeout(() => {
     if (loaderContainer) {
@@ -99,7 +99,7 @@ function startExperience() {
     if (topLogo) {
       topLogo.style.opacity = '1';
     }
-  }, 1500);
+  }, 1000);
 }
 
 function start() {
