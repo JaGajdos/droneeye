@@ -99,8 +99,6 @@ function startExperience() {
       topLogo.style.opacity = '1';
     }
   }, 1500);
-
-  init();
 }
 
 function start() {
@@ -130,12 +128,15 @@ function start() {
   loadingManager = new THREE.LoadingManager(
     // onLoad callback
     () => {
-      console.log('Loading complete!');
+      init();
       isCanvasReady = true;
-      startButton.style.display = 'block';
-      if (loaderStatus) {
-        loaderStatus.style.display = 'none';
-      }
+      console.log('Loading complete!');
+      setTimeout(function () {
+        startButton.style.display = 'block';
+        if (loaderStatus) {
+          loaderStatus.style.display = 'none';
+        }
+      }, 500);
     },
     // onProgress callback
     (url, itemsLoaded, itemsTotal) => {
@@ -404,7 +405,7 @@ async function createSubpageSection(
   const closeOnClickOutside = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
-      subpageContainer.style.transform = 'translateY(100%)';
+      subpageContainer.style.transform = 'translateY(100vh)';
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
@@ -416,7 +417,8 @@ async function createSubpageSection(
   const closeBtn = document.getElementById(closeId);
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-      subpageContainer.style.transform = 'translateY(100%)';
+      console.log(subpageContainer);
+      subpageContainer.style.transform = 'translateY(100vh)';
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
@@ -438,7 +440,7 @@ function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnCl
         e.preventDefault();
         const allSubpages = document.querySelectorAll('.subpage-container');
         allSubpages.forEach((subpage) => {
-          (subpage as HTMLElement).style.transform = 'translateY(100%)';
+          (subpage as HTMLElement).style.transform = 'translateY(100vh)';
         });
 
         document.body.style.overflow = 'hidden';
