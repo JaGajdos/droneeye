@@ -10,10 +10,3 @@ function setWeight(action: any, weight: any) {
   action.setEffectiveTimeScale(1);
   action.setEffectiveWeight(weight);
 }
-
-export function loadFont() {}
-
-export function isSubpageOpen() {
-  const subpages = document.querySelectorAll('.subpage-container');
-  return Array.from(subpages).some((subpage) => (subpage as HTMLElement).style.transform === 'translateY(0px)');
-}

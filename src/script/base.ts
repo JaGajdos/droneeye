@@ -6,7 +6,6 @@ import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import 'plyr/dist/plyr.css';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
-import { isSubpageOpen } from './utils';
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 //const videoPositions = [new THREE.Vector3(0, 0, 155), new THREE.Vector3(0, 10, 110), new THREE.Vector3(0, 0, 75)];
@@ -28,6 +27,8 @@ const clock = new THREE.Clock();
 let textFont: Font;
 let backgroundAudio: BackgroundAudio;
 let isCanvasReady = false;
+let isDroneEnd = false;
+let isSubpageOpen = false;
 const canvas = document.getElementById('threeCanvas')!;
 const loaderContainer = document.getElementById('loader');
 const loaderimg = document.getElementById('loaderImg');
@@ -190,7 +191,7 @@ function loadEvents() {
 
   window.addEventListener('wheel', (event) => {
     // Aplikuj speed len ak nie je otvorená žiadna subpage
-    if (!isSubpageOpen()) {
+    if (!isSubpageOpen) {
       speed += event.deltaY * accelerationFactor;
     }
   });
@@ -251,7 +252,7 @@ function loadEvents() {
       const currentY = event.touches[0].clientY;
       const deltaY = currentY - touchStartY;
 
-      if (isMoving && !isSubpageOpen()) {
+      if (isMoving && !isSubpageOpen) {
         if (deltaY > 0) {
           // Moving finger downward - go forward
           speed -= deltaY * TOUCH_SPEED;
@@ -406,6 +407,7 @@ async function createSubpageSection(
     const target = e.target as HTMLElement;
     if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
       subpageContainer.style.transform = 'translateY(100vh)';
+      isSubpageOpen = false;
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
@@ -417,8 +419,8 @@ async function createSubpageSection(
   const closeBtn = document.getElementById(closeId);
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
-      console.log(subpageContainer);
       subpageContainer.style.transform = 'translateY(100vh)';
+      isSubpageOpen = false;
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
@@ -445,6 +447,7 @@ function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnCl
 
         document.body.style.overflow = 'hidden';
         container.style.transform = 'translateY(0)';
+        isSubpageOpen = true;
         backgroundAudio.pause();
         document.addEventListener('click', closeOnClickOutside);
       }),
@@ -485,7 +488,8 @@ function updatePosition() {
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
 
-  if (newPosition.z < 30) {
+  if (newPosition.z < 30 && !isDroneEnd) {
+    isDroneEnd = true;
     document.getElementById('portfolio-button')?.click();
   }
 }
