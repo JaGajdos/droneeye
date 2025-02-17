@@ -14,7 +14,7 @@ let positionOnCurve = 0;
 let speed = 0;
 let curve: THREE.CatmullRomCurve3;
 const dampingFactor = 0.95;
-const accelerationFactor = 0.1 * 0.01;
+const accelerationFactor = 0.1 * 0.002;
 let loadingManager: THREE.LoadingManager;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
@@ -28,6 +28,7 @@ const clock = new THREE.Clock();
 let textFont: Font;
 let backgroundAudio: BackgroundAudio;
 let isCanvasReady = false;
+let portfolioContainer: HTMLDivElement;
 const canvas = document.getElementById('threeCanvas')!;
 const loaderContainer = document.getElementById('loader');
 const loaderimg = document.getElementById('loaderImg');
@@ -43,7 +44,7 @@ const pathPoint: number[][] = [
   [0, 3, 160],
   [-3, 3, 150],
   [-3, 3, 140],
-  [-3, 10, 130],
+  [0, 10, 130],
   [0, 10, 120],
   [0, 10, 110],
   [0, 5, 100],
@@ -69,8 +70,6 @@ function startExperience() {
     // Výpočet rozdielu medzi pozíciami
     const deltaX = logoRect.left - loaderRect.right - (isMobile ? -60 : 0);
     const deltaY = logoRect.top - loaderRect.bottom - (isMobile ? -100 : 80);
-
-    console.log(logoRect, loaderRect);
 
     loaderContainer.style.opacity = '0';
     loaderContainer.style.transition = 'transform 1.5s ease, opacity 1.5s ease';
@@ -111,7 +110,7 @@ function start() {
   if (startButton) {
     startButton.addEventListener('click', startExperience);
   } else {
-    console.log('startButton_no');
+    console.error('startButton_no');
     return;
   }
 
@@ -154,7 +153,7 @@ function start() {
         loaderStatus.style.display = 'block';
         loaderStatus.textContent = 'Dronu sa nepodarilo vzlietnuť. Skúste refresh!';
       }
-      console.log('There was an error loading');
+      console.error('There was an error loading');
     },
   );
 
@@ -233,7 +232,6 @@ function loadEvents() {
   let touchStartY = 0;
   let isMoving = false;
   const TOUCH_SPEED = 0.001; // Znížená základná rýchlosť pre touch
-  const dampingFactor = 0.95; // Faktor spomalenia (rovnaký ako pri wheel)
 
   // Touch controls - only on canvas
   canvas?.addEventListener(
@@ -292,24 +290,33 @@ function loadResources() {
 
   //loadSun(scene, 20, 15, 50);
 
-  const texture = loadTexture(loadingManager, 'src/assets/textures/sunshine-clouds-min.jpg', 1350, 900, 500);
+  const texture = loadTexture(loadingManager, 'textures/sunshine-clouds-min.jpg', 1350, 900, 500);
   scene.add(texture);
 
   const startPosition = new THREE.Vector3(0, 0, 200);
 
   createPath(scene, camera, startPosition);
 
-  dron = loadModel(scene, camera, loadingManager, 'src/assets/models/drone6.glb', 3, startPosition);
+  dron = loadModel(scene, camera, loadingManager, 'models/drone6.glb', 3, startPosition);
   modelA.push(dron);
 
   addCloud(scene, -5, 0, 190);
   addCloud(scene, -10, 0, 160);
-  addCloud(scene, 40, 0, 140);
+  addCloud(scene, 30, 5, 140);
   addCloud(scene, 30, 0, 140);
   addCloud(scene, 20, 10, 120);
   addCloud(scene, 10, 0, 110);
-  addCloud(scene, 40, 0, 100);
-  addCloud(scene, 40, 0, 800);
+  addCloud(scene, -20, 0, 100);
+  addCloud(scene, -10, 10, 90);
+  addCloud(scene, 30, 10, 80);
+  addCloud(scene, 20, 5, 70);
+  addCloud(scene, -10, -5, 60);
+  addCloud(scene, 15, 0, 40);
+  addCloud(scene, 10, 10, 20);
+  addCloud(scene, -10, 0, 20);
+  addCloud(scene, 0, 0, 20);
+  addCloud(scene, -10, -5, 20);
+  addCloud(scene, 5, 5, 20);
 
   //videoA.push(addVideo(scene, camera, videoPositions, 0, 'eLYS88I2dK0'));
   //videoA.push(addVideo(scene, camera, videoPositions, 1, 'eLYS88I2dK0'));
@@ -324,32 +331,34 @@ function loadResources() {
   //const text1 = createTroikaText(scene, camera, 'Viac než len obraz', new THREE.Vector3(5, 0, 150));
   //textA.push(text1);
 
-  loader.load('src/assets/font/Montserrat_Regular.json', function (font) {
+  loader.load('font/Montserrat_Regular.json', function (font) {
     textFont = font;
-    textA.push(loadText(scene, camera, textFont, 'Viac než len obraz', 1, 0x00000, -5, 0, 130));
+    textA.push(loadText(scene, camera, textFont, 'Portfólio', 1, 0x00000, -7, 20, 30));
+    textA.push(loadText(scene, camera, textFont, 'Každý Príbeh', 1, 0x00000, -9, 19, 60));
+    textA.push(loadText(scene, camera, textFont, 'Každá Emócia', 1, 0x00000, 2, 19, 60));
+    textA.push(loadText(scene, camera, textFont, 'Každý Detail', 1, 0x00000, -3, 17, 60));
+    textA.push(loadText(scene, camera, textFont, 'si zaslúži byť zachytený tak', 1, 0x00000, -7, 13, 60));
+    textA.push(loadText(scene, camera, textFont, 'ako ho cítite', 1, 0x00000, -2, 11, 60));
+    textA.push(
+      loadText(scene, camera, textFont, 'Videoprodukcia\npríbehy\nktoré Vás vtiahnu do deja', 1, 0x00000, -3, 7, 90),
+    );
+    textA.push(
+      loadText(scene, camera, textFont, 'Fotografovanie momenty,\nktoré hovoria za vás', 1, 0x00000, -8, 15, 120),
+    );
     textA.push(
       loadText(
         scene,
         camera,
         textFont,
-        'Každý príbeh, každá emócia, každý detail si zaslúži byť zachytený tak, ako ho cítite',
+        'Letecké zábery dronom\npohľad\nktorý mení perspektívu',
         1,
         0x00000,
-        -5,
-        0,
-        130,
+        -10,
+        5,
+        150,
       ),
     );
-    textA.push(
-      loadText(scene, camera, textFont, 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja', 1, 0x00000, -5, 0, 130),
-    );
-    textA.push(
-      loadText(scene, camera, textFont, 'Fotografovanie\nmomenty, ktoré hovoria za vás', 1, 0x00000, -5, 0, 130),
-    );
-    textA.push(
-      loadText(scene, camera, textFont, 'Letecké zábery dronom\npohľad, ktorý mení perspektívu', 1, 0x00000, 10, 0, 50),
-    );
-    textA.push(loadText(scene, camera, textFont, 'Viac než len obraz \n pocit, ktorý zostáva', 1, 0x00000, 5, 0, 190));
+    textA.push(loadText(scene, camera, textFont, 'Viac než len obraz\npocit, ktorý zostáva', 1, 0x00000, -3, 4, 180));
   });
 }
 
@@ -370,14 +379,20 @@ function initAudio() {
   });
 }
 
-async function createSubpageSection(component: string, closeId: string, menuId: string) {
+async function createSubpageSection(
+  subpageContainer: HTMLDivElement,
+  component: string,
+  closeId: string,
+  menuId: string,
+) {
   // Vytvor container pre portfolio
-  const subpageContainer = document.createElement('div');
+
+  subpageContainer.id = 'subpage-' + menuId;
   subpageContainer.classList.add('subpage-container');
 
   try {
     // Načítaj HTML obsah zo súboru
-    const response = await fetch('/src/components/' + component + '.html');
+    const response = await fetch('pages/' + component + '.html');
     const html = await response.text();
     subpageContainer.innerHTML = html;
   } catch (error) {
@@ -394,7 +409,7 @@ async function createSubpageSection(component: string, closeId: string, menuId: 
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
-      document.removeEventListener('click', closeOnClickOutside);
+      //document.removeEventListener('click', closeOnClickOutside);
     }
   };
 
@@ -411,6 +426,8 @@ async function createSubpageSection(component: string, closeId: string, menuId: 
   }
 
   addSubPageListener(subpageContainer, menuId, closeOnClickOutside);
+
+  return subpageContainer;
 }
 
 function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnClickOutside: any) {
@@ -427,7 +444,7 @@ function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnCl
 
         document.body.style.overflow = 'hidden';
         container.style.transform = 'translateY(0)';
-
+        backgroundAudio.pause();
         document.addEventListener('click', closeOnClickOutside);
       }),
     );
@@ -438,17 +455,20 @@ async function initMenu() {
   new Menu();
 
   // Vytvor portfolio sekciu
-  await createSubpageSection('portfolio', 'closePortfolio', 'portfolio-button');
+  portfolioContainer = document.createElement('div');
+  await createSubpageSection(portfolioContainer, 'portfolio', 'closePortfolio', 'portfolio-button');
   // Vytvor klienti sekciu
-  await createSubpageSection('klienti', 'closeKlienti', 'klienti-button');
+  const klientiContainer = document.createElement('div');
+  await createSubpageSection(klientiContainer, 'klienti', 'closeKlienti', 'klienti-button');
   // Vytvor about sekciu
-  await createSubpageSection('about', 'closeAbout', 'about-button');
+  const aboutContainer = document.createElement('div');
+  await createSubpageSection(aboutContainer, 'about', 'closeAbout', 'about-button');
 }
 
 function init() {
   loadEvents();
   animate();
-  //initAudio();
+  initAudio();
 }
 
 // Function to update the cube's position along the curve
@@ -463,6 +483,12 @@ function updatePosition() {
   const newPosition = curve.getPointAt(positionOnCurve);
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
+
+  if (newPosition.z < 30 && portfolioContainer) {
+    document.body.style.overflow = 'hidden';
+    portfolioContainer.style.transform = 'translateY(0)';
+    backgroundAudio.pause();
+  }
 }
 
 function updateOpacity() {
@@ -517,7 +543,7 @@ function createPath(scene: THREE.Scene, camera: THREE.PerspectiveCamera, positio
   const curveGeometry = new THREE.BufferGeometry().setFromPoints(curve.getPoints(100));
   const curveMaterial = new THREE.LineBasicMaterial({ color: 0xffff00 }); // Yellow color
   const curveLine = new THREE.Line(curveGeometry, curveMaterial);
-  scene.add(curveLine);
+  //scene.add(curveLine);
 
   // Position the camera
   camera.position.set(position.x, position.y + 2, position.z);

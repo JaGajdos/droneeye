@@ -1,19 +1,21 @@
 export class BackgroundAudio {
-  private audio: HTMLAudioElement;
+  private audio: any;
   private isInitialized: boolean = false;
   private soundIcon: HTMLImageElement;
   private isPlaying: boolean = false;
 
   private isIOS(): boolean {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    return (
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    );
   }
 
   constructor() {
-    this.audio = document.getElementById('bgMusic') as HTMLAudioElement;
+    this.audio = document.getElementById('bgMusic');
     this.audio.volume = 0.3;
     this.audio.preload = 'auto';
-    
+
     if (this.isIOS()) {
       console.log('iOS device detected, using iOS-specific initialization');
       // iOS-špecifické nastavenia
@@ -30,44 +32,50 @@ export class BackgroundAudio {
   private initIOSAudio() {
     const startIOSAudio = () => {
       if (this.isInitialized) return;
-      
+
       this.audio.muted = false;
-      this.audio.play()
+      this.audio
+        .play()
         .then(() => {
           this.isInitialized = true;
           console.log('iOS audio started successfully');
         })
-        .catch(error => {
+        .catch((error: any) => {
           console.log('iOS audio start failed:', error);
           this.isInitialized = false;
         });
     };
 
     // iOS potrebuje touchend event
-    document.addEventListener('touchend', () => {
-      if (!this.isInitialized) {
-        startIOSAudio();
-      }
-    }, false);
+    document.addEventListener(
+      'touchend',
+      () => {
+        if (!this.isInitialized) {
+          startIOSAudio();
+        }
+      },
+      false,
+    );
   }
 
   private initStandardAudio() {
     const startAudio = () => {
       if (this.isInitialized) return;
-      
-      this.audio.play()
+
+      this.audio
+        .play()
         .then(() => {
           this.isInitialized = true;
           console.log('Standard audio started successfully');
         })
-        .catch(error => {
+        .catch((error: any) => {
           console.log('Standard audio start failed:', error);
           this.isInitialized = false;
         });
     };
 
     // Štandardné eventy pre ostatné zariadenia
-    ['click', 'touchstart'].forEach(event => {
+    ['click', 'touchstart'].forEach((event) => {
       document.addEventListener(event, startAudio, { once: true });
     });
   }
@@ -108,12 +116,13 @@ export class BackgroundAudio {
       }
     }
 
-    this.audio.play()
+    this.audio
+      .play()
       .then(() => {
         this.isPlaying = true;
         this.updateIcon();
       })
-      .catch(error => console.log('Audio play failed:', error));
+      .catch((error: any) => console.log('Audio play failed:', error));
   }
 
   pause() {
@@ -125,7 +134,7 @@ export class BackgroundAudio {
   private updateIcon() {
     if (this.soundIcon) {
       const iconName = this.isPlaying ? 'sound-on.svg' : 'sound-off.svg';
-      this.soundIcon.src = `src/assets/images/${iconName}`;
+      this.soundIcon.src = `images/${iconName}`;
     }
   }
 
@@ -141,7 +150,7 @@ export class BackgroundAudio {
       volume: this.audio.volume,
       isPlaying: !this.audio.paused,
       currentTime: this.audio.currentTime,
-      readyState: this.audio.readyState
+      readyState: this.audio.readyState,
     });
   }
 }

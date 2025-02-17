@@ -145,7 +145,6 @@ export function addVideo(
 
   // Event handler for YouTube player state change
   function onPlayerStateChange(event: any) {
-    console.log(event);
     if (event.data === YT.PlayerState.PLAYING) {
       cssObject.scale.set(0.05, 0.05, 0.05);
       cssObject.rotation.y = MathUtils.degToRad(0);
@@ -222,7 +221,7 @@ export function loadText(
 
   function updateTextOpacity() {
     if (textMesh) {
-      (textMesh.material as any).opacity = Math.max(0, 1 - Math.abs(camera.position.z - 10 - textMesh.position.z) / 20);
+      (textMesh.material as any).opacity = Math.max(0, 1 - Math.abs(camera.position.z - 15 - textMesh.position.z) / 20);
     }
   }
 
