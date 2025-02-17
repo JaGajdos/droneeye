@@ -28,7 +28,6 @@ const clock = new THREE.Clock();
 let textFont: Font;
 let backgroundAudio: BackgroundAudio;
 let isCanvasReady = false;
-let portfolioContainer: HTMLDivElement;
 const canvas = document.getElementById('threeCanvas')!;
 const loaderContainer = document.getElementById('loader');
 const loaderimg = document.getElementById('loaderImg');
@@ -300,7 +299,7 @@ function loadResources() {
   dron = loadModel(scene, camera, loadingManager, 'models/drone6.glb', 3, startPosition);
   modelA.push(dron);
 
-  addCloud(scene, -5, 0, 190);
+  addCloud(scene, -15, 0, 190);
   addCloud(scene, -10, 0, 160);
   addCloud(scene, 30, 5, 140);
   addCloud(scene, 30, 0, 140);
@@ -409,7 +408,7 @@ async function createSubpageSection(
       setTimeout(() => {
         document.body.style.overflow = 'auto';
       }, 500);
-      //document.removeEventListener('click', closeOnClickOutside);
+      document.removeEventListener('click', closeOnClickOutside);
     }
   };
 
@@ -427,7 +426,7 @@ async function createSubpageSection(
 
   addSubPageListener(subpageContainer, menuId, closeOnClickOutside);
 
-  return subpageContainer;
+  return { subpageContainer, closeOnClickOutside };
 }
 
 function addSubPageListener(container: HTMLDivElement, menuId: string, closeOnClickOutside: any) {
@@ -455,7 +454,7 @@ async function initMenu() {
   new Menu();
 
   // Vytvor portfolio sekciu
-  portfolioContainer = document.createElement('div');
+  const portfolioContainer = document.createElement('div');
   await createSubpageSection(portfolioContainer, 'portfolio', 'closePortfolio', 'portfolio-button');
   // Vytvor klienti sekciu
   const klientiContainer = document.createElement('div');
@@ -484,10 +483,8 @@ function updatePosition() {
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
 
-  if (newPosition.z < 30 && portfolioContainer) {
-    document.body.style.overflow = 'hidden';
-    portfolioContainer.style.transform = 'translateY(0)';
-    backgroundAudio.pause();
+  if (newPosition.z < 30) {
+    document.getElementById('portfolio-button')?.click();
   }
 }
 

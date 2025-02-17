@@ -166,7 +166,7 @@ export function addVideo(
 export function addCloud(scene: Scene, x: number, y: number, z: number) {
   // Add 3D cloud
   const cloudParticles = new Group();
-  const particleCount = 100; // Adjust particle count as needed
+  const particleCount = 200; // Adjust particle count as needed
 
   for (let i = 0; i < particleCount; i++) {
     const particle = new Mesh(
@@ -176,9 +176,9 @@ export function addCloud(scene: Scene, x: number, y: number, z: number) {
 
     // Randomize particle positions within a range
     particle.position.set(
-      x + Math.random() * 4, // X position
-      y + Math.random() * 4, // Y position (adjust as needed)
-      z + Math.random() * 4, // Z position
+      x + Math.random() * 6, // X position
+      y + Math.random() * 6, // Y position (adjust as needed)
+      z + Math.random() * 6, // Z position
     );
 
     cloudParticles.add(particle);
