@@ -319,10 +319,18 @@ export function loadSun(scene: THREE.Scene, x: number, y: number, z: number) {
   scene.add(sunGlow);
 }
 
-export function createTroikaText(scene: Scene, camera: THREE.Camera, text: string, position: THREE.Vector3) {
+export function createTroikaText(
+  scene: Scene,
+  camera: THREE.Camera,
+  text: string,
+  position: THREE.Vector3,
+  opacityKoef?: number,
+  opacityZ?: number,
+) {
   const myText = new Text();
   myText.text = text;
-  myText.fontSize = 2;
+  myText.fontSize = 0.7;
+  myText.font = 'font/Georgia.woff';
   myText.position.copy(position);
   myText.color = 0x000000;
   myText.sync();
@@ -331,7 +339,12 @@ export function createTroikaText(scene: Scene, camera: THREE.Camera, text: strin
 
   function updateTextOpacity() {
     if (myText) {
-      (myText.material as any).opacity = Math.max(0, 1 - Math.abs(camera.position.z - 50 - myText.position.z) / 20);
+      (myText.material as any).opacity = Math.max(
+        0,
+        1 -
+          Math.abs(camera.position.z - (opacityZ && opacityZ > 0 ? opacityZ : 15) - myText.position.z) /
+            (opacityKoef && opacityKoef > 0 ? opacityKoef : 20),
+      );
     }
   }
 

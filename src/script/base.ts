@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { loadModel } from './model';
-import { addCloud, loadLights, loadText, loadTexture } from './objects';
+import { addCloud, createTroikaText, loadLights, loadText, loadTexture } from './objects';
 import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import 'plyr/dist/plyr.css';
 import { BackgroundAudio } from './audio';
@@ -144,7 +144,7 @@ function start() {
       if (loaderStatus) {
         loaderStatus.style.display = 'block';
         //loaderStatus.textContent = 'Loading: ' + ((itemsLoaded / itemsTotal) * 100).toFixed(2) + '%';
-        loaderStatus.textContent = 'Dron sa pripravuje na svoj štart ... ';
+        //loaderStatus.textContent = 'Dron sa pripravuje na svoj štart ... ';
       }
       console.log('Loading file.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
     },
@@ -167,7 +167,7 @@ function updateSize() {
   const height = window.innerHeight;
 
   // Uprav FOV kamery pre mobilné zariadenia (zväčší zorné pole = zmenší scénu)
-  camera.fov = isMobile ? 110 : 75; // Väčší FOV = menšia scéna
+  camera.fov = isMobile ? 80 : 75; // Väčší FOV = menšia scéna
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
 
@@ -329,9 +329,31 @@ function loadResources() {
   //videoA.push(addVideoLocal(scene, camera, videoPositions, 1, '/src/assets/videos/scandinavia.mov'));
 
   const loader = new FontLoader(loadingManager);
-  //const text1 = createTroikaText(scene, camera, 'Viac než len obraz', new THREE.Vector3(5, 0, 150));
-  //textA.push(text1);
+  textA.push(createTroikaText(scene, camera, 'Scroll to begin your jorney', new THREE.Vector3(-4, 3, 197), 5, 13));
 
+  textA.push(
+    createTroikaText(
+      scene,
+      camera,
+      'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
+      new THREE.Vector3(-1, 4, 180),
+      10,
+    ),
+  );
+  textA.push(
+    createTroikaText(scene, camera, 'Fotografovanie\nmomenty, ktoré hovoria za vás', new THREE.Vector3(-7, 6, 150), 10),
+  );
+  textA.push(
+    createTroikaText(
+      scene,
+      camera,
+      'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
+      new THREE.Vector3(-4, 14, 120),
+      10,
+    ),
+  );
+
+  /*
   loader.load('font/Montserrat_Regular.json', function (font) {
     textFont = font;
     textA.push(loadText(scene, camera, textFont, 'Portfólio', 1, 0x00000, -7, 20, 30));
@@ -361,6 +383,7 @@ function loadResources() {
     );
     textA.push(loadText(scene, camera, textFont, 'Viac než len obraz\npocit, ktorý zostáva', 1, 0x00000, -3, 4, 180));
   });
+  */
 }
 
 function initAudio() {

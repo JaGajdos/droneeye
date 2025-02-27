@@ -72,6 +72,15 @@ ul a,
   z-index: 1100;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 @keyframes sizeChange {
   0%,
   100% {
@@ -411,6 +420,9 @@ ul a,
   color: black;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .subpage-item8 {
@@ -432,6 +444,20 @@ ul a,
 .subpage-item h3 {
   padding: 0;
   margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.subpage-item p {
+  width: 100%;
+  word-break: break-word;
+}
+
+.subpage-item a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .video-container {
@@ -456,9 +482,22 @@ ul a,
 }
 
 .start-button {
+  color: black !important;
   margin-top: 20px;
   padding: 12px 30px;
   font-size: 1.2em;
+  font-family: Georgia, serif;
+  -webkit-appearance: none; /* Odstráni defaultný štýl na iOS */
+  -webkit-text-fill-color: initial; /* Zabráni modrému textu na iOS/Mac */
+}
+
+.start-button,
+.start-button:link,
+.start-button:visited,
+.start-button:hover,
+.start-button:active {
+  color: black;
+  -webkit-text-fill-color: black;
 }
 
 .loaderText {
