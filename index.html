@@ -11,21 +11,27 @@
   <body>
     <div id="menu">
       <nav class="menu">
-        <div class="flex-auto padding2 logo">
+        <div class="flex-auto padding2tlb logo">
           <div class="logo-link">
             <a id="topLogo" style="opacity: 0" href="/droneeye/">
               <img src="src/assets/images/logo1t.png" />
             </a>
           </div>
         </div>
-        <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1 glass-container">
-          <a href="#">Portfólio</a>
+        <div class="desktop-menu-item margin10tlr" style="display: none;" data-lang="sk">
+          <img src="src/assets/images/sk.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('sk')" />
         </div>
-        <div id="klienti-button" class="menu-button desktop-menu-item margin10tlr padding1 glass-container">
-          <a href="#">Klienti</a>
+        <div class="desktop-menu-item margin10tlr" style="display: none;" data-lang="en">
+          <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" />
         </div>
-        <div id="about-button" class="menu-button desktop-menu-item margin10tlr padding1 glass-container">
-          <a href="#">Kontakt</a>
+        <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" data-i18n="portfolio">Portfólio</a>
+        </div>
+        <div id="klienti-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" data-i18n="clients">Klienti</a>
+        </div>
+        <div id="about-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" data-i18n="contact">Kontakt</a>
         </div>
 
         <div id="hamburger" class="hamburger glass-container">
@@ -34,14 +40,14 @@
           <div></div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-          <div id="portfolio-button" class="margin10tlr padding1 glass-container">
-            <a href="#">Portfólio</a>
+          <div id="portfolio-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" data-i18n="portfolio">Portfólio</a>
           </div>
-          <div id="klienti-button" class="margin10tlr padding1 glass-container">
-            <a href="#">Klienti</a>
+          <div id="klienti-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" data-i18n="clients">Klienti</a>
           </div>
-          <div id="about-button" class="margin10tlr padding1 glass-container">
-            <a href="#">Kontakt</a>
+          <div id="about-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" data-i18n="contact">Kontakt</a>
           </div>
         </div>
       </nav>
@@ -59,70 +65,70 @@
       <a id="loaderImg" href="/droneeye/">
         <img class="animate-image" src="src/assets/images/logo1t.png" />
       </a>
-      <div class="loaderText" style="display: none">
-        Každý príbeh, každá emócia, každý detail si zaslúži byť zachytený tak, ako ho cítite.<br />
-        <b>Drone Eye</b> Vám umožní vidieť svet z výšky, zblízka, v pohybe presne tak, ako si ho predstavujete.
+      <div class="loaderText" style="display: none;">
+        <span data-i18n="loaderText"></span><br />
+        <b data-i18n="loaderTextBrand"></b>
+        <span data-i18n="loaderTextContinue"></span>
       </div>
       <div class="startButton-container">
-        <button id="startButton" class="start-button glass-container" style="display: none">Explore</button>
+        <button id="startButton" style="display: none;" class="start-button glass-container" data-i18n="startButton">Explore</button>
         <div id="loaderStatus" style="display: none"></div>
       </div>
     </div>
 
     <canvas id="threeCanvas"></canvas>
 
-    <!-- Add this to your index.html, before the closing </body> tag -->
     <div id="subpage-portfolio-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
           <button id="closePortfolio" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title">Portfólio</h2>
+          <h2 class="subpage-title" data-i18n="portfolioTitle"></h2>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid">
             <div class="subpage-item">
-              <h3>Projekt 1</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project1Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
               </div>
             </div>
             <div class="subpage-item">
-              <h3>Projekt 2</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project2Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
               </div>
             </div>
             <div class="subpage-item">
-              <h3>Projekt 3</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project3Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
               </div>
             </div>
             <div class="subpage-item">
-              <h3>Projekt 4</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project4Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
               </div>
             </div>
             <div class="subpage-item">
-              <h3>Projekt 5</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project5Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
               </div>
             </div>
             <div class="subpage-item">
-              <h3>Projekt 6</h3>
-              <p>Popis projektu</p>
+              <h3 data-i18n="project6Title"></h3>
+              <p data-i18n="projectDescription"></p>
               <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/gYIQa0bft6w?si=bMoZggOm4Pry_5sd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </iframe>
@@ -138,44 +144,46 @@
       <div class="subpage-content">
         <div class="subpage-header">
           <button id="closeKlienti" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title">Klienti</h2>
+          <h2 class="subpage-title" data-i18n="clientsTitle"></h2>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid">
             <div class="subpage-item">
-              <h3>Nehnuteľnosti z dronu</h3>
+              <h3 data-i18n="realEstateTitle"></h3>
               <p><a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a></p>
             </div>
             <div class="subpage-item">
-              <h3>Dokumentácia eventov</h3>
+              <h3 data-i18n="eventsTitle"></h3>
               <p>
                 <a
                   href="https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022"
                   target="_blank"
                   >https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022</a
                 ><br /><br />
-                Spolupráca s Droneeye bola výnimočná! Profesionalita a detailná pozornosť, ktorú tím venuje každému kroku, nám
+                <span data-i18n="eventTestimonial">Spolupráca s Droneeye bola výnimočná! Profesionalita a detailná pozornosť, ktorú tím venuje každému kroku, nám
                 pomohla vytvoriť vizuálne príťažlivý a kvalitný obsah. Projekt prebiehal hladko, všetky naše požiadavky boli
                 splnené s vysokou presnosťou a včas. Oceňujeme ich flexibilitu a kreativitu, ktorá výrazne prispela k
-                úspešnému dokončeniu. S radosťou odporúčam Droneeye!"
+                úspešnému dokončeniu. S radosťou odporúčam Droneeye!"</span>
               </p>
             </div>
             <div class="subpage-item">
-              <h3>Video produkcia a tvorba reklamných - promo videí</h3>
+              <h3 data-i18n="videoProductionTitle"></h3>
               <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a></p>
             </div>
             <div class="subpage-item">
-              <h3>Gastronómia</h3>
-              <p>
-                <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a><br /><br />Spolupráca s
+              <h3 data-i18n="gastronomyTitle"></h3>
+              <p data-i18n="gastronomyTestimonial">
+                <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
+                <br /><br />
+                <span data-i18n="gastronomyTestimonial">Spolupráca s
                 tímom Droneeye bola výborná! Profesionálny prístup a flexibilita pri realizácii projektu mi umožnili vytvoriť
                 kvalitný obsah, ktorý plne zodpovedal požiadavkám klienta. Oceňujem ich schopnosť efektívne komunikovať a vždy
                 reagovať promptne na naše potreby. Vďaka nim sme mohli zabezpečiť hladký priebeh a úspešné dokončenie nášho
-                projektu. Určite sa teším na ďalšiu spoluprácu!
+                projektu. Určite sa teším na ďalšiu spoluprácu!</span>
               </p>
             </div>
             <div class="subpage-item">
-              <h3>Realitý maklér</h3>
+              <h3 data-i18n="realEstateAgentTitle"></h3>
               <p>
                 <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank"
                   >https://www.youtube.com/watch?v=gYIQa0bft6w</a
@@ -191,38 +199,37 @@
       <div class="subpage-content">
         <div class="subpage-header">
           <button id="closeAbout" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title">Kontakt</h2>
+          <h2 class="subpage-title" data-i18n="contact"></h2>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
             <div class="subpage-item" style="text-align: center;">
               <p>
-                Prečo si vybrať práve mňa?<br />
-                <br>Kvalitná technika a profesionálny prístup
-                <br>Kreativita a dôraz na detaily
-                <br>Rýchle dodanie a individuálny prístup
+                <span data-i18n="contactFormTitle"></span><br />
+                <br><span data-i18n="contactFormFeatures0"></span>
+                <br><span data-i18n="contactFormFeatures1"></span>
+                <br><span data-i18n="contactFormFeatures2"></span>
                 <br />
                 <br />
-      
-                📩 Kontaktujte nás – váš príbeh začína tu.
+                <span data-i18n="contactFormCTA"></span>
               </p>
               <form id="contact-form">
-                <label>Meno:</label>
+                <label data-i18n="name"></label>
                 <input type="text" name="name" required>
             
-                <label>E-mail:</label>
+                <label data-i18n="email"></label>
                 <input type="email" name="email" required>
             
-                <label>Telefón:</label>
+                <label data-i18n="phone"></label>
                 <input type="tel" name="phone">
             
-                <label>Správa:</label>
+                <label data-i18n="message"></label>
                 <textarea name="message" required></textarea>
             
-                <button type="submit">Odoslať</button>
-                <div id="contact-form-success" style="display:none;">
+                <button type="submit" data-i18n="send"></button>
+                <div id="contact-form-success" style="display:none;" data-i18n="sendSuccess">
                 </div>
-                <div id="contact-form-error" style="display:none;"></div>
+                <div id="contact-form-error" style="display:none;" data-i18n="sendError"></div>
                 </div>
             </form>
           </div>

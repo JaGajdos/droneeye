@@ -75,11 +75,14 @@ ul a,
 }
 
 a {
-  color: black;
+  color: black !important;
 }
 
 a:hover {
-  color: black;
+  color: black !important;
+}
+
+.subpage-item a:hover {
   text-decoration: none;
 }
 
@@ -204,15 +207,23 @@ a:hover {
 }
 
 .margin10tlr {
+  margin: 0 1em;
+}
+
+.mobile-menu .margin10tlr {
   margin: 1em 1em 0 1em;
 }
 
 .padding1 {
+  padding: 1em;
+}
+
+.padding1_5 {
   padding: 1.5em;
 }
 
-.padding2 {
-  padding: 2em;
+.padding2tlb {
+  padding: 2em 0 2em 2em;
 }
 
 .flex-auto {
@@ -511,6 +522,8 @@ a:hover {
 
 #contact-form-success,
 #contact-form-error {
+  width: 75%;
+  margin: 0 auto;
   margin-top: 1em;
   padding: 1em;
   border-radius: 8px;
@@ -584,4 +597,26 @@ a:hover {
   #contact-form {
     width: 100%;
   }
+}
+
+[data-lang='sk'],
+[data-lang='en'] {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  border-radius: 4px;
+}
+
+[data-lang] img {
+  width: 2em;
+  height: 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+[data-lang]:hover {
+  opacity: 1;
+}
+
+[data-lang]:hover img {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }

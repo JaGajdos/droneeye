@@ -19,17 +19,12 @@ export function initFormular(
 
     try {
       await emailjs.sendForm(serviceId, templateId, form);
-      form.reset(); // Vyčistenie formulára po úspešnom odoslaní
+      form.reset();
       successBox.style.display = 'block';
-      successBox.innerText = 'Ďakujeme, čoskoro Vás budeme kontaktovať.';
-      errorBox.innerText = '';
       errorBox.style.display = 'none';
     } catch (error) {
       console.error('Chyba pri odosielaní:', error);
       errorBox.style.display = 'block';
-      errorBox.innerText =
-        'Pri odoslaní nastala chyba, prosím skúste ešte raz. Pokiaľ chyba pretrváva prosím kontaktujte nás na email: ...';
-      successBox.innerText = '';
       successBox.style.display = 'none';
     }
   });

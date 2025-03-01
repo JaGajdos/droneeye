@@ -4,6 +4,7 @@ import { loadModel } from './model';
 import { addCloud, createTroikaText, loadLights, loadText, loadTexture } from './objects';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
+import { LanguageService } from '../i18n/languageService';
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 let positionOnCurve = 0;
@@ -76,20 +77,16 @@ const cloudBatch = [
 ];
 
 function updateSize() {
-  // Get the actual display size
   const width = window.innerWidth;
   const height = window.innerHeight;
 
-  // Uprav FOV kamery pre mobilné zariadenia (zväčší zorné pole = zmenší scénu)
-  camera.fov = isMobile ? 80 : 75; // Väčší FOV = menšia scéna
+  camera.fov = isMobile ? 80 : 75;
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
 
-  // Update renderers
   renderer.setSize(width, height, false);
   cssRenderer.setSize(width, height);
 
-  // Set pixel ratio for better mobile display
   const pixelRatio = Math.min(window.devicePixelRatio, 2);
   renderer.setPixelRatio(pixelRatio);
 }
@@ -108,7 +105,7 @@ function updatePosition() {
 }
 
 function updateOpacity() {
-  if (textA) {
+  if (textA && textA.length > 0) {
     for (let i = 0; i < textA.length; i++) {
       textA[i].updateTextOpacity();
     }
@@ -116,18 +113,23 @@ function updateOpacity() {
 }
 
 function updateModel() {
-  for (let i = 0; i < modelA.length; i++) {
-    if (modelA[i].getMixer()) {
-      modelA[i].getMixer().update(clock.getDelta());
+  if (modelA && modelA.length > 0) {
+    for (let i = 0; i < modelA.length; i++) {
+      if (modelA[i].getMixer()) {
+        modelA[i].getMixer().update(clock.getDelta());
+      }
     }
   }
 }
 
 function animate() {
   requestAnimationFrame(animate);
+
+
   updatePosition();
-  updateOpacity();
   updateModel();
+  updateOpacity();
+
   renderer.render(scene, camera);
   cssRenderer.render(scene, camera);
 }
@@ -255,59 +257,69 @@ function createPath(scene: THREE.Scene, camera: THREE.PerspectiveCamera, positio
 }
 
 function loadResources() {
-  loadLights(scene);
-
-  const texture = loadTexture(loadingManager, 'textures/sunshine-clouds-min.jpg', 1350, 900, 500);
-  scene.add(texture);
-
-  requestAnimationFrame(() => {
-    const startPosition = new THREE.Vector3(0, 0, 200);
-
-    createPath(scene, camera, startPosition);
-
-    dron = loadModel(scene, camera, loadingManager, 'models/drone6.glb', 3, startPosition);
-    modelA.push(dron);
-  });
-
-  // Load clouds in batches
-  const loadClouds = () => {
-    cloudBatch.forEach(([x, y, z]) => {
-      addCloud(scene, x, y, z);
-    });
+  // Split loading into smaller chunks
+  const loadInitialResources = () => {
+    loadLights(scene);
+    const texture = loadTexture(loadingManager, 'textures/sunshine-clouds-min.jpg', 1350, 900, 500);
+    scene.add(texture);
   };
 
-  requestAnimationFrame(loadClouds);
+  const loadPath = () => {
+    const startPosition = new THREE.Vector3(0, 0, 200);
+    createPath(scene, camera, startPosition);
+  };
 
+  const loadDrone = () => {
+    const startPosition = new THREE.Vector3(0, 0, 200);
+    dron = loadModel(scene, camera, loadingManager, 'models/drone6.glb', 3, startPosition);
+    modelA.push(dron);
+  };
+
+  // Load clouds in smaller batches
+  const loadCloudBatch = (startIdx: number, batchSize: number) => {
+    const endIdx = Math.min(startIdx + batchSize, cloudBatch.length);
+
+    for (let i = startIdx; i < endIdx; i++) {
+      const [x, y, z] = cloudBatch[i];
+      addCloud(scene, x, y, z);
+    }
+
+    // Load next batch if there are more clouds
+    if (endIdx < cloudBatch.length) {
+      requestAnimationFrame(() => loadCloudBatch(endIdx, batchSize));
+    }
+  };
+
+  const loadText = () => {
+    const langService = LanguageService.getInstance();
+    textA.push(
+      createTroikaText(scene, camera, langService.getMessage('scrollToBegin'), new THREE.Vector3(-4, 3, 197), 5, 13),
+    );
+    textA.push(
+      createTroikaText(scene, camera, langService.getMessage('videoProduction'), new THREE.Vector3(-1, 4, 180), 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, langService.getMessage('photography'), new THREE.Vector3(-7, 6, 150), 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, langService.getMessage('droneShots'), new THREE.Vector3(-4, 14, 120), 10),
+    );
+  };
+
+  // Chain the loading sequence
   requestAnimationFrame(() => {
-    textA.push(createTroikaText(scene, camera, 'Scroll to begin your jorney', new THREE.Vector3(-4, 3, 197), 5, 13));
-
-    textA.push(
-      createTroikaText(
-        scene,
-        camera,
-        'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
-        new THREE.Vector3(-1, 4, 180),
-        10,
-      ),
-    );
-    textA.push(
-      createTroikaText(
-        scene,
-        camera,
-        'Fotografovanie\nmomenty, ktoré hovoria za vás',
-        new THREE.Vector3(-7, 6, 150),
-        10,
-      ),
-    );
-    textA.push(
-      createTroikaText(
-        scene,
-        camera,
-        'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
-        new THREE.Vector3(-4, 14, 120),
-        10,
-      ),
-    );
+    loadInitialResources();
+    requestAnimationFrame(() => {
+      loadPath();
+      requestAnimationFrame(() => {
+        loadDrone();
+        requestAnimationFrame(() => {
+          // Start loading clouds in batches of 5
+          loadCloudBatch(0, 5);
+          requestAnimationFrame(loadText);
+        });
+      });
+    });
   });
 }
 
@@ -369,6 +381,10 @@ function startExperience() {
 }
 
 function start() {
+  const userLang = navigator.language;
+  const langService = LanguageService.getInstance();
+  langService.setLanguage(userLang.startsWith('sk') ? 'sk' : 'en');
+
   if (startButton) {
     startButton.addEventListener('click', startExperience);
   } else {
@@ -381,51 +397,49 @@ function start() {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance', alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  requestAnimationFrame(() => {
-    renderer.shadowMap.enabled = true;
-    cssRenderer = new CSS3DRenderer();
-    cssRenderer.setSize(window.innerWidth, window.innerHeight);
-    cssRenderer.domElement.id = 'css3d-container';
+  renderer.shadowMap.enabled = true;
+  cssRenderer = new CSS3DRenderer();
+  cssRenderer.setSize(window.innerWidth, window.innerHeight);
+  cssRenderer.domElement.id = 'css3d-container';
 
-    updateSize();
+  updateSize();
 
-    document.body.appendChild(renderer.domElement);
-    document.body.appendChild(cssRenderer.domElement);
+  document.body.appendChild(renderer.domElement);
+  document.body.appendChild(cssRenderer.domElement);
 
-    loadingManager = new THREE.LoadingManager(
-      // onLoad callback
-      () => {
-        init();
-        isCanvasReady = true;
-        console.log('Loading complete!');
-        setTimeout(function () {
-          startButton.style.display = 'block';
-          if (loaderStatus) {
-            loaderStatus.style.display = 'none';
-          }
-        }, 500);
-      },
-      // onProgress callback
-      (url, itemsLoaded, itemsTotal) => {
+  loadingManager = new THREE.LoadingManager(
+    // onLoad callback
+    () => {
+      init();
+      isCanvasReady = true;
+      console.log('Loading complete!');
+      setTimeout(function () {
+        startButton.style.display = 'block';
         if (loaderStatus) {
-          loaderStatus.style.display = 'block';
-          //loaderStatus.textContent = 'Loading: ' + ((itemsLoaded / itemsTotal) * 100).toFixed(2) + '%';
-          //loaderStatus.textContent = 'Dron sa pripravuje na svoj štart ... ';
+          loaderStatus.style.display = 'none';
         }
-        console.log('Loading file.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
-      },
-      // onError callback
-      (url) => {
-        if (loaderStatus) {
-          loaderStatus.style.display = 'block';
-          loaderStatus.textContent = 'Dronu sa nepodarilo vzlietnuť. Skúste refresh!';
-        }
-        console.error('There was an error loading');
-      },
-    );
+      }, 500);
+    },
+    // onProgress callback
+    (url, itemsLoaded, itemsTotal) => {
+      if (loaderStatus) {
+        loaderStatus.style.display = 'block';
+        //loaderStatus.textContent = 'Loading: ' + ((itemsLoaded / itemsTotal) * 100).toFixed(2) + '%';
+        //loaderStatus.textContent = 'Dron sa pripravuje na svoj štart ... ';
+      }
+      console.log('Loading file.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+    },
+    // onError callback
+    (url) => {
+      if (loaderStatus) {
+        loaderStatus.style.display = 'block';
+        loaderStatus.textContent = 'Dronu sa nepodarilo vzlietnuť. Skúste refresh!';
+      }
+      console.error('There was an error loading');
+    },
+  );
 
-    loadResources();
-  });
+  loadResources();
 }
 
 function initMenu() {
@@ -436,3 +450,7 @@ initMenu();
 setTimeout(function () {
   start();
 }, 500);
+
+document.addEventListener('DOMContentLoaded', () => {
+  LanguageService.getInstance();
+});
