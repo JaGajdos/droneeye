@@ -6,9 +6,9 @@
     <title>DroneEye - We see what You want to see</title>
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <script type="module" crossorigin src="/droneeye/assets/index-B7Xt7yHN.js"></script>
+    <script type="module" crossorigin src="/droneeye/assets/index-X8jA1xN6.js"></script>
     <link rel="modulepreload" crossorigin href="/droneeye/assets/vendor-CYaZFCfJ.js">
-    <link rel="stylesheet" crossorigin href="/droneeye/assets/index-BROGeM0W.css">
+    <link rel="stylesheet" crossorigin href="/droneeye/assets/index-r5ySsaiX.css">
   </head>
   <body>
     <div id="menu">
@@ -16,8 +16,9 @@
         <div class="flex-auto padding2tlb logo">
           <div class="logo-link">
             <a id="topLogo" style="opacity: 0" href="/droneeye/">
-              <img src="/droneeye/assets/logo1t-C5TKcra1.svg" />
+              <img id="mainLogo" src="/droneeye/assets/Logo7-BtLPWxfz.svg" />
             </a>
+            
           </div>
         </div>
         <div class="desktop-menu-item margin10tlr" style="display: none;" data-lang="sk">
@@ -56,16 +57,26 @@
     </div>
 
     <div id="audio">
+      <div class="logo-switcher">
+        <button onclick="switchLogo(1)">1</button>
+        <button onclick="switchLogo(2)">2</button>
+        <button onclick="switchLogo(3)">3</button>
+        <button onclick="switchLogo(4)">4</button>
+        <button onclick="switchLogo(5)">5</button>
+        <button onclick="switchLogo(6)">6</button>
+        <button onclick="switchLogo(7)">7</button>
+      </div>
       <div id="audio-control">
         <button id="toggleAudio" class="audio-btn">
           <img src="images/sound-on.svg" alt="Toggle sound" id="soundIcon" />
         </button>
       </div>
+      
     </div>
 
     <div id="loader">
       <a id="loaderImg" href="/droneeye/">
-        <img class="animate-image" src="/droneeye/assets/logo1t-C5TKcra1.svg" />
+        <img class="animate-image" src="/droneeye/assets/Logo7-BtLPWxfz.svg" />
       </a>
       <div class="loaderText">
         <span data-i18n="loaderText"></span>
