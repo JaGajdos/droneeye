@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>DroneEye - We see what You want to see</title>
+    <title>DRONEYE - We see what You want to see</title>
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="src/assets/style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -13,16 +13,19 @@
       <nav class="menu">
         <div class="flex-auto padding2tlb logo">
           <div class="logo-link">
-            <a id="topLogo" style="opacity: 0" href="/droneeye/">
-              <img src="src/assets/images/logo1t.png" />
+            <a id="topLogo" style="opacity: 0" href="/droneeye">
+              <img id="mainLogo" src="src/assets/images/Logo.png" />
             </a>
+            
           </div>
         </div>
-        <div class="desktop-menu-item margin10tlr" style="display: none;" data-lang="sk">
-          <img src="src/assets/images/sk.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('sk')" />
+        <div class="desktop-menu-item margin10tlr" data-lang="sk">
+          <a style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('sk')" >SK</a>
+          <!-- <img src="src/assets/images/sk.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('sk')" /> -->
         </div>
-        <div class="desktop-menu-item margin10tlr" style="display: none;" data-lang="en">
-          <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" />
+        <div class="desktop-menu-item margin10tlr" data-lang="en">
+          <a style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" >EN</a>
+          <!-- <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" /> -->
         </div>
         <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
           <a href="#" data-i18n="portfolio">Portfólio</a>
@@ -54,21 +57,32 @@
     </div>
 
     <div id="audio">
+      <div class="logo-switcher" style="display: none;">
+        <button onclick="switchLogo(2)">1</button>
+        <button onclick="switchLogo(3)">2</button>
+        <button onclick="switchLogo(4)">3</button>
+        <button onclick="switchLogo(5)">4</button>
+        <button onclick="switchLogo(8)">5</button>
+        <button onclick="switchLogo(19)">6</button>
+        <button onclick="switchLogo(16)">7</button>
+        <button onclick="switchLogo(14)">8</button>
+      </div>
       <div id="audio-control">
         <button id="toggleAudio" class="audio-btn">
           <img src="images/sound-on.svg" alt="Toggle sound" id="soundIcon" />
         </button>
       </div>
+      
     </div>
 
     <div id="loader">
-      <a id="loaderImg" href="/droneeye/">
-        <img class="animate-image" src="src/assets/images/logo1t.png" />
+      <a id="loaderImg">
+        <img class="animate-image" src="src/assets/images/Logo.png" />
       </a>
-      <div class="loaderText" style="display: none;">
-        <span data-i18n="loaderText"></span><br />
-        <b data-i18n="loaderTextBrand"></b>
-        <span data-i18n="loaderTextContinue"></span>
+      <div class="loaderText" id="loaderSubtext">
+        <span data-i18n="loaderText"></span>
+        <b data-i18n="loaderTextBrand" style="display: none;"></b>
+        <span data-i18n="loaderTextContinue" style="display: none;"></span>
       </div>
       <div class="startButton-container">
         <button id="startButton" style="display: none;" class="start-button glass-container" data-i18n="startButton">Explore</button>
@@ -137,7 +151,18 @@
             <!-- Ďalšie portfolio items -->
           </div>
         </div>
-      </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
+            <img src="src/assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
+            <img src="src/assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
+            <img src="src/assets/images/youtube.png" alt="YouTube" />
+          </a>
+        </div>
+      </div>      
     </div>
 
     <div id="subpage-klienti-container" class="subpage-container">
@@ -150,7 +175,10 @@
           <div class="subpage-grid">
             <div class="subpage-item">
               <h3 data-i18n="realEstateTitle"></h3>
-              <p><a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a></p>
+              <p><a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a>
+                <br /><br />
+                <span data-i18n="realEstateTestimonial"></span>
+              </p>
             </div>
             <div class="subpage-item">
               <h3 data-i18n="eventsTitle"></h3>
@@ -160,26 +188,22 @@
                   target="_blank"
                   >https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022</a
                 ><br /><br />
-                <span data-i18n="eventTestimonial">Spolupráca s Droneeye bola výnimočná! Profesionalita a detailná pozornosť, ktorú tím venuje každému kroku, nám
-                pomohla vytvoriť vizuálne príťažlivý a kvalitný obsah. Projekt prebiehal hladko, všetky naše požiadavky boli
-                splnené s vysokou presnosťou a včas. Oceňujeme ich flexibilitu a kreativitu, ktorá výrazne prispela k
-                úspešnému dokončeniu. S radosťou odporúčam Droneeye!"</span>
+                <span data-i18n="eventTestimonial"></span>
               </p>
             </div>
             <div class="subpage-item">
               <h3 data-i18n="videoProductionTitle"></h3>
-              <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a></p>
+              <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a>
+                <br /><br />
+                <span data-i18n="videoProductionTestimonial"></span>
+              </p>
             </div>
             <div class="subpage-item">
               <h3 data-i18n="gastronomyTitle"></h3>
               <p data-i18n="gastronomyTestimonial">
                 <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
                 <br /><br />
-                <span data-i18n="gastronomyTestimonial">Spolupráca s
-                tímom Droneeye bola výborná! Profesionálny prístup a flexibilita pri realizácii projektu mi umožnili vytvoriť
-                kvalitný obsah, ktorý plne zodpovedal požiadavkám klienta. Oceňujem ich schopnosť efektívne komunikovať a vždy
-                reagovať promptne na naše potreby. Vďaka nim sme mohli zabezpečiť hladký priebeh a úspešné dokončenie nášho
-                projektu. Určite sa teším na ďalšiu spoluprácu!</span>
+                <span data-i18n="gastronomyTestimonial"></span>
               </p>
             </div>
             <div class="subpage-item">
@@ -187,10 +211,22 @@
               <p>
                 <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank"
                   >https://www.youtube.com/watch?v=gYIQa0bft6w</a
-                >
+                ><br /><br />
+                <span data-i18n="realEstateAgentTestimonial"></span>
               </p>
             </div>
           </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
+            <img src="src/assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
+            <img src="src/assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
+            <img src="src/assets/images/youtube.png" alt="YouTube" />
+          </a>
         </div>
       </div>      
     </div>
@@ -204,7 +240,21 @@
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
             <div class="subpage-item" style="text-align: center;">
-              <p>
+                <div class="contact-info">
+                  <span class="contact-email"><span data-i18n="contactEmail"></span>: <a href="mailto:info@droneye.sk">info@droneye.sk</a></span>
+                  <div class="social-icons-contact">
+                    <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
+                      <img src="src/assets/images/instagram.png" alt="Instagram" />
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
+                      <img src="src/assets/images/facebook.png" alt="Facebook" />
+                    </a>
+                    <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
+                      <img src="src/assets/images/youtube.png" alt="YouTube" />
+                    </a>
+                  </div>
+                  <span class="contact-phone"><span data-i18n="contactPhone"></span>: <a href="tel:+421950614303">+421 950 614 303</a></span>
+                </div>
                 <span data-i18n="contactFormTitle"></span><br />
                 <br><span data-i18n="contactFormFeatures0"></span>
                 <br><span data-i18n="contactFormFeatures1"></span>
@@ -212,7 +262,7 @@
                 <br />
                 <br />
                 <span data-i18n="contactFormCTA"></span>
-              </p>
+                <br><br>
               <form id="contact-form">
                 <label data-i18n="name"></label>
                 <input type="text" name="name" required>

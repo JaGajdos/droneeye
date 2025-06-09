@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { loadModel } from './model';
-import { addCloud, createTroikaText, loadLights, loadText, loadTexture } from './objects';
+import { addRealisticCloud, createTroikaText, loadLights, loadTexture } from './objects';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
 import { LanguageService } from '../i18n/languageService';
@@ -25,8 +25,10 @@ let backgroundAudio: BackgroundAudio;
 let isCanvasReady = false;
 let isDroneEnd = false;
 let menu: Menu;
+let updateSun: () => void;
 const canvas = document.getElementById('threeCanvas')!;
 const loaderContainer = document.getElementById('loader');
+const loaderSubtext = document.getElementById('loaderSubtext');
 const loaderimg = document.getElementById('loaderImg');
 const loaderStatus = document.getElementById('loaderStatus');
 const startButton = document.getElementById('startButton');
@@ -56,25 +58,48 @@ const pathPoint: number[][] = [
   [-1, 20, 0],
 ];
 
-const cloudBatch = [
-  [-15, 0, 190],
-  [-10, 0, 160],
-  [30, 5, 140],
-  [30, 0, 140],
-  [20, 10, 120],
-  [10, 0, 110],
-  [-20, 0, 100],
-  [-10, 10, 90],
-  [30, 10, 80],
-  [20, 5, 70],
-  [-10, -5, 60],
-  [15, 0, 40],
-  [10, 10, 20],
-  [-10, 0, 20],
-  [0, 0, 20],
-  [-10, -5, 20],
-  [5, 5, 20],
+const cloudConfigs: [number, number, number, number, number, number, string][] = [
+  // 🔹 Najväčšie (Z = -50 až 0)
+  [-55, 20, -10, 100, 60, 0.9, 'cloud1.png'],
+  [52, -18, 0, 120, 70, 1.0, 'cloud2.png'],
+  [48, 25, -10, 66, 36, 0.8, 'cloud1.png'],
+  [30, 20, 30, 64, 34, 0.7, 'cloud2.png'],
+  [-36, -20, 50, 62, 32, 0.8, 'cloud1.png'],
+
+  // 🟡 Stredná vzdialenosť (Z = 20–100)
+  [35, 20, 60, 58, 30, 0.8, 'cloud2.png'],
+  [-30, 10, 70, 56, 28, 0.7, 'cloud1.png'],
+  [28, -12, 80, 54, 27, 0.8, 'cloud2.png'],
+  [-22, -10, 90, 52, 26, 0.7, 'cloud1.png'],
+  [20, 12, 100, 50, 25, 0.7, 'cloud2.png'],
+
+  // 🔸 Vpredu – menšie (Z = 100–180)
+  [-35, 18, 120, 46, 22, 0.8, 'cloud1.png'],
+  [12, -8, 130, 44, 21, 0.7, 'cloud2.png'],
+  [-24, 5, 140, 42, 20, 0.6, 'cloud1.png'],
+  [22, -14, 150, 40, 18, 0.7, 'cloud2.png'],
+  [-18, 16, 160, 38, 17, 0.9, 'cloud1.png'],
+  [18, 10, 170, 36, 16, 0.7, 'cloud2.png'],
+  [-28, -6, 180, 34, 15, 0.8, 'cloud1.png'],
+  [23, -7, 185, 32, 14, 0.8, 'cloud2.png'],
+  [-10, -12, 190, 30, 13, 0.7, 'cloud1.png'],
+
+  // ➕ Nové doplnené
+  [45, 18, 110, 48, 25, 0.8, 'cloud1.png'],
+  [-30, -16, 115, 46, 24, 0.7, 'cloud2.png'],
+  [50, 10, 125, 44, 22, 0.9, 'cloud1.png'],
+  [-45, -20, 130, 42, 21, 0.8, 'cloud2.png'],
+  [38, 12, 145, 40, 20, 0.8, 'cloud1.png'],
+  [-36, -14, 150, 38, 19, 0.7, 'cloud2.png'],
+  [48, 6, 160, 36, 18, 0.7, 'cloud1.png'],
+  [-39, -8, 165, 34, 17, 0.8, 'cloud2.png'],
+  [30, 15, 175, 32, 16, 0.9, 'cloud1.png'],
+  [-42, -12, 185, 30, 15, 0.7, 'cloud2.png'],
+  [-18, 7, 190, 20, 10, 0.9, 'cloud2.png']
 ];
+
+
+
 
 function updateSize() {
   const width = window.innerWidth;
@@ -98,9 +123,9 @@ function updatePosition() {
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
 
-  if (newPosition.z < 30 && !isDroneEnd) {
+  if (newPosition.z < 80 && !isDroneEnd) {
     isDroneEnd = true;
-    document.getElementById('portfolio-button')?.click();
+    document.getElementById('klienti-button')?.click();
   }
 }
 
@@ -111,6 +136,15 @@ function updateOpacity() {
     }
   }
 }
+
+function update3DText() {
+  if (textA && textA.length > 0) {
+    for (let i = 0; i < textA.length; i++) {
+      textA[i].updateText();
+    }
+  }
+}
+
 
 function updateModel() {
   if (modelA && modelA.length > 0) {
@@ -125,6 +159,9 @@ function updateModel() {
 function animate() {
   requestAnimationFrame(animate);
 
+  //if(updateSun) {
+  //  updateSun();
+  //}
 
   updatePosition();
   updateModel();
@@ -261,7 +298,7 @@ function loadResources() {
   const loadInitialResources = () => {
     loadLights(scene);
     const texture = loadTexture(loadingManager, 'textures/sunshine-clouds-min.jpg', 1350, 900, 500);
-    scene.add(texture);
+   // scene.add(texture);
   };
 
   const loadPath = () => {
@@ -277,32 +314,23 @@ function loadResources() {
 
   // Load clouds in smaller batches
   const loadCloudBatch = (startIdx: number, batchSize: number) => {
-    const endIdx = Math.min(startIdx + batchSize, cloudBatch.length);
-
-    for (let i = startIdx; i < endIdx; i++) {
-      const [x, y, z] = cloudBatch[i];
-      addCloud(scene, x, y, z);
-    }
-
-    // Load next batch if there are more clouds
-    if (endIdx < cloudBatch.length) {
-      requestAnimationFrame(() => loadCloudBatch(endIdx, batchSize));
+    for (const [x, y, z, scaleX, scaleY, opacity, texture] of cloudConfigs) {
+      addRealisticCloud(scene, x, y, z, `textures/${texture}`, scaleX, scaleY, opacity);
     }
   };
 
   const loadText = () => {
-    const langService = LanguageService.getInstance();
     textA.push(
-      createTroikaText(scene, camera, langService.getMessage('scrollToBegin'), new THREE.Vector3(-4, 3, 197), 5, 13),
+      createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(-5.5, 3, 197), isMobile, 5, 13),
     );
     textA.push(
-      createTroikaText(scene, camera, langService.getMessage('videoProduction'), new THREE.Vector3(-1, 4, 180), 10),
+      createTroikaText(scene, camera, 'videoProduction', new THREE.Vector3(-3, 4, 180), isMobile, 10),
     );
     textA.push(
-      createTroikaText(scene, camera, langService.getMessage('photography'), new THREE.Vector3(-7, 6, 150), 10),
+      createTroikaText(scene, camera, 'photography', new THREE.Vector3(-6, 6, 150), isMobile, 10),
     );
     textA.push(
-      createTroikaText(scene, camera, langService.getMessage('droneShots'), new THREE.Vector3(-4, 14, 120), 10),
+      createTroikaText(scene, camera, 'droneShots', new THREE.Vector3(-5, 14, 120), isMobile, 10),
     );
   };
 
@@ -326,7 +354,7 @@ function loadResources() {
 function initAudio() {
   backgroundAudio = new BackgroundAudio();
   document.getElementById('startButton')?.addEventListener('click', () => {
-    backgroundAudio.play();
+    //backgroundAudio.play();
   });
 }
 
@@ -351,6 +379,9 @@ function hideLoader() {
     } else {
       loaderimg.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.30)`;
     }
+  }
+  if(loaderSubtext) {
+    loaderSubtext.style.display = 'none';
   }
   setTimeout(() => {
     if (loaderContainer) {
@@ -383,7 +414,7 @@ function startExperience() {
 function start() {
   const userLang = navigator.language;
   const langService = LanguageService.getInstance();
-  langService.setLanguage(userLang.startsWith('sk') ? 'sk' : 'en');
+  langService.setLanguage(userLang.startsWith('sk') ? 'sk' : 'en', update3DText);
 
   if (startButton) {
     startButton.addEventListener('click', startExperience);
@@ -433,7 +464,7 @@ function start() {
     (url) => {
       if (loaderStatus) {
         loaderStatus.style.display = 'block';
-        loaderStatus.textContent = 'Dronu sa nepodarilo vzlietnuť. Skúste refresh!';
+        loaderStatus.textContent = 'Pri načítaní stránky nastala chyba. Skúste refresh!';
       }
       console.error('There was an error loading');
     },
@@ -454,3 +485,20 @@ setTimeout(function () {
 document.addEventListener('DOMContentLoaded', () => {
   LanguageService.getInstance();
 });
+
+// Logo switcher functionality
+(window as any).switchLogo = (number: number) => {
+  const mainLogo = document.getElementById('mainLogo') as HTMLImageElement;
+  const loaderImg = document.querySelector('#loaderImg img') as HTMLImageElement;
+  
+  if (mainLogo && loaderImg) {
+    const newSrc = `images/Logo${number}.png`;
+    mainLogo.src = newSrc;
+    loaderImg.src = newSrc;
+  }
+};
+
+(window as any).switchLanguage = (lang: 'sk' | 'en') => {
+  const langService = LanguageService.getInstance();
+  langService.setLanguage(lang, update3DText);
+}

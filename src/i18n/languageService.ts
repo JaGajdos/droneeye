@@ -5,7 +5,7 @@ export class LanguageService {
   private currentLanguage: 'sk' | 'en' = 'sk';
 
   private constructor() {
-    //this.updateLanguageButtonsVisibility();
+    this.updateLanguageButtonsVisibility();
   }
 
   static getInstance(): LanguageService {
@@ -19,10 +19,11 @@ export class LanguageService {
     return this.currentLanguage;
   }
 
-  setLanguage(lang: 'sk' | 'en') {
+  setLanguage(lang: 'sk' | 'en', update3DTextFunc: () => void) {
     this.currentLanguage = lang;
     this.updatePageContent();
-    //this.updateLanguageButtonsVisibility();
+    update3DTextFunc();
+    this.updateLanguageButtonsVisibility();
   }
 
   getMessage(key: string): string {
@@ -36,14 +37,6 @@ export class LanguageService {
         element.textContent = this.getMessage(key);
       }
     });
-
-    this.update3DText();
-  }
-
-  private update3DText() {
-    // Update your 3D text objects
-    // This will depend on how you're managing your 3D text
-    // You might need to expose this through your main application
   }
 
   private updateLanguageButtonsVisibility() {
