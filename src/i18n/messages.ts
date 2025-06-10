@@ -46,9 +46,9 @@ export const messages = {
     realEstateAgentTestimonial: '',
 
     // Contact form
-    contactFormTitle: 'Prečo si vybrať práve mňa?',
+    contactFormTitle: 'Prečo si vybrať práve nás?',
 
-    contactEmail: 'Email',
+    contactEmail: 'E-mail',
     contactPhone: 'Telefón',
     contactFormFeatures0: 'Kvalitná technika a profesionálny prístup',
     contactFormFeatures1: 'Kreativita a dôraz na detaily',
@@ -117,7 +117,7 @@ export const messages = {
 
     contactFormCTA: '📩 Contact us - your story starts here.',
     name: 'Name:',
-    email: 'Email:',
+    email: 'E-mail:',
     phone: 'Phone:',
     message: 'Message:',
     send: 'Send',

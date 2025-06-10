@@ -5,6 +5,7 @@ body {
   font-family: Georgia, serif;
   overflow: hidden;
   overscroll-behavior: none;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 canvas {
@@ -331,6 +332,7 @@ a:hover {
   font-size: 2em;
   cursor: pointer;
   z-index: 1001;
+  padding: 1px;
 }
 
 .subpage-grid {
@@ -592,108 +594,7 @@ a:hover {
   color: #721c24;
 }
 
-@media (max-width: 768px) {
-  .menu {
-    padding-right: 1em;
-  }
 
-  .menu .desktop-menu-item {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .subpage-header {
-    padding-top: 0;
-  }
-
-  .subpage-title {
-    padding-top: 6rem;
-  }
-
-  .subpage-header h2 {
-    margin: 0;
-  }
-
-  .subpage-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .subpage-close-btn {
-    top: 0;
-    right: 0.3em;
-    padding-top: 6rem;
-  }
-
-  .mobile-menu.active {
-    display: flex;
-  }
-  .animate-image {
-    width: 20em; /* alebo iná menšia hodnota podľa potreby */
-    height: auto;
-  }
-
-  .loaderText {
-    font-size: 0.9em;
-    margin: 1.5em auto;
-    max-width: 90%;
-  }
-
-  #audio {
-    bottom: 1.5em;
-    right: 1em;
-  }
-
-  #contact-form {
-    width: 100%;
-  }
-
-  .contact-head{
-    width: 100%;
-  }
-
-  .contact-info {
-    flex-direction: column;
-    width: 90%;
-    gap: 15px;
-  }
-
-  .contact-email, .contact-phone {
-    text-align: center;
-  }
-
-  .social-icons-contact {
-    margin: 10px 0;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .social-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .social-icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .contact-info {
-    flex-direction: column;
-    width: 90%;
-    gap: 15px;
-  }
-
-  .contact-email, .contact-phone {
-    text-align: center;
-  }
-
-  .social-icons-contact {
-    margin: 10px 0;
-  }
-}
 
 [data-lang='sk'],
 [data-lang='en'] {
@@ -779,4 +680,118 @@ a:hover {
 .social-icons-contact .social-icon img {
   width: 18px;
   height: 18px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding-right: 1em;
+  }
+
+  .menu .desktop-menu-item {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .subpage-header {
+    padding-top: 0;
+  }
+
+  .subpage-title {
+    padding-top: 6rem;
+  }
+
+  .subpage-header h2 {
+    margin: 0;
+  }
+
+  .subpage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subpage-close-btn {
+    top: 0;
+    right: 0.3em;
+    padding-top: 6rem;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+  .animate-image {
+    width: 20em; /* alebo iná menšia hodnota podľa potreby */
+    height: auto;
+  }
+
+  .loaderText {
+    font-size: 0.9em;
+    margin: 1.5em auto;
+    max-width: 90%;
+  }
+
+  #audio {
+    bottom: 1.5em;
+    right: 1em;
+  }
+
+  #contact-form {
+    width: 100%;
+  }
+
+  .contact-head{
+    width: 100%;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    width: 90%;
+    gap: 15px;
+  }
+
+  .contact-email {
+    text-align: center;
+    order: 1;
+  }
+
+  .contact-phone {
+    text-align: center;
+    order: 2;
+  }
+
+  .social-icons-contact {
+    margin: 10px 0;
+    order: 3;
+  }
+  .social-icons {
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .social-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    width: 90%;
+    gap: 15px;
+  }
+
+  .contact-email, .contact-phone {
+    text-align: center;
+  }
+
+  .social-icons-contact {
+    margin: 10px 0;
+  }
 }
