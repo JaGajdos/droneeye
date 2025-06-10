@@ -12,6 +12,13 @@ canvas {
   display: block;
 }
 
+.bold-base {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Georgia, serif;
+  font-size: 16px;
+}
+
 #audio {
   bottom: 2em;
   right: 3em;
@@ -793,5 +800,84 @@ a:hover {
 
   .social-icons-contact {
     margin: 10px 0;
+  }
+}
+
+/* Client Cards Styles */
+.client-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.client-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.client-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.client-card:hover .client-image img {
+  transform: scale(1.05);
+}
+
+.client-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-content h3 {
+  margin: 0 0 15px 0;
+  color: #fff;
+  font-size: 1.4em;
+}
+
+.client-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.client-content a {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.client-content a:hover {
+  color: #2d6da3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .client-image {
+    height: 150px;
+  }
+  
+  .client-content {
+    padding: 15px;
+  }
+  
+  .client-content h3 {
+    font-size: 1.2em;
   }
 }

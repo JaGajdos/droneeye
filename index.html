@@ -21,21 +21,21 @@
           </div>
         </div>
         <div class="desktop-menu-item margin10tlr" data-lang="sk">
-          <a style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('sk')" >SK</a>
+          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('sk')" >SK</a>
           <!-- <img src="src/assets/images/sk.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('sk')" /> -->
         </div>
         <div class="desktop-menu-item margin10tlr" data-lang="en">
-          <a style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" >EN</a>
+          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" >EN</a>
           <!-- <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" /> -->
         </div>
         <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
-          <a href="#" data-i18n="portfolio">Portfólio</a>
+          <a href="#" class="bold-base" data-i18n="portfolio">Portfólio</a>
         </div>
         <div id="klienti-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
-          <a href="#" data-i18n="clients">Klienti</a>
+          <a href="#" class="bold-base" data-i18n="clients">Klienti</a>
         </div>
         <div id="about-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
-          <a href="#" data-i18n="contact">Kontakt</a>
+          <a href="#" class="bold-base" data-i18n="contact">Kontakt</a>
         </div>
 
         <div id="hamburger" class="hamburger glass-container">
@@ -45,13 +45,13 @@
         </div>
         <div class="mobile-menu" id="mobileMenu">
           <div id="portfolio-button" class="margin10tlr padding1_5 glass-container">
-            <a href="#" data-i18n="portfolio">Portfólio</a>
+            <a href="#" class="bold-base" data-i18n="portfolio">Portfólio</a>
           </div>
           <div id="klienti-button" class="margin10tlr padding1_5 glass-container">
-            <a href="#" data-i18n="clients">Klienti</a>
+            <a href="#" class="bold-base" data-i18n="clients">Klienti</a>
           </div>
           <div id="about-button" class="margin10tlr padding1_5 glass-container">
-            <a href="#" data-i18n="contact">Kontakt</a>
+            <a href="#" class="bold-base" data-i18n="contact">Kontakt</a>
           </div>
         </div>
       </nav>
@@ -81,12 +81,12 @@
         <img class="animate-image" src="src/assets/images/Logo.png" />
       </a>
       <div class="loaderText" id="loaderSubtext">
-        <span style="font-weight: bold;" data-i18n="loaderText"></span>
+        <span class="bold-base" data-i18n="loaderText"></span>
         <b data-i18n="loaderTextBrand" style="display: none;"></b>
         <span data-i18n="loaderTextContinue" style="display: none;"></span>
       </div>
       <div class="startButton-container">
-        <button id="startButton" style="display: none;" class="start-button glass-container" data-i18n="startButton">Explore</button>
+        <button id="startButton" style="display: none;" class="start-button glass-container bold-base" data-i18n="startButton">Explore</button>
         <div id="loaderStatus" style="display: none"></div>
       </div>
     </div>
@@ -175,46 +175,92 @@
         <div class="subpage-grid-container">
           <div class="subpage-grid">
             <div class="subpage-item">
-              <h3 data-i18n="realEstateTitle"></h3>
-              <p><a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a>
-                <br /><br />
-                <span data-i18n="realEstateTestimonial"></span>
-              </p>
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/real-estate.jpg" alt="Real Estate" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="realEstateTitle"></h3>
+                  <p>
+                    <a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a><br>
+                    <a href="https://skandinavskedomceky.sk" target="_blank">https://skandinavskedomceky.sk</a>
+                    <br /><br />
+                    <span data-i18n="realEstateTestimonial"></span>
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="subpage-item">
-              <h3 data-i18n="eventsTitle"></h3>
-              <p>
-                <a
-                  href="https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022"
-                  target="_blank"
-                  >https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022</a
-                ><br /><br />
-                <span data-i18n="eventTestimonial"></span>
-              </p>
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/events.jpg" alt="Events" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="eventsTitle"></h3>
+                  <p>
+                    <a href="https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022" target="_blank">https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022</a><br /><br />
+                    <span data-i18n="eventTestimonial"></span>
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="subpage-item">
-              <h3 data-i18n="videoProductionTitle"></h3>
-              <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a>
-                <br /><br />
-                <span data-i18n="videoProductionTestimonial"></span>
-              </p>
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/video-production.jpg" alt="Video Production" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="videoProductionTitle"></h3>
+                  <p>
+                    <a href="https://zciny.sk" target="_blank">https://zciny.sk</a>
+                    <br /><br />
+                    <span data-i18n="videoProductionTestimonial"></span>
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="subpage-item">
-              <h3 data-i18n="gastronomyTitle"></h3>
-              <p data-i18n="gastronomyTestimonial">
-                <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
-                <br /><br />
-                <span data-i18n="gastronomyTestimonial"></span>
-              </p>
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/gastronomy.jpg" alt="Gastronomy" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="gastronomyTitle"></h3>
+                  <p>
+                    <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
+                    <br /><br />
+                    <span data-i18n="gastronomyTestimonial"></span>
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="subpage-item">
-              <h3 data-i18n="realEstateAgentTitle"></h3>
-              <p>
-                <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank"
-                  >https://www.youtube.com/watch?v=gYIQa0bft6w</a
-                ><br /><br />
-                <span data-i18n="realEstateAgentTestimonial"></span>
-              </p>
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/real-estate-agent.jpg" alt="Real Estate Agent" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="realEstateAgentTitle"></h3>
+                  <p>
+                    <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank">https://www.youtube.com/watch?v=gYIQa0bft6w</a><br /><br />
+                    <span data-i18n="realEstateAgentTestimonial"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="subpage-item">
+              <div class="client-card">
+                <div class="client-image">
+                  <img src="src/assets/images/clients/hotelierstvo.jpg" alt="Hotelierstvo" />
+                </div>
+                <div class="client-content">
+                  <h3 data-i18n="hotelierstvoTitle"></h3>
+                  <p>
+                    <a href="https://www.tatrahotel.com" target="_blank">https://www.tatrahotel.com</a><br /><br />
+                    <span data-i18n="hotelierstvoTestimonial"></span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
