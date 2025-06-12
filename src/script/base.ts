@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { loadModel } from './model';
-import { addRealisticCloud, createTroikaText, loadLights, loadTexture } from './objects';
+import { addImageToScene, addRealisticCloud, createTroikaText, loadLights, loadTexture } from './objects';
 import { BackgroundAudio } from './audio';
 import { Menu } from './menu';
 import { LanguageService } from '../i18n/languageService';
@@ -19,6 +19,7 @@ let dron: any;
 let renderer: THREE.WebGLRenderer;
 let cssRenderer: CSS3DRenderer;
 const textA: any[] = [];
+const imagesA: any[] = [];
 const modelA: any[] = [];
 const clock = new THREE.Clock();
 let backgroundAudio: BackgroundAudio;
@@ -38,24 +39,24 @@ const pathPoint: number[][] = [
   [0, 0, 200],
   [3, 0, 190],
   [5, 0, 180],
-  [3, 0, 170],
-  [0, 3, 160],
-  [-3, 3, 150],
-  [-3, 3, 140],
-  [0, 10, 130],
+  [3, 5, 170],
+  [0, 10, 160],
+  [-3, 15, 150],
+  [-3, 15, 140],
+  [0, 15, 130],
   [0, 10, 120],
   [0, 10, 110],
   [0, 5, 100],
-  [5, 5, 90],
+  [2, 5, 90],
   [5, 5, 80],
-  [3, 15, 70],
-  [0, 15, 60],
-  [0, 15, 50],
-  [-3, 20, 40],
-  [-3, 20, 30],
-  [-5, 20, 20],
-  [-5, 20, 10],
-  [-1, 20, 0],
+  [3, 0, 70],
+  [0, 0, 60],
+  [0, -5, 50],
+  [0, -5, 40],
+  [-3, -5, 30],
+  [-5, -5, 20],
+  [-5, -5, 10],
+  [-1, -5, 0],
 ];
 
 const cloudConfigs: [number, number, number, number, number, number, string][] = [
@@ -71,7 +72,7 @@ const cloudConfigs: [number, number, number, number, number, number, string][] =
   [-30, 10, 70, 56, 28, 0.7, 'cloud1.png'],
   [28, -12, 80, 54, 27, 0.8, 'cloud2.png'],
   [-22, -10, 90, 52, 26, 0.7, 'cloud1.png'],
-  [20, 12, 100, 50, 25, 0.7, 'cloud2.png'],
+  [25, 12, 100, 50, 25, 0.7, 'cloud2.png'],
 
   // 🔸 Vpredu – menšie (Z = 100–180)
   [-35, 18, 120, 46, 22, 0.8, 'cloud1.png'],
@@ -123,7 +124,7 @@ function updatePosition() {
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
 
-  if (newPosition.z < 80 && !isDroneEnd) {
+  if (newPosition.z < 20 && !isDroneEnd) {
     isDroneEnd = true;
     document.getElementById('klienti-button')?.click();
   }
@@ -133,6 +134,11 @@ function updateOpacity() {
   if (textA && textA.length > 0) {
     for (let i = 0; i < textA.length; i++) {
       textA[i].updateTextOpacity();
+    }
+  }
+  if (imagesA && imagesA.length > 0) {
+    for (let i = 0; i < imagesA.length; i++) {
+      imagesA[i].updateImageOpacity();
     }
   }
 }
@@ -312,14 +318,13 @@ function loadResources() {
     modelA.push(dron);
   };
 
-  // Load clouds in smaller batches
   const loadCloudBatch = (startIdx: number, batchSize: number) => {
     for (const [x, y, z, scaleX, scaleY, opacity, texture] of cloudConfigs) {
       addRealisticCloud(scene, x, y, z, `textures/${texture}`, scaleX, scaleY, opacity);
     }
   };
 
-  const loadText = () => {
+  const loadText1 = () => {
     textA.push(
       createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(-5.5, 3, 197), isMobile, 5, 13),
     );
@@ -334,6 +339,42 @@ function loadResources() {
     );
   };
 
+  const loadText2 = () => {
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_0', new THREE.Vector3(-3, 3, 197), isMobile, 5, 13),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_1', new THREE.Vector3(2, 2, 185), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_2', new THREE.Vector3(-2, 11, 165), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_3', new THREE.Vector3(-6, 18, 140), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_4', new THREE.Vector3(-3, 13, 120), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_5', new THREE.Vector3(-4, 8, 98), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_6', new THREE.Vector3(0, 7, 75), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_7', new THREE.Vector3(-4, 3, 56), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_8', new THREE.Vector3(-3, -2, 40), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'dronText1_9', new THREE.Vector3(-9, -3, 22), isMobile, 10),
+    );
+
+    imagesA.push(addImageToScene(scene, camera, 'images/hotels.jpg', new THREE.Vector3(4, -3, 185), {width: 5, height:3, opacity: 1, opacityKoef: 10, opacityZ: 10}));
+    
+  };
+
   // Chain the loading sequence
   requestAnimationFrame(() => {
     loadInitialResources();
@@ -344,7 +385,7 @@ function loadResources() {
         requestAnimationFrame(() => {
           // Start loading clouds in batches of 5
           loadCloudBatch(0, 5);
-          requestAnimationFrame(loadText);
+          requestAnimationFrame(loadText2);
         });
       });
     });

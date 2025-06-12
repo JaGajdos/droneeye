@@ -17,6 +17,19 @@ export const messages = {
     videoProduction: 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
     photography: 'Fotografovanie\nmomenty, ktoré hovoria za vás',
     droneShots: 'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
+    ads: 'Reklama pre:\nnehnuteľnosť, hotelierov, kultúrne podujatia,\nrealitné kancelárie, reklamné videá,\n eventy, hotelierstvo',
+
+    dronText1_0: 'Scrolluj a začni\nsvoje dobrodružstvo',
+    dronText1_1: 'Vzlietame\nza príbehom',
+    dronText1_2: 'Letíme vyššie…\nk lepším záberom',
+    dronText1_3: 'Videoprodukcia,\nkde dej tvoria obrazy',
+    dronText1_4: 'Fotografie,\nčo hovoria bez slov',
+    dronText1_5: 'Letecké zábery,\npohľad z inej perspektívy',
+    dronText1_6: 'Reklamy,\nktoré nezostanú bez odozvy',
+    dronText1_7: 'Pre vaše projekty:\nreality, hotely, podujatia,\narchitektúra, interiéry,\ncestovný ruch a viac',
+    dronText1_8: 'Príbeh\nje v každom ráme',
+    dronText1_9: 'Pristávame…\nno váš príbeh práve začína',
+
 
     // Portfolio section
     portfolioTitle: 'Portfólio',

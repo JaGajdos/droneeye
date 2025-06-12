@@ -248,6 +248,7 @@ export function createTroikaText(
   isMobile: boolean,
   opacityKoef?: number,
   opacityZ?: number,
+  texturePath?: string
 ) {
   const langService = LanguageService.getInstance();
   const myText = new Text();
@@ -257,6 +258,18 @@ export function createTroikaText(
   myText.position.copy(position);
   myText.color = 0x000000;
   myText.textAlign = 'center';
+  
+  // Add texture if provided
+  if (texturePath) {
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load(texturePath);
+    myText.material = new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+      opacity: 1
+    });
+  }
+  
   myText.sync();
 
   scene.add(myText);
@@ -279,4 +292,54 @@ export function createTroikaText(
   }
 
   return { updateTextOpacity, updateText };
+}
+
+export function addImageToScene(
+  scene: Scene,
+  camera: THREE.Camera,
+  imagePath: string,
+  position: THREE.Vector3,
+  options: {
+    width?: number;
+    height?: number;
+    opacity?: number;
+    opacityKoef?: number;
+    opacityZ?: number;
+  } = {}
+) {
+  const {
+    width = 1,
+    height = 1,
+    opacity = 1,
+    opacityKoef = 20,
+    opacityZ = 15
+  } = options;
+
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load(imagePath);
+  
+  const material = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    opacity: opacity
+  });
+  
+  const sprite = new THREE.Sprite(material);
+  sprite.position.copy(position);
+  sprite.scale.set(width, height, 1);
+  
+  scene.add(sprite);
+
+  function updateImageOpacity() {
+    if (sprite) {
+      (sprite.material as THREE.SpriteMaterial).opacity = Math.max(
+        0,
+        1 -
+          Math.abs(camera.position.z - (opacityZ && opacityZ > 0 ? opacityZ : 15) - sprite.position.z) /
+            (opacityKoef && opacityKoef > 0 ? opacityKoef : 20),
+      );
+    }
+  }
+  
+  return { updateImageOpacity };
 }
