@@ -332,6 +332,11 @@ function loadResources() {
     textA.push(
       createTroikaText(scene, camera, 'droneShots', new THREE.Vector3(-5, 14, 120), isMobile, 10),
     );
+    /*
+    textA.push(
+      createTroikaText(scene, camera, 'ads', new THREE.Vector3(-8.5, -7, 193), isMobile, 10),
+    );
+    */
   };
 
   // Chain the loading sequence

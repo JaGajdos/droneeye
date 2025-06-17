@@ -1,0 +1,49 @@
+{
+  "hash": "c3802f52",
+  "configHash": "1762988e",
+  "lockfileHash": "733f8868",
+  "browserHash": "efe0f1cc",
+  "optimized": {
+    "three": {
+      "src": "../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "7db57c24",
+      "needsInterop": false
+    },
+    "three/examples/jsm/renderers/CSS3DRenderer.js": {
+      "src": "../../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js",
+      "file": "three_examples_jsm_renderers_CSS3DRenderer__js.js",
+      "fileHash": "e30ff651",
+      "needsInterop": false
+    },
+    "three/examples/jsm/loaders/GLTFLoader": {
+      "src": "../../node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "file": "three_examples_jsm_loaders_GLTFLoader.js",
+      "fileHash": "63d09033",
+      "needsInterop": false
+    },
+    "three/examples/jsm/geometries/TextGeometry": {
+      "src": "../../node_modules/three/examples/jsm/geometries/TextGeometry.js",
+      "file": "three_examples_jsm_geometries_TextGeometry.js",
+      "fileHash": "61bffb60",
+      "needsInterop": false
+    },
+    "troika-three-text": {
+      "src": "../../node_modules/troika-three-text/dist/troika-three-text.esm.js",
+      "file": "troika-three-text.js",
+      "fileHash": "d573caf7",
+      "needsInterop": false
+    },
+    "@emailjs/browser": {
+      "src": "../../node_modules/@emailjs/browser/es/index.js",
+      "file": "@emailjs_browser.js",
+      "fileHash": "089afce5",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-BQEVJPUQ": {
+      "file": "chunk-BQEVJPUQ.js"
+    }
+  }
+}

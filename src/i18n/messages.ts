@@ -17,6 +17,7 @@ export const messages = {
     videoProduction: 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
     photography: 'Fotografovanie\nmomenty, ktoré hovoria za vás',
     droneShots: 'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
+    ads: 'Reklama pre:\nnehnuteľnosť, hotelierov,\nkultúrne podujatia, realitné kancelárie,\nreklamné videá, eventy, hotelierstvo',
 
     // Portfolio section
     portfolioTitle: 'Portfólio',
@@ -84,6 +85,7 @@ export const messages = {
     videoProduction: 'Video Production\nstories that draw you into the action',
     photography: 'Photography\nmoments that speak for you',
     droneShots: 'Drone Aerial Shots\na perspective that changes everything',
+    ads: "Ads for:\nreal estate, hospitality,\ncultural events, real estate agencies,\ncommercial videos, events, hotels",
 
     // Portfolio section
     portfolioTitle: 'Portfolio',
