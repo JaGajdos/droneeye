@@ -46,7 +46,7 @@ const pathPoint: number[][] = [
   [0, 10, 120],
   [0, 10, 110],
   [0, 5, 100],
-  [5, 5, 90],
+  [0, 5, 90],
   [5, 5, 80],
   [3, 15, 70],
   [0, 15, 60],
@@ -321,16 +321,28 @@ function loadResources() {
 
   const loadText = () => {
     textA.push(
-      createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(-5.5, 3, 197), isMobile, 5, 13),
+      createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(isMobile ? -4 : -5.5, 3, 197), isMobile, 5, 13),
     );
     textA.push(
-      createTroikaText(scene, camera, 'videoProduction', new THREE.Vector3(-3, 4, 180), isMobile, 10),
+      createTroikaText(scene, camera, 'ads1', new THREE.Vector3(-3, -4, 196), isMobile, 5, 13),
     );
     textA.push(
-      createTroikaText(scene, camera, 'photography', new THREE.Vector3(-6, 6, 150), isMobile, 10),
+      createTroikaText(scene, camera, 'ads2', new THREE.Vector3(1, 2, 183), isMobile, 10),
     );
     textA.push(
-      createTroikaText(scene, camera, 'droneShots', new THREE.Vector3(-5, 14, 120), isMobile, 10),
+      createTroikaText(scene, camera, 'ads3', new THREE.Vector3(0, 4, 168), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'ads4', new THREE.Vector3(-6, 5, 152), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'ads5', new THREE.Vector3(-5, 8, 132), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'ads6', new THREE.Vector3(-3, 12, 114), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'ads7', new THREE.Vector3(-4, 8, 94), isMobile, 10),
     );
     /*
     textA.push(

@@ -1,26 +1,40 @@
 export const messages = {
   sk: {
     // Navigation
-    portfolio: 'Portfólio',
-    clients: 'Klienti',
+    portfolio: 'Služby',
+    clients: 'Portfólio',
     contact: 'Kontakt',
 
     // Loader text
     loaderText1: 'Každý príbeh, každá emócia, každý detail si zaslúži byť zachytený tak, ako ho cítite.',
-    loaderText: 'We see what you want to see',
+    loaderText: 'Vidíme to, čo chcete vidieť',
     loaderTextBrand: 'Drone Eye',
     loaderTextContinue: 'Vám umožní vidieť svet z výšky, zblízka, v pohybe presne tak, ako si ho predstavujete.',
     startButton: 'Explore',
 
     // 3D Text
     scrollToBegin: 'Scrolluj\na začni svoje dobrodružstvo',
+    ads1: 'Točíme\na\nfotografujeme',
+    ads2: 'Nehnuteľnosti',
+    ads3: 'Eventy',
+    ads4: 'Hotelierstvo',
+    ads5: 'Kultúrne podujatia',
+    ads6: 'Reklamné videá',
+    ads7: 'Cestovateľské videá',
+    ads8: 'Realitné kancelárie',
     videoProduction: 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
     photography: 'Fotografovanie\nmomenty, ktoré hovoria za vás',
     droneShots: 'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
     ads: 'Reklama pre:\nnehnuteľnosť, hotelierov,\nkultúrne podujatia, realitné kancelárie,\nreklamné videá, eventy, hotelierstvo',
 
+    introText: 'Vytvárame obsah, ktorý zaujme. Videá a fotografie, ktoré predávajú, vtiahnu do deja a vyvolajú emócie.',
+    ourServicesTitle: 'Naše služby',
+    photographyTitle: 'Fotografovanie',
+    droneShotsTitle: 'Letecké zábery dronom',
+    specializationTitle: 'Špecializujeme sa na',
+
     // Portfolio section
-    portfolioTitle: 'Portfólio',
+    portfolioTitle: 'Služby',
     project1Title: 'Projekt 1',
     project2Title: 'Projekt 2',
     project3Title: 'Projekt 3',
@@ -30,7 +44,7 @@ export const messages = {
     projectDescription: 'Popis projektu',
 
     // Clients section
-    clientsTitle: 'Klienti',
+    clientsTitle: 'Portfólio',
     realEstateTitle: 'Nehnuteľnosti z dronu',
     eventsTitle: 'Dokumentácia eventov',
     videoProductionTitle: 'Video produkcia a tvorba reklamných - promo videí',
@@ -69,8 +83,8 @@ export const messages = {
   },
   en: {
     // Navigation
-    portfolio: 'Portfolio',
-    clients: 'Clients',
+    portfolio: 'Services',
+    clients: 'Portfolio',
     contact: 'Contact',
 
     // Loader text
@@ -82,13 +96,27 @@ export const messages = {
 
     // 3D Text
     scrollToBegin: 'Scroll to begin your journey',
+    ads1: 'We film\nand\nphotograph',
+    ads2: 'Real Estate',
+    ads3: 'Events',
+    ads4: 'Hospitality',
+    ads5: 'Cultural Events',
+    ads6: 'Commercial Videos',
+    ads7: 'Travel Videos',
+    ads8: 'Real Estate Agencies',
     videoProduction: 'Video Production\nstories that draw you into the action',
     photography: 'Photography\nmoments that speak for you',
     droneShots: 'Drone Aerial Shots\na perspective that changes everything',
     ads: "Ads for:\nreal estate, hospitality,\ncultural events, real estate agencies,\ncommercial videos, events, hotels",
 
+    introText: 'We create content that captivates. Videos and photos that sell, immerse, and evoke emotion.',
+    ourServicesTitle: 'Our Services',
+    photographyTitle: 'Photography',
+    droneShotsTitle: 'Drone Shots',
+    specializationTitle: 'We Specialize In',
+
     // Portfolio section
-    portfolioTitle: 'Portfolio',
+    portfolioTitle: 'Services',
     project1Title: 'Project 1',
     project2Title: 'Project 2',
     project3Title: 'Project 3',
@@ -98,7 +126,7 @@ export const messages = {
     projectDescription: 'Project description',
 
     // Clients section
-    clientsTitle: 'Clients',
+    clientsTitle: 'Portfolio',
     realEstateTitle: 'Drone Real Estate',
     eventsTitle: 'Event Documentation',
     videoProductionTitle: 'Video Production and Promotional Videos',
