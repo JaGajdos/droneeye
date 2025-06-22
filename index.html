@@ -28,11 +28,17 @@
           <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" >EN</a>
           <!-- <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" /> -->
         </div>
-        <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
-          <a href="#" class="bold-base" data-i18n="portfolio">Služby</a>
+        <div id="sluzby-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" class="bold-base" data-i18n="sluzby">Služby</a>
         </div>
-        <div id="klienti-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
-          <a href="#" class="bold-base" data-i18n="clients">Portfólio</a>
+        <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" class="bold-base" data-i18n="portfolio">Portfólio</a>
+        </div>
+        <div id="cennik-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" class="bold-base" data-i18n="cennik">Cenová ponuka</a>
+        </div>
+        <div id="legislativa-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="#" class="bold-base" data-i18n="legislativa">Legislatíva</a>
         </div>
         <div id="about-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
           <a href="#" class="bold-base" data-i18n="contact">Kontakt</a>
@@ -44,11 +50,17 @@
           <div></div>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-          <div id="portfolio-button" class="margin10tlr padding1_5 glass-container">
-            <a href="#" class="bold-base" data-i18n="portfolio">Služby</a>
+          <div id="sluzby-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" class="bold-base" data-i18n="sluzby">Služby</a>
           </div>
-          <div id="klienti-button" class="margin10tlr padding1_5 glass-container">
-            <a href="#" class="bold-base" data-i18n="clients">Portfólio</a>
+          <div id="portfolio-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" class="bold-base" data-i18n="portfolio">Portfólio</a>
+          </div>
+          <div id="cennik-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" class="bold-base" data-i18n="cennik">Cenová ponuka</a>
+          </div>
+          <div id="legislativa-button" class="margin10tlr padding1_5 glass-container">
+            <a href="#" class="bold-base" data-i18n="legislativa">Legislatíva</a>
           </div>
           <div id="about-button" class="margin10tlr padding1_5 glass-container">
             <a href="#" class="bold-base" data-i18n="contact">Kontakt</a>
@@ -93,21 +105,25 @@
 
     <canvas id="threeCanvas"></canvas>
 
-    <div id="subpage-portfolio-container" class="subpage-container">
+    <div id="subpage-sluzby-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closePortfolio" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="portfolioTitle"></h2>
+          <button id="closeSluzby" class="subpage-close-btn">×</button>
+          <h2 class="subpage-title" data-i18n="sluzbyTitle"></h2>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
             <div class="subpage-item" style="text-align: center;">
-              <h3 data-i18n="ads1">Točíme a fotografujeme</h3>
-              <p data-i18n="introText">Vytvárame obsah, ktorý zaujme.<br>Videá a fotografie, ktoré predávajú, vtiahnu do deja a vyvolajú emócie.</p>
-            
+              <h3 data-i18n="ourServices1">Máte zábery a chýba vám postprodukcia?</h3>
+              <br>
+              <div style="margin: 15px 0;">
+                <strong data-i18n="ourServices2">Pošlite nám ich - my z nich vytvoríme video, ktoré upúta.</strong><br>
+                <strong data-i18n="ourServices3">Strih, farby, hudba, efekty - postaráme sa o všetko.</strong>
+              </div>
+
               <div style="margin-top: 30px;">
                 <h3 data-i18n="ourServicesTitle">Naše služby</h3>
-            
+                <br>
                 <div style="margin: 15px 0;">
                   <strong data-i18n="videoProductionTitle">Videoprodukcia</strong><br>
                 </div>
@@ -150,27 +166,26 @@
       </div>      
     </div>
 
-    <div id="subpage-klienti-container" class="subpage-container">
+    <div id="subpage-portfolio-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closeKlienti" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="clientsTitle"></h2>
+          <button id="closePortfolio" class="subpage-close-btn">×</button>
+          <h2 class="subpage-title" data-i18n="portfolioTitle"></h2>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid">
             <div class="subpage-item">
               <h3 data-i18n="realEstateTitle"></h3>
-              <img src="src/assets/images/real-estate.jpg" alt="Real Estate" class="client-category-image" />
+              <img src="src/assets/images/real-estate.jpg" alt="Nehnuteľnosti z dronu" class="client-category-image" />
               <p>
                 <a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a><br>
-                <a href="https://skandinavskedomceky.sk" target="_blank">https://skandinavskedomceky.sk</a>
                 <br /><br />
                 <span data-i18n="realEstateTestimonial"></span>
               </p>
             </div>
             <div class="subpage-item">
               <h3 data-i18n="eventsTitle"></h3>
-              <img src="src/assets/images/events.jpg" alt="Events" class="client-category-image" />
+              <img src="src/assets/images/events.jpg" alt="Dokumentácia eventov" class="client-category-image" />
               <p>
                 <a
                   href="https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022"
@@ -182,7 +197,7 @@
             </div>
             <div class="subpage-item">
               <h3 data-i18n="videoProductionTitle"></h3>
-              <img src="src/assets/images/video-production.jpg" alt="Video Production" class="client-category-image" />
+              <img src="src/assets/images/video-production.jpg" alt="Video produkcia a tvorba reklamných - promo videí" class="client-category-image" />
               <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a>
                 <br /><br />
                 <span data-i18n="videoProductionTestimonial"></span>
@@ -190,7 +205,7 @@
             </div>
             <div class="subpage-item">
               <h3 data-i18n="gastronomyTitle"></h3>
-              <img src="src/assets/images/gastronomy.jpg" alt="Gastronomy" class="client-category-image" />
+              <img src="src/assets/images/gastronomy.jpg" alt="Gastronómia" class="client-category-image" />
               <p>
                 <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
                 <br /><br />
@@ -199,7 +214,7 @@
             </div>
             <div class="subpage-item">
               <h3 data-i18n="realEstateAgentTitle"></h3>
-              <img src="src/assets/images/real-estate-agent.jpg" alt="Real Estate Agent" class="client-category-image" />
+              <img src="src/assets/images/real-estate-agent.jpg" alt="Realitný maklér" class="client-category-image" />
               <p>
                 <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank"
                   >https://www.youtube.com/watch?v=gYIQa0bft6w</a
@@ -209,13 +224,85 @@
             </div>
             <div class="subpage-item">
               <h3 data-i18n="hotelierstvoTitle"></h3>
-              <img src="src/assets/images/hotels.jpg" alt="Hotels" class="client-category-image" />
+              <img src="src/assets/images/hotels.jpg" alt="Hotelierstvo" class="client-category-image" />
               <p>
                 <a href="https://www.tatrahotel.com" target="_blank"
                   >https://www.tatrahotel.com</a
                 ><br /><br />
                 <span data-i18n="hotelierstvoTestimonial"></span>
               </p>
+            </div>
+            <div class="subpage-item">
+              <h3 data-i18n="housesTitle"></h3>
+              <img src="src/assets/images/real-estate.jpg" alt="Cestovný ruch" class="client-category-image" />
+              <p>
+                <a href="https://skandinavskedomceky.sk" target="_blank">https://skandinavskedomceky.sk</a>
+                <br /><br />
+                <span data-i18n="housesTestimonial"></span>
+              </p>
+            </div>
+            <div class="subpage-item">
+              <h3 data-i18n="planeTitle"></h3>
+              <img src="src/assets/images/real-estate.jpg" alt="Zážitkové ubytovanie" class="client-category-image" />
+              <p>
+                <a href="https://lietadlovlese.sk" target="_blank">https://lietadlovlese.sk</a>
+                <br /><br />
+                <span data-i18n="planeTestimonial"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
+            <img src="src/assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
+            <img src="src/assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
+            <img src="src/assets/images/youtube.png" alt="YouTube" />
+          </a>
+        </div>
+      </div>      
+    </div>
+
+    <div id="subpage-cennik-container" class="subpage-container">
+      <div class="subpage-content">
+        <div class="subpage-header">
+          <button id="closeCennik" class="subpage-close-btn">×</button>
+          <h2 class="subpage-title" data-i18n="cennikTitle"></h2>
+        </div>
+        <div class="subpage-grid-container">
+          <div class="subpage-grid subpage-grid-one">
+            <div class="subpage-item" style="text-align: center;">
+              
+            </div>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
+            <img src="src/assets/images/instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
+            <img src="src/assets/images/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
+            <img src="src/assets/images/youtube.png" alt="YouTube" />
+          </a>
+        </div>
+      </div>      
+    </div>
+
+    <div id="subpage-legislativa-container" class="subpage-container">
+      <div class="subpage-content">
+        <div class="subpage-header">
+          <button id="closeLegislativa" class="subpage-close-btn">×</button>
+          <h2 class="subpage-title" data-i18n="legislativaTitle"></h2>
+        </div>
+        <div class="subpage-grid-container">
+          <div class="subpage-grid subpage-grid-one">
+            <div class="subpage-item" style="text-align: center;">
+              
             </div>
           </div>
         </div>

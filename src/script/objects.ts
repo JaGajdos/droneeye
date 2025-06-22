@@ -248,15 +248,19 @@ export function createTroikaText(
   isMobile: boolean,
   opacityKoef?: number,
   opacityZ?: number,
+  fontSize?: number,
 ) {
   const langService = LanguageService.getInstance();
   const myText = new Text();
   myText.text = langService.getMessage(textKey).toUpperCase();
-  myText.fontSize = isMobile ? 0.5 : 0.7;
+  myText.fontSize = fontSize ? fontSize : (isMobile ? 0.5 : 0.7);
   myText.font = 'font/georgiab.woff';
-  myText.position.copy(position);
+  //myText.position.copy(position);
+  myText.position.y = position.y;
+  myText.position.z = position.z;
   myText.color = 0x000000;
   myText.textAlign = 'center';
+  myText.anchorX = 'center';
   myText.sync();
 
   scene.add(myText);

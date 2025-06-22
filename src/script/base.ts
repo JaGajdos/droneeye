@@ -11,7 +11,7 @@ let positionOnCurve = 0;
 let speed = 0;
 let curve: THREE.CatmullRomCurve3;
 const dampingFactor = 0.95;
-const accelerationFactor = 0.1 * 0.002;
+const accelerationFactor = 0.1 * 0.0005;
 let loadingManager: THREE.LoadingManager;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
@@ -36,18 +36,18 @@ const topLogo = document.getElementById('topLogo');
 
 const pathPoint: number[][] = [
   [0, 0, 200],
-  [3, 0, 190],
-  [5, 0, 180],
-  [3, 0, 170],
+  [0, 3, 190],
+  [0, 6, 180],
+  [0, 6, 170],
   [0, 3, 160],
-  [-3, 3, 150],
-  [-3, 3, 140],
-  [0, 10, 130],
-  [0, 10, 120],
-  [0, 10, 110],
-  [0, 5, 100],
-  [0, 5, 90],
-  [5, 5, 80],
+  [0, 0, 150],
+  [0, 0, 140],
+  [0, -3, 130],
+  [0, -6, 120],
+  [0, -6, 110],
+  [0, -6, 100],
+  [0, -6, 90],
+  [5, -3, 80],
   [3, 15, 70],
   [0, 15, 60],
   [0, 15, 50],
@@ -120,12 +120,15 @@ function updatePosition() {
   positionOnCurve += speed / 100;
   positionOnCurve = Math.max(0, Math.min(1, positionOnCurve));
   const newPosition = curve.getPointAt(positionOnCurve);
+  if (isDroneEnd && newPosition.z < 100) {
+    return;
+  }
   dron.updatePosition(newPosition);
   speed *= dampingFactor;
 
-  if (newPosition.z < 80 && !isDroneEnd) {
+  if (newPosition.z < 100 && !isDroneEnd) {
     isDroneEnd = true;
-    document.getElementById('klienti-button')?.click();
+    document.getElementById('portfolio-button')?.click();
   }
 }
 
@@ -320,12 +323,37 @@ function loadResources() {
   };
 
   const loadText = () => {
+
+  textA.push(
+    createTroikaText(scene, camera, 'videoProduction', new THREE.Vector3(-3, 9, 180), isMobile, 10),
+  );
+  textA.push(
+    createTroikaText(scene, camera, 'photography', new THREE.Vector3(-9, 3, 150), isMobile, 10),
+  );
+  textA.push(
+    createTroikaText(scene, camera, 'droneShots', new THREE.Vector3(-7, -2, 120), isMobile, 10),
+  );
+  textA.push(
+    createTroikaText(scene, camera, 'droneShots1', new THREE.Vector3(-7, -3, 120), isMobile, 10, undefined, isMobile ? 0.4 : 0.6),
+  );
+
+
     textA.push(
-      createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(isMobile ? -4 : -5.5, 3, 197), isMobile, 5, 13),
+      createTroikaText(scene, camera, 'scrollToBegin', new THREE.Vector3(isMobile ? -6 : -5.5, 3, 197), isMobile, 5, 13),
     );
     textA.push(
-      createTroikaText(scene, camera, 'ads1', new THREE.Vector3(-3, -4, 196), isMobile, 5, 13),
+      createTroikaText(scene, camera, 'ads1', new THREE.Vector3(-3, -4, 197), isMobile, 5, 13),
     );
+    textA.push(
+      createTroikaText(scene, camera, 'adsS1', new THREE.Vector3(0, 3, 180), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'adsS2', new THREE.Vector3(-6.5, -3, 150), isMobile, 10),
+    );
+    textA.push(
+      createTroikaText(scene, camera, 'adsS3', new THREE.Vector3(-4, -9, 120), isMobile, 10),
+    );
+    /*
     textA.push(
       createTroikaText(scene, camera, 'ads2', new THREE.Vector3(1, 2, 183), isMobile, 10),
     );

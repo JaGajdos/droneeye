@@ -1,20 +1,23 @@
 export const messages = {
   sk: {
     // Navigation
-    portfolio: 'Služby',
-    clients: 'Portfólio',
+    sluzby: 'Služby',
+    portfolio: 'Portfólio',
     contact: 'Kontakt',
+    cennik: 'Cenová ponuka',
+    legislativa: 'Legislatíva',
 
     // Loader text
     loaderText1: 'Každý príbeh, každá emócia, každý detail si zaslúži byť zachytený tak, ako ho cítite.',
-    loaderText: 'Vidíme to, čo chcete vidieť',
+    loaderText: 'We see what you want to see',
     loaderTextBrand: 'Drone Eye',
     loaderTextContinue: 'Vám umožní vidieť svet z výšky, zblízka, v pohybe presne tak, ako si ho predstavujete.',
     startButton: 'Explore',
 
     // 3D Text
     scrollToBegin: 'Scrolluj\na začni svoje dobrodružstvo',
-    ads1: 'Točíme\na\nfotografujeme',
+    //ads1: 'Točíme\na\nfotografujeme',
+    ads1: 'Pozrite sa\nčomu sa venujeme',
     ads2: 'Nehnuteľnosti',
     ads3: 'Eventy',
     ads4: 'Hotelierstvo',
@@ -22,9 +25,13 @@ export const messages = {
     ads6: 'Reklamné videá',
     ads7: 'Cestovateľské videá',
     ads8: 'Realitné kancelárie',
+    adsS1: 'Hotelierstvo\nNehnuteľnosti\nRealitné kancelárie',
+    adsS2: 'Kultúrne podujatia\nEventy',
+    adsS3: 'Reklamné videá',
     videoProduction: 'Videoprodukcia\npríbehy, ktoré Vás vtiahnu do deja',
     photography: 'Fotografovanie\nmomenty, ktoré hovoria za vás',
-    droneShots: 'Letecké zábery dronom\npohľad, ktorý mení perspektívu',
+    droneShots: 'Letecké zábery dronom',
+    droneShots1: 'pohľad, ktorý mení perspektívu',
     ads: 'Reklama pre:\nnehnuteľnosť, hotelierov,\nkultúrne podujatia, realitné kancelárie,\nreklamné videá, eventy, hotelierstvo',
 
     introText: 'Vytvárame obsah, ktorý zaujme. Videá a fotografie, ktoré predávajú, vtiahnu do deja a vyvolajú emócie.',
@@ -32,9 +39,12 @@ export const messages = {
     photographyTitle: 'Fotografovanie',
     droneShotsTitle: 'Letecké zábery dronom',
     specializationTitle: 'Špecializujeme sa na',
+    ourServices1: 'Máte zábery a chýba vám postprodukcia?',
+    ourServices2: 'Pošlite nám ich - my z nich vytvoríme video, ktoré upúta.',
+    ourServices3: 'Strih, farby, hudba, efekty - postaráme sa o všetko.',
 
-    // Portfolio section
-    portfolioTitle: 'Služby',
+    // Sluzby section
+    sluzbyTitle: 'Služby',
     project1Title: 'Projekt 1',
     project2Title: 'Projekt 2',
     project3Title: 'Projekt 3',
@@ -43,14 +53,16 @@ export const messages = {
     project6Title: 'Projekt 6',
     projectDescription: 'Popis projektu',
 
-    // Clients section
-    clientsTitle: 'Portfólio',
+    // Portfolio section
+    portfolioTitle: 'Portfólio',
     realEstateTitle: 'Nehnuteľnosti z dronu',
     eventsTitle: 'Dokumentácia eventov',
     videoProductionTitle: 'Video produkcia a tvorba reklamných - promo videí',
     gastronomyTitle: 'Gastronómia',
-    realEstateAgentTitle: 'Realitý maklér',
+    realEstateAgentTitle: 'Realitný maklér',
     hotelierstvoTitle: 'Hotelierstvo',
+    housesTitle: 'Cestovný ruch',
+    planeTitle: 'Zážitkové ubytovanie',
 
     // Client testimonials
     eventTestimonial:
@@ -61,6 +73,12 @@ export const messages = {
     videoProductionTestimonial: 'Vďaka inovatívnemu a kreatívnemu prístupu k tvorbe obsahu, doplnenému o rýchlu a efektívnu postprodukciu, ako aj využitiu dronu pri natáčaní v Číne, sme zaznamenali výrazný rast sledovanosti a interakcií na našich sociálnych sieťach.',
     realEstateAgentTestimonial: 'Spolupráca na prezentačnom videu nehnuteľnosti bola na vysokej úrovni. Využitie dronu prinieslo efektné zábery z vtáčej perspektívy, ktoré výrazne zvýšili záujem potenciálnych klientov. Odporúčam ako spoľahlivého partnera pre maklérov, ktorí chcú svoje nehnuteľnosti prezentovať na najvyššej úrovni.',
     hotelierstvoTestimonial: 'Spolupráca s Droneye predčila naše očakávania. Vizuálna prezentácia hotela, vrátane záberov z dronu, dokonale vystihla atmosféru miesta a jeho jedinečné výhľady. Video nám pomohlo lepšie osloviť nových hostí a výrazne zvýšilo záujem o online rezervácie. Oceňujeme profesionálny prístup, rýchlu komunikáciu a schopnosť vystihnúť presne to, čo náš hotel robí výnimočným. Tešíme sa na ďalšie projekty!',
+    housesTestimonial: '',
+    planeTestimonial: '',
+
+    cennikTitle: 'Cenová ponuka',
+
+    legislativaTitle: 'Legislatíva',
 
     // Contact form
     contactFormTitle: 'Prečo si vybrať práve nás?',
@@ -83,9 +101,11 @@ export const messages = {
   },
   en: {
     // Navigation
-    portfolio: 'Services',
-    clients: 'Portfolio',
+    sluzby: 'Services',
+    portfolio: 'Portfolio',
     contact: 'Contact',
+    cennik: 'Pricing',
+    legislativa: 'Legislation',
 
     // Loader text
     loaderText1: 'Every story, every emotion, every detail deserves to be captured exactly as you feel it.',
@@ -96,7 +116,8 @@ export const messages = {
 
     // 3D Text
     scrollToBegin: 'Scroll to begin your journey',
-    ads1: 'We film\nand\nphotograph',
+    //ads1: 'We film\nand\nphotograph',
+    ads1: 'Discover\nwhat we do',
     ads2: 'Real Estate',
     ads3: 'Events',
     ads4: 'Hospitality',
@@ -104,9 +125,13 @@ export const messages = {
     ads6: 'Commercial Videos',
     ads7: 'Travel Videos',
     ads8: 'Real Estate Agencies',
+    adsS1: 'Hospitality\nReal Estate\nReal Estate Agencies',
+    adsS2: 'Cultural Events\nEvents',
+    adsS3: 'Commercial Videos',
     videoProduction: 'Video Production\nstories that draw you into the action',
     photography: 'Photography\nmoments that speak for you',
-    droneShots: 'Drone Aerial Shots\na perspective that changes everything',
+    droneShots: 'Drone Aerial Shots',
+    droneShots1: 'a perspective that changes everything',
     ads: "Ads for:\nreal estate, hospitality,\ncultural events, real estate agencies,\ncommercial videos, events, hotels",
 
     introText: 'We create content that captivates. Videos and photos that sell, immerse, and evoke emotion.',
@@ -115,8 +140,8 @@ export const messages = {
     droneShotsTitle: 'Drone Shots',
     specializationTitle: 'We Specialize In',
 
-    // Portfolio section
-    portfolioTitle: 'Services',
+    // Sluzby section
+    sluzbyTitle: 'Services',
     project1Title: 'Project 1',
     project2Title: 'Project 2',
     project3Title: 'Project 3',
@@ -125,14 +150,16 @@ export const messages = {
     project6Title: 'Project 6',
     projectDescription: 'Project description',
 
-    // Clients section
-    clientsTitle: 'Portfolio',
+    // Portfolio section
+    portfolioTitle: 'Portfolio',
     realEstateTitle: 'Drone Real Estate',
     eventsTitle: 'Event Documentation',
     videoProductionTitle: 'Video Production and Promotional Videos',
     gastronomyTitle: 'Gastronomy',
     realEstateAgentTitle: 'Real Estate Agent',
     hotelierstvoTitle: 'Hotel industry',
+    housesTitle: 'Tourism',
+    planeTitle: 'Unique accommodation',
 
     // Client testimonials
     eventTestimonial:
@@ -143,6 +170,13 @@ export const messages = {
     videoProductionTestimonial: 'Thanks to our innovative and creative approach to content creation, complemented by fast and efficient post-production and the use of drones for filming in China, we have seen a significant increase in viewership and engagement on our social media platforms.',
     realEstateAgentTestimonial: 'The collaboration on the real estate presentation video was of a high standard. The use of a drone provided impressive bird’s-eye views that significantly increased interest from potential clients. I recommend them as a reliable partner for real estate agents who want to showcase their properties at the highest level.',
     hotelierstvoTestimonial: 'Working with Droneye exceeded our expectations. The visual presentation of the hotel, including aerial drone footage, perfectly captured the atmosphere of the place and its unique views. The video helped us reach new guests more effectively and significantly increased interest in online bookings. We appreciate their professional approach, quick communication, and ability to highlight exactly what makes our hotel special. We look forward to future projects!',
+    housesTestimonial: '',
+    planeTestimonial: '',
+
+    cennikTitle: 'Pricing',
+
+    legislativaTitle: 'Legislation',
+
     // Contact form
     contactFormTitle: 'Why choose me?',
     contactFormFeatures0: 'Quality equipment and professional approach',

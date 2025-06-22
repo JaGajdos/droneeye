@@ -259,7 +259,7 @@ a:hover {
 
 .subpage-container {
   position: fixed;
-  top: 0;
+  top: 4em;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -291,7 +291,7 @@ a:hover {
   background: var(--background-color); /* Použite vašu farbu pozadia */
   padding-top: 1.5em;
   z-index: 1;
-  margin-bottom: 1.5em;
+  /*margin-bottom: 1.5em;*/
 }
 
 .subpage-grid-container {
@@ -526,6 +526,7 @@ a:hover {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4rem;
 }
 
 #contact-form label {
@@ -654,6 +655,7 @@ a:hover {
   padding: 20px;
   position: relative;
   z-index: 10;
+  padding-bottom: 5rem;
 }
 
 .social-icon {
@@ -702,8 +704,13 @@ a:hover {
     display: flex;
   }
 
+  .subpage-container {
+    top: 0em;
+  }
+
   .subpage-header {
     padding-top: 0;
+    margin-bottom: 1.5em;
   }
 
   .subpage-title {

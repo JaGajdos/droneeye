@@ -40,7 +40,8 @@ export class Menu {
           document.body.style.overflow = 'hidden';
           container.style.transform = 'translateY(0)';
           this.isSubpageOpen = true;
-          this.backgroundAudio.pause();
+          if(this.backgroundAudio)
+            this.backgroundAudio.pause();
           document.addEventListener('click', closeOnClickOutside);
         }),
       );
@@ -98,12 +99,16 @@ export class Menu {
     });
 
     const portfolioContainer = document.getElementById('subpage-portfolio-container') as HTMLDivElement;
-    const klientiContainer = document.getElementById('subpage-klienti-container') as HTMLDivElement;
+    const sluzbyContainer = document.getElementById('subpage-sluzby-container') as HTMLDivElement;
     const aboutContainer = document.getElementById('subpage-about-container') as HTMLDivElement;
+    const cennikContainer = document.getElementById('subpage-cennik-container') as HTMLDivElement;
+    const legislativaContainer = document.getElementById('subpage-legislativa-container') as HTMLDivElement;
 
     this.createSubpageSection(portfolioContainer, 'closePortfolio', 'portfolio-button');
-    this.createSubpageSection(klientiContainer, 'closeKlienti', 'klienti-button');
+    this.createSubpageSection(sluzbyContainer, 'closeSluzby', 'sluzby-button');
     this.createSubpageSection(aboutContainer, 'closeAbout', 'about-button');
+    this.createSubpageSection(cennikContainer, 'closeCennik', 'cennik-button');
+    this.createSubpageSection(legislativaContainer, 'closeLegislativa', 'legislativa-button');
 
     initFormular('service_um8zj4l', 'template_9tzop5i', 'contact-form', 'contact-form-success', 'contact-form-error');
 
