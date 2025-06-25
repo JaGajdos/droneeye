@@ -39,12 +39,14 @@ export class Menu {
 
           document.body.style.overflow = 'hidden';
           container.style.transform = 'translateY(0)';
+          console.log('menu: ' + menuId);
           this.isSubpageOpen = true;
           if(this.backgroundAudio)
             this.backgroundAudio.pause();
           document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('menu-button-active'));
           const menuBtn = document.getElementById(menuId);
           if (menuBtn) menuBtn.classList.add('menu-button-active');
+          if(closeOnClickOutside)
           document.addEventListener('click', closeOnClickOutside);
         }),
       );
@@ -61,6 +63,7 @@ export class Menu {
       if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
         subpageContainer.style.transform = 'translateY(100vh)';
         this.isSubpageOpen = false;
+        console.log('closeOutside: ' + menuId);
         setTimeout(() => {
           document.body.style.overflow = 'auto';
         }, 500);
@@ -85,7 +88,7 @@ export class Menu {
       });
     }
 
-    this.addSubPageListener(subpageContainer, menuId, closeOnClickOutside);
+    this.addSubPageListener(subpageContainer, menuId, undefined);// closeOnClickOutside);
 
     return { subpageContainer, closeOnClickOutside };
   }
