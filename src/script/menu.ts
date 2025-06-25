@@ -42,6 +42,9 @@ export class Menu {
           this.isSubpageOpen = true;
           if(this.backgroundAudio)
             this.backgroundAudio.pause();
+          document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('menu-button-active'));
+          const menuBtn = document.getElementById(menuId);
+          if (menuBtn) menuBtn.classList.add('menu-button-active');
           document.addEventListener('click', closeOnClickOutside);
         }),
       );
@@ -51,6 +54,10 @@ export class Menu {
   private createSubpageSection(subpageContainer: HTMLDivElement, closeId: string, menuId: string) {
     const closeOnClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      // Ak klikám na prepínač jazyka, nerob nič
+      if (target.closest('[data-lang]')) {
+        return;
+      }
       if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
         subpageContainer.style.transform = 'translateY(100vh)';
         this.isSubpageOpen = false;
@@ -58,6 +65,8 @@ export class Menu {
           document.body.style.overflow = 'auto';
         }, 500);
         document.removeEventListener('click', closeOnClickOutside);
+        const menuBtn = document.getElementById(menuId);
+        if (menuBtn) menuBtn.classList.remove('menu-button-active');
       }
     };
 
@@ -71,6 +80,8 @@ export class Menu {
           document.body.style.overflow = 'auto';
         }, 500);
         document.removeEventListener('click', closeOnClickOutside);
+        const menuBtn = document.getElementById(menuId);
+        if (menuBtn) menuBtn.classList.remove('menu-button-active');
       });
     }
 
