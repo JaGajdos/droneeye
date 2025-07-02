@@ -32,6 +32,9 @@ export class Menu {
       sectionLink.forEach((sl) =>
         sl.addEventListener('click', (e) => {
           e.preventDefault();
+          // Pridaj hash do URL podľa menuId
+          const hash = menuId.replace('-button', '');
+          window.location.hash = hash;
           const allSubpages = document.querySelectorAll('.subpage-container');
           allSubpages.forEach((subpage) => {
             (subpage as HTMLElement).style.transform = 'translateY(100vh)';
