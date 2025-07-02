@@ -98,8 +98,44 @@ const cloudConfigs: [number, number, number, number, number, number, string][] =
   [-18, 7, 190, 20, 10, 0.9, 'cloud2.png']
 ];
 
+// --- SCROLL TO PORTFOLIO TILE LOGIC ---
+function scrollToPortfolioTile(targetId: string) {
+  setTimeout(() => {
+    const container = document.getElementById('subpage-portfolio-container');
+    const tile = document.getElementById(targetId);
+    if (container && tile) {
+      // Scroll the grid container, not the whole page
+      const gridContainer = container.querySelector('.subpage-grid-container');
+      if (gridContainer) {
+        const tileRect = tile.getBoundingClientRect();
+        const gridRect = (gridContainer as HTMLElement).getBoundingClientRect();
+        const scrollTop = (gridContainer as HTMLElement).scrollTop;
+        // Calculate offset relative to grid container
+        const offset = tileRect.top - gridRect.top + scrollTop - 12;
+        (gridContainer as HTMLElement).scrollTo({
+          top: offset,
+          behavior: 'smooth',
+        });
+      } else {
+        // fallback: scroll into view
+        tile.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, 0); // Wait for subpage animation to finish
+}
 
-
+// Add event listeners to service tiles
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[data-portfolio-target]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = (e.currentTarget as HTMLElement).getAttribute('data-portfolio-target');
+      if (targetId) {
+        // Wait for portfolio subpage to open, then scroll
+        setTimeout(() => scrollToPortfolioTile(targetId), 10);
+      }
+    });
+  });
+});
 
 function updateSize() {
   const width = window.innerWidth;

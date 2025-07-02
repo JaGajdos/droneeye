@@ -929,6 +929,14 @@ a:hover {
   width: 2.5em;
   height: 2.5em;
 }
+.balik-title a {
+  text-decoration: none;
+  color: inherit;
+}
+.balik-title a:hover, .balik-title a:active, .balik-title a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 @media (max-width: 600px) {
   .balik-title svg {
     width: 2em;
