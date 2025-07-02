@@ -630,28 +630,6 @@ a:hover {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.logo-switcher {
-  display: flex;
-  gap: 5px;
-  margin-top: 0px;
-  margin-left: 5em;
-}
-
-.logo-switcher button {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ccc;
-  background: rgba(255, 255, 255, 0.8);
-  color: black;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.logo-switcher button:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
 .social-icons {
   display: flex;
   justify-content: center;

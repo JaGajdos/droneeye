@@ -531,18 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
   LanguageService.getInstance();
 });
 
-// Logo switcher functionality
-(window as any).switchLogo = (number: number) => {
-  const mainLogo = document.getElementById('mainLogo') as HTMLImageElement;
-  const loaderImg = document.querySelector('#loaderImg img') as HTMLImageElement;
-  
-  if (mainLogo && loaderImg) {
-    const newSrc = `images/Logo${number}.png`;
-    mainLogo.src = newSrc;
-    loaderImg.src = newSrc;
-  }
-};
-
 (window as any).switchLanguage = (lang: 'sk' | 'en') => {
   const langService = LanguageService.getInstance();
   langService.setLanguage(lang, update3DText);
