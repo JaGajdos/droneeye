@@ -25,6 +25,7 @@ export const messages = {
     ads6: 'Reklamné videá',
     ads7: 'Cestovateľské videá',
     ads8: 'Realitné kancelárie',
+    ads9: 'Poľnohospodárstvo',
     adsS1: 'Hotelierstvo\nNehnuteľnosti\nRealitné kancelárie',
     adsS2: 'Kultúrne podujatia\nEventy',
     adsS3: 'Reklamné videá',
@@ -38,8 +39,8 @@ export const messages = {
     ourServicesTitle: 'Naše služby',
     photographyTitle: 'Fotografovanie',
     droneShotsTitle: 'Letecké zábery dronom',
-    specializationTitle: 'Špecializujeme sa na',
-    ourServices1: 'Máte zábery a chýba vám postprodukcia?',
+    specializationTitle: '📌 Špecializujeme sa na',
+    ourServices1: '✅ Máte zábery a chýba vám postprodukcia?',
     ourServices2: 'Pošlite nám ich - my z nich vytvoríme video, ktoré upúta.',
     ourServices3: 'Strih, farby, hudba, efekty - postaráme sa o všetko.',
 
@@ -62,19 +63,19 @@ export const messages = {
     realEstateAgentTitle: 'Realitný maklér',
     hotelierstvoTitle: 'Hotelierstvo',
     housesTitle: 'Cestovný ruch',
-    planeTitle: 'Zážitkové ubytovanie',
+    agroNextTitle: 'Agro Next',
 
     // Client testimonials
     eventTestimonial:
-      'Spolupráca s Droneye bola výnimočná! Profesionalita a detailná pozornosť, ktorú tím venuje každému kroku, nám pomohla vytvoriť vizuálne príťažlivý a kvalitný obsah. Projekt prebiehal hladko, všetky naše požiadavky boli splnené s vysokou presnosťou a včas. Oceňujeme ich flexibilitu a kreativitu, ktorá výrazne prispela k úspešnému dokončeniu. S radosťou odporúčam Droneye!',
+      'Spolupráca s <b>Droneye</b> bola výnimočná! Profesionalita a detailná pozornosť, ktorú tím venuje každému kroku, nám pomohla vytvoriť vizuálne príťažlivý a kvalitný obsah. Projekt prebiehal hladko, všetky naše požiadavky boli splnené s vysokou presnosťou a včas. Oceňujeme ich flexibilitu a kreativitu, ktorá výrazne prispela k úspešnému dokončeniu. S radosťou <b>odporúčam Droneye!</b>',
     gastronomyTestimonial:
-      'Spolupráca s tímom Droneye bola výborná! Profesionálny prístup a flexibilita pri realizácii projektu mi umožnili vytvoriť kvalitný obsah, ktorý plne zodpovedal požiadavkám klienta. Oceňujem ich schopnosť efektívne komunikovať a vždy reagovať promptne na naše potreby. Vďaka nim sme mohli zabezpečiť hladký priebeh a úspešné dokončenie nášho projektu. Určite sa teším na ďalšiu spoluprácu!',
+      'Spolupráca s <b>Droneye tímom</b> bola výborná! Profesionálny prístup a flexibilita pri realizácii projektu mi umožnili vytvoriť kvalitný obsah, ktorý plne zodpovedal požiadavkám klienta. Oceňujem ich schopnosť efektívne komunikovať a vždy reagovať promptne na naše potreby. Vďaka nim sme mohli zabezpečiť hladký priebeh a úspešné dokončenie nášho projektu. Určite sa <b>teším na ďalšiu spoluprácu!</b>',
     realEstateTestimonial: 'Spolupráca na natáčaní pozemku prebiehala veľmi profesionálne. Využitie dronu prinieslo jedinečné zábery, ktoré dokonale zachytili rozsah pozemku aj jeho okolie, čo pomohlo lepšie predstaviť potenciál celej lokality. Rýchla postprodukcia zabezpečila, že sme mohli video zverejniť včas a efektívne osloviť potenciálnych záujemcov.',
     videoProductionTestimonial: 'Vďaka inovatívnemu a kreatívnemu prístupu k tvorbe obsahu, doplnenému o rýchlu a efektívnu postprodukciu, ako aj využitiu dronu pri natáčaní v Číne, sme zaznamenali výrazný rast sledovanosti a interakcií na našich sociálnych sieťach.',
-    realEstateAgentTestimonial: 'Spolupráca na prezentačnom videu nehnuteľnosti bola na vysokej úrovni. Využitie dronu prinieslo efektné zábery z vtáčej perspektívy, ktoré výrazne zvýšili záujem potenciálnych klientov. Odporúčam ako spoľahlivého partnera pre maklérov, ktorí chcú svoje nehnuteľnosti prezentovať na najvyššej úrovni.',
-    hotelierstvoTestimonial: 'Spolupráca s Droneye predčila naše očakávania. Vizuálna prezentácia hotela, vrátane záberov z dronu, dokonale vystihla atmosféru miesta a jeho jedinečné výhľady. Video nám pomohlo lepšie osloviť nových hostí a výrazne zvýšilo záujem o online rezervácie. Oceňujeme profesionálny prístup, rýchlu komunikáciu a schopnosť vystihnúť presne to, čo náš hotel robí výnimočným. Tešíme sa na ďalšie projekty!',
-    housesTestimonial: '',
-    planeTestimonial: '',
+    realEstateAgentTestimonial: 'Spolupráca na prezentačnom videu nehnuteľnosti bola na vysokej úrovni. Využitie dronu prinieslo efektné zábery z vtáčej perspektívy, ktoré výrazne zvýšili záujem potenciálnych klientov. Odporúčam <b>Droneye</b> ako spoľahlivého partnera pre maklérov, ktorí chcú svoje nehnuteľnosti prezentovať na najvyššej úrovni.',
+    hotelierstvoTestimonial: 'Spolupráca s <b>Droneye</b> predčila naše očakávania. Vizuálna prezentácia hotela, vrátane záberov z dronu, dokonale vystihla atmosféru miesta a jeho jedinečné výhľady. Video nám pomohlo lepšie osloviť nových hostí a výrazne zvýšilo záujem o online rezervácie. Oceňujeme profesionálny prístup, rýchlu komunikáciu a schopnosť vystihnúť presne to, čo náš hotel robí výnimočným. Tešíme sa na ďalšie projekty!',
+    housesTestimonial: 'Spolupráca s <b>Droneye</b> dopadla výborne. Potrebovali sme natočiť materiál, ktorý ukáže naše domčeky tak, ako ich ľudia zažijú – v prírode, s ohňom, tichom a svetlom.<br><br> Droneye spravili krásne <b>dronové zábery</b>, ktoré ukázali celé miesto z výšky. Vidno tam atmosféru, svetlá večer, oheň, prírodu okolo. Zachytili presne to, čo sme chceli – pohodu, ticho, jednoduchý život mimo ruchu.<br><br> Pracovali rýchlo, presne, bez zbytočných rečí. Výsledok má štýl a využijeme ho na webe aj v kampaniach.',
+    agroNextTestimonial: 'Spoločnosť <b>Droneye</b> zabezpečovala pre našu firmu <b>Agro Next</b> kompletné fotografické a video služby počas pracovnej cesty v Číne, zameranej na poľnohospodárske stroje, technológie a procesy v teréne.<br><br>S ich prístupom a výsledkami sme boli mimoriadne spokojní. Tím Droneye pracoval profesionálne, flexibilne a vždy s dôrazom na detail. Zachytili nielen technické aspekty strojov, ale aj atmosféru a dynamiku práce na poli. Ich fotografie majú vysokú kvalitu a dodali našej značke moderný a inovatívny vizuálny obsah.<br><br>Oceňujeme aj ich schopnosť operatívne reagovať na podmienky v teréne a rýchlu postprodukciu. Spolupráca prebehla hladko, komunikácia bola výborná, a celý projekt bol dodaný načas.<br><br>Droneye odporúčame každému, kto hľadá spoľahlivého partnera pre vizuálnu dokumentáciu v náročnom prostredí. Už teraz plánujeme ďalšie spoločné projekty.<br><br>Ďakujeme za skvelú prácu!<br><br><b>Agro Next s.r.o.</b>',
 
     cennikTitle: 'Cenová ponuka',
 
@@ -88,7 +89,7 @@ export const messages = {
     pricingFactor1a: 'používame špičkové stroje od DJI',
     pricingFactor2a: 'počet natáčacích hodín, dostupnosť terénu, potrebné povolenia.',
     pricingFactor3a: 'záleží, či potrebujete len surový materiál alebo kompletný výstup (strih, farebné korekcie, hudba, titulky).',
-    pricingPackagesTitle: 'Naše balíčky',
+    pricingPackagesTitle: '🎁 Naše balíčky',
     pricingPackagesIntro: 'Každý balík je možné prispôsobiť. Uvedené kategórie sú orientačné:',
     package1Title: 'Štandardný záber z výšky',
     package1Desc1: 'Krátke letecké zábery jednej lokality',
@@ -107,7 +108,7 @@ export const messages = {
     package4Desc2: 'Nasadenie FPV pilota a špeciálneho dronu',
     package4Desc3: 'Výstupy vhodné pre reklamu, klipy a prezentácie',
     pricingContactTitle: 'Ako získať cenovú ponuku?',
-    pricingContactText: 'Kontaktujte nás',
+    pricingContactText: '📩 Kontaktujte nás',
     pricingContactList1: 'Kde a kedy chcete natáčať',
     pricingContactList2: 'Na aký účel bude materiál slúžiť',
     pricingContactList3: 'Približný rozsah a vaše očakávania',
@@ -120,9 +121,9 @@ export const messages = {
 
     contactEmail: 'E-mail',
     contactPhone: 'Telefón',
-    contactFormFeatures0: 'Kvalitná technika a profesionálny prístup',
-    contactFormFeatures1: 'Kreativita a dôraz na detaily',
-    contactFormFeatures2: 'Rýchle dodanie a individuálny prístup',
+    contactFormFeatures0: '✅ Kvalitná technika a profesionálny prístup',
+    contactFormFeatures1: '✅ Kreativita a dôraz na detaily',
+    contactFormFeatures2: '✅ Rýchle dodanie a individuálny prístup',
 
     contactFormCTA: '📩 Kontaktujte nás – váš príbeh začína tu.',
     name: 'Meno:',
@@ -133,6 +134,24 @@ export const messages = {
     sendSuccess: 'Ďakujeme, čoskoro Vás budeme kontaktovať.',
     sendError:
       'Pri odoslaní nastala chyba, prosím skúste ešte raz. Pokiaľ chyba pretrváva prosím kontaktujte nás na email: ...',
+
+    // Legislatíva subpage
+    legisTitle: 'Legislatíva a bezpečnosť',
+    legisIntro: 'Každý let s dronom prebieha v súlade s legislatívou danej krajiny a s dôrazom na bezpečnosť a profesionalitu. Sme plne vybavení na to, aby sme zabezpečili legálne a spoľahlivé letecké práce v rôznych krajinách – či už ide o marketingové zábery, technické inšpekcie alebo špeciálne lety v riadenom vzdušnom priestore.',
+    legisWhatTitle: '✅ Čo zabezpečujeme pre legálny a bezpečný let',
+    legisWhat1: '✔ <b>Registrované drony a piloti</b><br>Všetky naše drony sú riadne registrované a piloti disponujú certifikáciami podľa legislatívy krajiny, v ktorej pracujeme – napríklad podľa nariadení <b>EASA v rámci EÚ</b> alebo miestnych úradov mimo EÚ.',
+    legisWhat2: '✔ <b>Platné poistenie zodpovednosti</b><br>Prevádzka každého dronu je krytá poistením zodpovednosti za škodu, aby bol klient plne chránený v prípade nečakaných udalostí.',
+    legisWhat3: '✔ <b>Legálne povolenia a notifikácie</b><br>Pri špecifických zákazkách (napr. lety v blízkosti letísk, nad ľuďmi, v obciach alebo v priemyselných areáloch) vybavujeme všetky potrebné povolenia či notifikácie miestnym leteckým úradom alebo iným regulačným orgánom.',
+    legisWhat4: '✔ <b>Riziková analýza a bezpečnostné protokoly</b><br>Pre technicky alebo legislatívne náročné lety vypracovávame analýzu rizík a bezpečnostný plán. V prípade potreby pracujeme v súlade s metodikami ako SORA (Specific Operations Risk Assessment).',
+    legisExperienceTitle: '🌍 Naše skúsenosti z viacerých krajín',
+    legisExperience: 'Realizovali sme natáčania a technické lety v rôznych legislatívnych podmienkach – od horských oblastí cez historické centrá miest až po prístavy, letiská či chránené územia. Spolupracujeme so špecialistami na legislatívu v jednotlivých štátoch, vďaka čomu vieme flexibilne reagovať na miestne podmienky a zabezpečiť plnú legislatívnu podporu – bez komplikácií pre klienta.',
+    legisWhyTitle: '📌 Prečo je to pre vás dôležité',
+    legisWhy1: '✅ Máte istotu, že let prebehne legálne',
+    legisWhy2: '✅ Všetky riziká sú vopred vyhodnotené',
+    legisWhy3: '✅ Vaša značka bude spojená s profesionálnym a bezpečným výstupom',
+    legisWhy4: '✅ Nepotrebujete riešiť žiadne povolenia – všetko vybavíme za vás',
+    legisContactTitle: 'Chcete vedieť, ako to funguje vo vašej krajine alebo pre konkrétny projekt?',
+    legisContactText: 'Radi vám vysvetlíme legislatívne podmienky a pripravíme plán letu aj s povoleniami – stačí, ak nám napíšete, kde a čo chcete natáčať.',
   },
   en: {
     // Navigation
@@ -160,6 +179,7 @@ export const messages = {
     ads6: 'Commercial Videos',
     ads7: 'Travel Videos',
     ads8: 'Real Estate Agencies',
+    ads9: 'Agriculture',
     adsS1: 'Hospitality\nReal Estate\nReal Estate Agencies',
     adsS2: 'Cultural Events\nEvents',
     adsS3: 'Commercial Videos',
@@ -173,7 +193,11 @@ export const messages = {
     ourServicesTitle: 'Our Services',
     photographyTitle: 'Photography',
     droneShotsTitle: 'Drone Shots',
-    specializationTitle: 'We Specialize In',
+    specializationTitle: '📌 We Specialize In',
+
+    ourServices1: '✅ Do you have footage but lack post-production?',
+    ourServices2: 'Send it to us – we’ll turn it into an attention-grabbing video.',
+    ourServices3: 'Editing, color grading, music, effects – we’ll handle it all.',
 
     // Sluzby section
     sluzbyTitle: 'Services',
@@ -194,25 +218,25 @@ export const messages = {
     realEstateAgentTitle: 'Real Estate Agent',
     hotelierstvoTitle: 'Hotel industry',
     housesTitle: 'Tourism',
-    planeTitle: 'Unique accommodation',
+    agroNextTitle: 'Agro Next',
 
     // Client testimonials
     eventTestimonial:
-      'Working with Droneye was exceptional! The professionalism and detailed attention the team dedicates to every step helped us create visually appealing and quality content. The project ran smoothly, all our requirements were met with high precision and on time. We appreciate their flexibility and creativity, which significantly contributed to successful completion. I gladly recommend Droneye!',
+      'Working with <b>Droneye</b> was exceptional! The professionalism and detailed attention the team dedicates to every step helped us create visually appealing and quality content. The project ran smoothly, all our requirements were met with high precision and on time. We appreciate their flexibility and creativity, which significantly contributed to successful completion. I gladly recommend Droneye!',
     gastronomyTestimonial:
-      "Working with the Droneye team was excellent! Their professional approach and flexibility during project implementation allowed me to create quality content that fully met client requirements. I appreciate their ability to communicate effectively and always respond promptly to our needs. Thanks to them, we were able to ensure smooth progress and successful completion of our project. I'm definitely looking forward to future collaboration!",
+      "Working with the <b>Droneye team</b> was excellent! Their professional approach and flexibility during project implementation allowed me to create quality content that fully met client requirements. I appreciate their ability to communicate effectively and always respond promptly to our needs. Thanks to them, we were able to ensure smooth progress and successful completion of our project. I'm definitely <b>looking forward to future collaboration!</b>",
     realEstateTestimonial: 'The collaboration on filming the property was conducted very professionally. The use of a drone provided unique footage that perfectly captured the scale of the property and its surroundings, helping to better showcase the potential of the entire location. The fast post-production ensured that we were able to publish the video on time and effectively reach potential buyers',
     videoProductionTestimonial: 'Thanks to our innovative and creative approach to content creation, complemented by fast and efficient post-production and the use of drones for filming in China, we have seen a significant increase in viewership and engagement on our social media platforms.',
-    realEstateAgentTestimonial: 'The collaboration on the real estate presentation video was of a high standard. The use of a drone provided impressive bird’s-eye views that significantly increased interest from potential clients. I recommend them as a reliable partner for real estate agents who want to showcase their properties at the highest level.',
-    hotelierstvoTestimonial: 'Working with Droneye exceeded our expectations. The visual presentation of the hotel, including aerial drone footage, perfectly captured the atmosphere of the place and its unique views. The video helped us reach new guests more effectively and significantly increased interest in online bookings. We appreciate their professional approach, quick communication, and ability to highlight exactly what makes our hotel special. We look forward to future projects!',
-    housesTestimonial: '',
-    planeTestimonial: '',
+    realEstateAgentTestimonial: 'The collaboration on the real estate presentation video was of a high standard. The use of a drone provided impressive bird’s-eye views that significantly increased interest from potential clients. I recommend <b>Droneye</b> them as a reliable partner for real estate agents who want to showcase their properties at the highest level.',
+    hotelierstvoTestimonial: 'Working with <b>Droneye</b> exceeded our expectations. The visual presentation of the hotel, including aerial drone footage, perfectly captured the atmosphere of the place and its unique views. The video helped us reach new guests more effectively and significantly increased interest in online bookings. We appreciate their professional approach, quick communication, and ability to highlight exactly what makes our hotel special. We look forward to future projects!',
+    housesTestimonial: 'The collaboration with <b>Droneye</b> turned out excellent. We needed to film material that would show our houses as people truly experience them – in nature, with fire, silence, and light.<br><br> Droneye created beautiful <b>drone shots</b> that showed the entire place from above. You can see the atmosphere, the evening lights, the fire, the surrounding nature. They captured exactly what we wanted – tranquility, silence, and the simple life away from the hustle and bustle.<br><br> They worked quickly, precisely, without unnecessary talk. The result has style, and we will use it on our website as well as in our campaigns.',
+    agroNextTestimonial: 'The company <b>Droneye</b> provided our company <b>Agro Next</b> with comprehensive photography and video services during our business trip to China, focused on agricultural machinery, technologies, and processes in the field.<br><br>We were extremely satisfied with their approach and results. The Droneye team worked professionally, flexibly, and always with attention to detail. They captured not only the technical aspects of the machines but also the atmosphere and dynamics of work in the field. Their photos are of high quality and delivered modern and innovative visual content for our brand.<br><br>We also appreciate their ability to quickly adapt to conditions in the field and their fast post-production. The cooperation went smoothly, communication was excellent, and the entire project was delivered on time.<br><br>We recommend Droneye to anyone looking for a reliable partner for visual documentation in demanding environments. We are already planning further joint projects.<br><br>Thank you for the great work!<br><br><b>Agro Next s.r.o.</b>',
 
     cennikTitle: 'Pricing',
 
     // Pricing page content
     pricingIntroTitle: 'Pricing for our drone services',
-    pricingIntroText: 'Every project is unique – and that\'s why the price of our services is created individually based on your needs. We have created several indicative packages to help you get oriented, but we will be happy to prepare the final price tailored to your requirements.',
+    pricingIntroText: 'Every project is unique – and thats why the price of our services is created individually based on your needs. We have created several indicative packages to help you get oriented, but we will be happy to prepare the final price tailored to your requirements.',
     pricingFactorsTitle: 'What affects the price?',
     pricingFactor1: 'Drone type and technology',
     pricingFactor2: 'Complexity and location',
@@ -220,7 +244,7 @@ export const messages = {
     pricingFactor1a: 'we use top-of-the-line DJI machines',
     pricingFactor2a: 'number of filming hours, terrain accessibility, required permits.',
     pricingFactor3a: 'depends on whether you need just raw material or complete output (editing, color corrections, music, subtitles).',
-    pricingPackagesTitle: 'Our packages',
+    pricingPackagesTitle: '🎁 Our packages',
     pricingPackagesIntro: 'Each package can be customized. The listed categories are indicative:',
     package1Title: 'Standard aerial shot',
     package1Desc1: 'Short aerial shots of one location',
@@ -239,7 +263,7 @@ export const messages = {
     package4Desc2: 'Deployment of FPV pilot and special drone',
     package4Desc3: 'Outputs suitable for advertising, clips and presentations',
     pricingContactTitle: 'How to get a price quote?',
-    pricingContactText: 'Contact us',
+    pricingContactText: '📩 Contact us',
     pricingContactList1: 'Where and when you want to film',
     pricingContactList2: 'What purpose the material will serve',
     pricingContactList3: 'Approximate scope and your expectations',
@@ -249,9 +273,9 @@ export const messages = {
 
     // Contact form
     contactFormTitle: 'Why choose me?',
-    contactFormFeatures0: 'Quality equipment and professional approach',
-    contactFormFeatures1: 'Creativity and attention to detail',
-    contactFormFeatures2: 'Fast delivery and individual approach',
+    contactFormFeatures0: '✅ Quality equipment and professional approach',
+    contactFormFeatures1: '✅ Creativity and attention to detail',
+    contactFormFeatures2: '✅ Fast delivery and individual approach',
 
     contactFormCTA: '📩 Contact us - your story starts here.',
     name: 'Name:',
@@ -262,5 +286,23 @@ export const messages = {
     sendSuccess: 'Thank You, we will contact you soon.',
     sendError:
       'An error occurred while sending, please try again. If the error persists, please contact us at email: ...',
+
+    // Legislation subpage (EN)
+    legisTitle: 'Legislation and safety',
+    legisIntro: 'Every drone flight is conducted in accordance with the legislation of the respective country, with an emphasis on safety and professionalism. We are fully equipped to ensure legal and reliable aerial work in various countries – whether it is marketing footage, technical inspections, or special flights in controlled airspace.',
+    legisWhatTitle: '✅ What we ensure for a legal and safe flight',
+    legisWhat1: '✔ <b>Registered drones and pilots</b><br>All our drones are properly registered and our pilots hold certifications according to the legislation of the country in which we operate – for example, according to <b>EASA regulations within the EU</b> or local authorities outside the EU.',
+    legisWhat2: '✔ <b>Valid liability insurance</b><br>The operation of each drone is covered by liability insurance, so the client is fully protected in case of unexpected events.',
+    legisWhat3: '✔ <b>Legal permits and notifications</b><br>For specific assignments (e.g. flights near airports, over people, in towns or industrial areas), we arrange all necessary permits or notifications with local aviation authorities or other regulatory bodies.',
+    legisWhat4: '✔ <b>Risk analysis and safety protocols</b><br>For technically or legislatively demanding flights, we prepare a risk analysis and safety plan. If necessary, we work in accordance with methodologies such as SORA (Specific Operations Risk Assessment).',
+    legisExperienceTitle: '🌍 Our experience from multiple countries',
+    legisExperience: 'We have carried out filming and technical flights in various legislative conditions – from mountain areas through historic city centers to ports, airports, or protected areas. We cooperate with legislation specialists in individual countries, which allows us to flexibly respond to local conditions and provide full legislative support – without complications for the client.',
+    legisWhyTitle: '📌 Why is this important for you',
+    legisWhy1: '✅ You have the assurance that the flight will be legal',
+    legisWhy2: '✅ All risks are assessed in advance',
+    legisWhy3: '✅ Your brand will be associated with a professional and safe result',
+    legisWhy4: '✅ You do not need to deal with any permits – we handle everything for you',
+    legisContactTitle: 'Want to know how it works in your country or for a specific project?',
+    legisContactText: 'We will be happy to explain the legislative conditions and prepare a flight plan with permits – just let us know where and what you want to film.',
   },
 };

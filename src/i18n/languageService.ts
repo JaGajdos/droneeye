@@ -34,7 +34,7 @@ export class LanguageService {
     document.querySelectorAll('[data-i18n]').forEach((element) => {
       const key = element.getAttribute('data-i18n');
       if (key) {
-        element.textContent = this.getMessage(key);
+        element.innerHTML = this.getMessage(key);
       }
     });
   }

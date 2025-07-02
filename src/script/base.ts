@@ -10,8 +10,8 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 let positionOnCurve = 0;
 let speed = 0;
 let curve: THREE.CatmullRomCurve3;
-const dampingFactor = 0.95;
-const accelerationFactor = 0.1 * 0.0005;
+const dampingFactor = 0.96;
+const accelerationFactor = 0.1 * 0.0009;
 let loadingManager: THREE.LoadingManager;
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
@@ -547,3 +547,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const langService = LanguageService.getInstance();
   langService.setLanguage(lang, update3DText);
 }
+
+// Add hash to URL when menu button is clicked
+['sluzby', 'portfolio', 'cennik', 'legislativa', 'about'].forEach(key => {
+  const btn = document.getElementById(`${key}-button`);
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.location.hash = key;
+    });
+  }
+});
