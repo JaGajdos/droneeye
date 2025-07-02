@@ -135,6 +135,28 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Univerzálna rozklikávacia logika pre všetky .service-balik-tile
+  document.querySelectorAll('.service-balik-tile').forEach(tile => {
+    const title = tile.querySelector('.expandable-title') as HTMLElement | null;
+    const content = tile.querySelector('.expandable-content') as HTMLElement | null;
+    if (title && content) {
+      title.addEventListener('click', () => {
+        const isOpen = content.style.display === 'block';
+        if (isOpen) {
+          content.style.maxHeight = '0px';
+          setTimeout(() => { content.style.display = 'none'; }, 200);
+        } else {
+          content.style.display = 'block';
+          content.style.maxHeight = '0px';
+          setTimeout(() => { content.style.maxHeight = '300px'; }, 10);
+        }
+      });
+      content.style.overflow = 'hidden';
+      content.style.transition = 'max-height 0.2s ease';
+      content.style.maxHeight = '0px';
+    }
+  });
 });
 
 function updateSize() {

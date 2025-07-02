@@ -986,8 +986,8 @@ a:hover {
 }
 
 .list-center {
-  text-align:left; 
-  display:inline-block; 
+  text-align: center; 
+  display: inline-block; 
   margin: 1em auto 1em auto;
 }
 
@@ -1009,4 +1009,16 @@ a:hover {
     height: 2em;
     margin-right: 0.5em;
   }
+}
+
+.expandable-content {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+  max-height: 0px;
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5em 0.7em 0.7em 0.7em;
+  box-sizing: border-box;
 }
