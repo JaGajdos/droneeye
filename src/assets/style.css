@@ -179,11 +179,6 @@ a:hover {
   transform: translateY(20px);
 }
 
-.menu-button.ready {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .hamburger {
   display: none;
   flex-direction: column;
