@@ -557,3 +557,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Otvorí podstránku podľa hash v URL
+function openSubpageByHash() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  const btn = document.getElementById(`${hash}-button`);
+  if (btn) {
+    (btn as HTMLElement).click();
+  }
+}
+
+window.addEventListener('hashchange', openSubpageByHash);
+document.addEventListener('DOMContentLoaded', openSubpageByHash);
