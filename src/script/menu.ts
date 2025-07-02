@@ -62,8 +62,8 @@ export class Menu {
       }
       if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
         subpageContainer.style.transform = 'translateY(100vh)';
-        // Odstráni hash z URL
-        history.replaceState(null, '', window.location.pathname + window.location.search);
+        // Použijeme pushState namiesto replaceState
+        history.pushState(null, '', window.location.pathname + window.location.search);
         this.isSubpageOpen = false;
         console.log('closeOutside: ' + menuId);
         setTimeout(() => {
@@ -80,8 +80,8 @@ export class Menu {
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         subpageContainer.style.transform = 'translateY(100vh)';
-        // Odstráni hash z URL
-        history.replaceState(null, '', window.location.pathname + window.location.search);
+        // Použijeme pushState namiesto replaceState
+        history.pushState(null, '', window.location.pathname + window.location.search);
         this.isSubpageOpen = false;
         setTimeout(() => {
           document.body.style.overflow = 'auto';

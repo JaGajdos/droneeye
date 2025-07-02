@@ -585,7 +585,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // Otvorí podstránku podľa hash v URL
 function openSubpageByHash() {
   const hash = window.location.hash.replace('#', '');
-  if (!hash) return;
+  if (!hash) {
+    // Ak hash je prázdny, zavri všetky podstránky
+    document.querySelectorAll('.subpage-container').forEach((subpage) => {
+      (subpage as HTMLElement).style.transform = 'translateY(100vh)';
+    });
+    document.body.style.overflow = 'auto';
+    document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('menu-button-active'));
+    return;
+  }
   const btn = document.getElementById(`${hash}-button`);
   if (btn) {
     (btn as HTMLElement).click();
