@@ -1,32 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="sk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 
-    <title>DRONEYE - We see what You want to see</title>
+    <title>Profesionálne dronové služby | DRONEYE</title>
+    <meta name="description" content="Profesionálne letecké zábery, video produkcia, fotografovanie a postprodukcia. Dronové služby pre nehnuteľnosti, eventy, reklamu a viac.">
+    <meta name="keywords" content="dron, letecké zábery, video produkcia, fotografovanie, nehnuteľnosti, eventy, reklama, Slovensko, Droneye">
     <script src="https://www.youtube.com/iframe_api"></script>
     <link rel="stylesheet" href="src/assets/style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Droneye",
+      "image": "https://www.droneye.sk/images/Logo.png",
+      "telephone": "+421950614303",
+      "email": "info@droneye.sk",
+      "url": "https://www.droneye.sk/",
+      "description": "Profesionálne dronové služby – letecké zábery, video produkcia, fotografovanie, postprodukcia."
+    }
+    </script>
+    <meta property="og:title" content="Profesionálne dronové služby | DRONEYE">
+    <meta property="og:description" content="Profesionálne letecké zábery, video produkcia, fotografovanie a postprodukcia.">
+    <meta property="og:image" content="https://www.droneye.sk/images/Logo.png">
+    <meta property="og:url" content="https://www.droneye.sk/">
+    <link rel="manifest" href="src/assets/manifest.json">
   </head>
   <body>
     <div id="menu">
       <nav class="menu">
         <div class="flex-auto padding2tlb logo">
           <div class="logo-link">
-            <a id="topLogo" style="opacity: 0" href="/">
-              <img id="mainLogo" src="src/assets/images/Logo.png" />
+            <a id="topLogo" style="opacity: 0" href="/" aria-label="Domov - Droneye">
+              <img id="mainLogo" src="src/assets/images/Logo.png" alt="Logo Droneye - profesionálne dronové služby" loading="lazy" />
             </a>
             
           </div>
         </div>
-        <div class="desktop-menu-item margin10tlr" data-lang="sk">
-          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('sk')" >SK</a>
-          <!-- <img src="src/assets/images/sk.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('sk')" /> -->
+        <div class="desktop-menu-item margin10tlr" data-lang="sk" style="display: none;">
+          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('sk')" aria-label="Prepnúť jazyk na slovenčinu">SK</a>
         </div>
         <div class="desktop-menu-item margin10tlr" data-lang="en">
-          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" >EN</a>
-          <!-- <img src="src/assets/images/en.png" onclick="event.preventDefault(); LanguageService.getInstance().setLanguage('en')" /> -->
+          <a class="bold-base" style="cursor: pointer;" onclick="event.preventDefault(); switchLanguage('en')" aria-label="Switch language to English">EN</a>
         </div>
         <div id="sluzby-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
           <a href="#" class="bold-base" data-i18n="sluzby">Služby</a>
@@ -72,7 +89,7 @@
     <div id="audio">
       <div id="audio-control">
         <button id="toggleAudio" class="audio-btn">
-          <img src="images/sound-on.svg" alt="Toggle sound" id="soundIcon" />
+          <img src="images/sound-on.svg" alt="Prepnúť zvuk" id="soundIcon" loading="lazy" />
         </button>
       </div>
       
@@ -80,7 +97,7 @@
 
     <div id="loader">
       <a id="loaderImg">
-        <img class="animate-image" src="src/assets/images/Logo.png" />
+        <img class="animate-image" src="src/assets/images/Logo.png" alt="Logo Droneye - animácia načítania" loading="lazy" />
       </a>
       <div class="loaderText" id="loaderSubtext">
         <span class="bold-base" data-i18n="loaderText">We see what you want to see</span>
@@ -98,8 +115,8 @@
     <div id="subpage-sluzby-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closeSluzby" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="sluzbyTitle">Služby</h2>
+          <div class="subpage-close-btn"><button id="closeSluzby">×</button></div>
+          <h1 class="subpage-title" data-i18n="sluzbyTitle">Služby</h1>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
@@ -109,7 +126,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <span class="expandable-title" id="video-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/video.svg" alt="Video produkcia a tvorba reklamných - promo videí" class="balik-icon" />
+                      <img src="src/assets/icons/video.svg" alt="Ikona - Video produkcia a promo videá" class="balik-icon" loading="lazy" />
                       <span data-i18n="videoProductionTitle">Video produkcia a tvorba reklamných - promo videí</span>
                     </span>
                   </div>
@@ -120,7 +137,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <span class="expandable-title" id="photography-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/camera.svg" alt="Fotografovanie" class="balik-icon" />
+                      <img src="src/assets/icons/camera.svg" alt="Ikona - Fotografovanie" class="balik-icon" loading="lazy" />
                       <span data-i18n="photographyTitle">Fotografovanie</span>
                     </span>
                   </div>
@@ -131,7 +148,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <span class="expandable-title" id="drone-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/droneshot.svg" alt="Letecké zábery dronom" class="balik-icon" />
+                      <img src="src/assets/icons/droneshot.svg" alt="Ikona - Letecké zábery dronom" class="balik-icon" loading="lazy" />
                       <span data-i18n="droneShotsTitle">Letecké zábery dronom</span>
                     </span>
                   </div>
@@ -155,7 +172,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-real-estate">
-                      <img src="src/assets/icons/house.svg" alt="Nehnuteľnosti" class="balik-icon" />
+                      <img src="src/assets/icons/house.svg" alt="Ikona - Nehnuteľnosti" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads2">Nehnuteľnosti</span>
                     </a>
                   </div>
@@ -163,7 +180,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-events">
-                      <img src="src/assets/icons/event.svg" alt="Eventy" class="balik-icon" />
+                      <img src="src/assets/icons/event.svg" alt="Ikona - Eventy" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads3">Eventy</span>
                     </a>
                   </div>
@@ -171,7 +188,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-hotel">
-                      <img src="src/assets/icons/hotel.svg" alt="Hotelierstvo" class="balik-icon" />
+                      <img src="src/assets/icons/hotel.svg" alt="Ikona - Hotelierstvo" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads4">Hotelierstvo</span>
                     </a>
                   </div>
@@ -179,7 +196,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-video">
-                      <img src="src/assets/icons/culture.svg" alt="Kultúrne podujatia" class="balik-icon" />
+                      <img src="src/assets/icons/culture.svg" alt="Ikona - Kultúrne podujatia" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads5">Kultúrne podujatia</span>
                     </a>
                   </div>
@@ -187,7 +204,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-gastronomy">
-                      <img src="src/assets/icons/advertising.svg" alt="Reklamné videá" class="balik-icon" />
+                      <img src="src/assets/icons/advertising.svg" alt="Ikona - Reklamné videá" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads6">Reklamné videá</span>
                     </a>
                   </div>
@@ -195,7 +212,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-houses">
-                      <img src="src/assets/icons/travel.svg" alt="Cestovateľské videá" class="balik-icon" />
+                      <img src="src/assets/icons/travel.svg" alt="Ikona - Cestovateľské videá" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads7">Cestovateľské videá</span>
                     </a>
                   </div>
@@ -203,7 +220,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-real-estate-agent">
-                      <img src="src/assets/icons/realEstate.svg" alt="Realitné kancelárie" class="balik-icon" />
+                      <img src="src/assets/icons/realEstate.svg" alt="Ikona - Realitné kancelárie" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads8">Realitné kancelárie</span>
                     </a>
                   </div>
@@ -211,7 +228,7 @@
                 <div class="service-balik-tile">
                   <div class="balik-title">
                     <a href="#portfolio" data-portfolio-target="portfolio-agro">
-                      <img src="src/assets/icons/agro.svg" alt="Poľnohospodárstvo" class="balik-icon" />
+                      <img src="src/assets/icons/agro.svg" alt="Ikona - Poľnohospodárstvo" class="balik-icon" loading="lazy" />
                       <span data-i18n="ads9">Poľnohospodárstvo</span>
                     </a>
                   </div>
@@ -222,13 +239,13 @@
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
-            <img src="src/assets/images/instagram.png" alt="Instagram" />
+            <img src="src/assets/images/instagram.png" alt="Instagram Droneye" loading="lazy" />
           </a>
           <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
-            <img src="src/assets/images/facebook.png" alt="Facebook" />
+            <img src="src/assets/images/facebook.png" alt="Facebook Droneye" loading="lazy" />
           </a>
           <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
-            <img src="src/assets/images/youtube.png" alt="YouTube" />
+            <img src="src/assets/images/youtube.png" alt="YouTube Droneye" loading="lazy" />
           </a>
         </div>
       </div>      
@@ -237,14 +254,14 @@
     <div id="subpage-portfolio-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closePortfolio" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="portfolioTitle">Portfólio</h2>
+          <div class="subpage-close-btn"><button id="closePortfolio">×</button></div>
+          <h1 class="subpage-title" data-i18n="portfolioTitle">Portfólio</h1>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid">
             <div class="subpage-item" id="portfolio-real-estate">
               <h3 data-i18n="realEstateTitle">Nehnuteľnosti z dronu</h3>
-              <img src="src/assets/images/slovakestate.webp" alt="Nehnuteľnosti z dronu" class="client-category-image" />
+              <img src="src/assets/images/slovakestate.webp" alt="Letecký záber nehnuteľnosti z dronu - Slovakestate" class="client-category-image" loading="lazy" />
               <p>
                 <a href="https://slovakestate.com" target="_blank">https://slovakestate.com</a>
                 <br /><br />
@@ -254,7 +271,7 @@
             </div>
             <div class="subpage-item" id="portfolio-events">
               <h3 data-i18n="eventsTitle">Dokumentácia eventov</h3>
-              <img src="src/assets/images/events.jpg" alt="Dokumentácia eventov" class="client-category-image" />
+              <img src="src/assets/images/events.jpg" alt="Dokumentácia eventov - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <a
                   href="https://www.poprad.sk/novinka/673/majstrovstva-slovenska-v-latinskoamerickych-tancoch-2022"
@@ -267,7 +284,7 @@
             </div>
             <div class="subpage-item" id="portfolio-video">
               <h3 data-i18n="videoProductionTitle">Video produkcia a tvorba reklamných - promo videí</h3>
-              <img src="src/assets/images/video-production.jpg" alt="Video produkcia a tvorba reklamných - promo videí" class="client-category-image" />
+              <img src="src/assets/images/video-production.jpg" alt="Video produkcia a promo videá - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p><a href="https://zciny.sk" target="_blank">https://zciny.sk</a>
                 <br /><br />
                 <span data-i18n="videoProductionTestimonial">Vďaka inovatívnemu a kreatívnemu prístupu k tvorbe obsahu, doplnenému o rýchlu a efektívnu postprodukciu, ako aj využitiu dronu pri natáčaní v Číne, sme zaznamenali výrazný rast sledovanosti a interakcií na našich sociálnych sieťach.</span>
@@ -276,7 +293,7 @@
             </div>
             <div class="subpage-item" id="portfolio-gastronomy">
               <h3 data-i18n="gastronomyTitle">Gastronómia</h3>
-              <img src="src/assets/images/gastronomy.jpg" alt="Gastronómia" class="client-category-image" />
+              <img src="src/assets/images/gastronomy.jpg" alt="Gastronómia - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <a href="https://www.hoshisushi.sk" target="_blank">https://www.hoshisushi.sk</a>
                 <br /><br />
@@ -286,7 +303,7 @@
             </div>
             <div class="subpage-item" id="portfolio-real-estate-agent">
               <h3 data-i18n="realEstateAgentTitle">Realitný maklér</h3>
-              <img src="src/assets/images/real-estate-agent.jpg" alt="Realitný maklér" class="client-category-image" />
+              <img src="src/assets/images/real-estate-agent.jpg" alt="Realitný maklér - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <a href="https://www.youtube.com/watch?v=gYIQa0bft6w" target="_blank"
                   >https://www.youtube.com/watch?v=gYIQa0bft6w</a
@@ -297,7 +314,7 @@
             </div>
             <div class="subpage-item" id="portfolio-hotel">
               <h3 data-i18n="hotelierstvoTitle">Hotelierstvo</h3>
-              <img src="src/assets/images/hotels.jpg" alt="Hotelierstvo" class="client-category-image" />
+              <img src="src/assets/images/hotels.jpg" alt="Hotelierstvo - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <a href="https://www.tatrahotel.com" target="_blank"
                   >https://www.tatrahotel.com</a
@@ -308,7 +325,7 @@
             </div>
             <div class="subpage-item" id="portfolio-houses">
               <h3 data-i18n="housesTitle">Cestovný ruch</h3>
-              <img src="src/assets/images/houses.jpeg" alt="Cestovný ruch" class="client-category-image" />
+              <img src="src/assets/images/houses.jpeg" alt="Cestovný ruch - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <a href="https://skandinavskedomceky.sk" target="_blank">https://skandinavskedomceky.sk</a>
                 <br /><br />
@@ -318,7 +335,7 @@
             </div>
             <div class="subpage-item" id="portfolio-agro">
               <h3 data-i18n="agroNextTitle">Agro Next</h3>
-              <img src="src/assets/images/agronext.jpg" alt="Agro Next" class="client-category-image" />
+              <img src="src/assets/images/agronext.jpg" alt="Agro Next - ukážka práce Droneye" class="client-category-image" loading="lazy" />
               <p>
                 <span data-i18n="agroNextTestimonial">Spoločnosť <b>Droneye</b> zabezpečovala pre našu firmu <b>Agro Next</b> kompletné fotografické a video služby počas pracovnej cesty v Číne, zameranej na poľnohospodárske stroje, technológie a procesy v teréne.<br><br>S ich prístupom a výsledkami sme boli mimoriadne spokojní. Tím Droneye pracoval profesionálne, flexibilne a vždy s dôrazom na detail. Zachytili nielen technické aspekty strojov, ale aj atmosféru a dynamiku práce na poli. Ich fotografie majú vysokú kvalitu a dodali našej značke moderný a inovatívny vizuálny obsah.<br><br>Oceňujeme aj ich schopnosť operatívne reagovať na podmienky v teréne a rýchlu postprodukciu. Spolupráca prebehla hladko, komunikácia bola výborná, a celý projekt bol dodaný načas.<br><br>Droneye odporúčame každému, kto hľadá spoľahlivého partnera pre vizuálnu dokumentáciu v náročnom prostredí. Už teraz plánujeme ďalšie spoločné projekty.<br><br>Ďakujeme za skvelú prácu!<br><br><b>Agro Next s.r.o.</b></span>
               </p>
@@ -328,13 +345,13 @@
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
-            <img src="src/assets/images/instagram.png" alt="Instagram" />
+            <img src="src/assets/images/instagram.png" alt="Instagram Droneye" loading="lazy" />
           </a>
           <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
-            <img src="src/assets/images/facebook.png" alt="Facebook" />
+            <img src="src/assets/images/facebook.png" alt="Facebook Droneye" loading="lazy" />
           </a>
           <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
-            <img src="src/assets/images/youtube.png" alt="YouTube" />
+            <img src="src/assets/images/youtube.png" alt="YouTube Droneye" loading="lazy" />
           </a>
         </div>
       </div>      
@@ -343,8 +360,8 @@
     <div id="subpage-cennik-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closeCennik" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="cennikTitle">Cenová ponuka</h2>
+          <div class="subpage-close-btn"><button id="closeCennik">×</button></div>
+          <h1 class="subpage-title" data-i18n="cennikTitle">Cenová ponuka</h1>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
@@ -408,13 +425,13 @@
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
-            <img src="src/assets/images/instagram.png" alt="Instagram" />
+            <img src="src/assets/images/instagram.png" alt="Instagram Droneye" loading="lazy" />
           </a>
           <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
-            <img src="src/assets/images/facebook.png" alt="Facebook" />
+            <img src="src/assets/images/facebook.png" alt="Facebook Droneye" loading="lazy" />
           </a>
           <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
-            <img src="src/assets/images/youtube.png" alt="YouTube" />
+            <img src="src/assets/images/youtube.png" alt="YouTube Droneye" loading="lazy" />
           </a>
         </div>
       </div>      
@@ -423,8 +440,8 @@
     <div id="subpage-legislativa-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closeLegislativa" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="legislativaTitle">Legislatíva</h2>
+          <div class="subpage-close-btn"><button id="closeLegislativa">×</button></div>
+          <h1 class="subpage-title" data-i18n="legislativaTitle">Legislatíva</h1>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
@@ -457,13 +474,13 @@
         </div>
         <div class="social-icons">
           <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
-            <img src="src/assets/images/instagram.png" alt="Instagram" />
+            <img src="src/assets/images/instagram.png" alt="Instagram Droneye" loading="lazy" />
           </a>
           <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
-            <img src="src/assets/images/facebook.png" alt="Facebook" />
+            <img src="src/assets/images/facebook.png" alt="Facebook Droneye" loading="lazy" />
           </a>
           <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
-            <img src="src/assets/images/youtube.png" alt="YouTube" />
+            <img src="src/assets/images/youtube.png" alt="YouTube Droneye" loading="lazy" />
           </a>
         </div>
       </div>      
@@ -472,8 +489,8 @@
     <div id="subpage-about-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
-          <button id="closeAbout" class="subpage-close-btn">×</button>
-          <h2 class="subpage-title" data-i18n="contact">Kontakt</h2>
+          <div class="subpage-close-btn"><button id="closeAbout">×</button></div>
+          <h1 class="subpage-title" data-i18n="contact">Kontakt</h1>
         </div>
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
@@ -482,13 +499,13 @@
                   <span class="contact-email"><span data-i18n="contactEmail">E-mail</span>: <a href="mailto:info@droneye.sk"><b>info@droneye.sk</b></a></span>
                   <div class="social-icons-contact">
                     <a href="https://www.instagram.com/droneye.sk" target="_blank" class="social-icon">
-                      <img src="src/assets/images/instagram.png" alt="Instagram" />
+                      <img src="src/assets/images/instagram.png" alt="Instagram Droneye" loading="lazy" />
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" class="social-icon">
-                      <img src="src/assets/images/facebook.png" alt="Facebook" />
+                      <img src="src/assets/images/facebook.png" alt="Facebook Droneye" loading="lazy" />
                     </a>
                     <a href="https://www.youtube.com/@droneye" target="_blank" class="social-icon">
-                      <img src="src/assets/images/youtube.png" alt="YouTube" />
+                      <img src="src/assets/images/youtube.png" alt="YouTube Droneye" loading="lazy" />
                     </a>
                   </div>
                   <span class="contact-phone"><span data-i18n="contactPhone">Telefón</span>: <a href="tel:+421950614303"><b>+421 950 614 303</b></a></span>

@@ -174,6 +174,10 @@ a:hover {
   color: black;
 }
 
+.desktop-menu-item {
+  margin-top: 1.5em!important;
+}
+
 .menu-button {
   opacity: 0;
   transform: translateY(20px);
@@ -184,6 +188,7 @@ a:hover {
   flex-direction: column;
   cursor: pointer;
   padding: 1em;
+  margin-top: 1.5em;
 }
 
 .hamburger div {
@@ -226,7 +231,7 @@ a:hover {
 }
 
 .padding2tlb {
-  padding: 2em 0 2em 2em;
+  padding: 2em 0 0em 2em;
 }
 
 .flex-auto {
@@ -269,6 +274,7 @@ a:hover {
 }
 
 .subpage-title {
+  font-size: 1.5em;
   text-align: center;
   display: none;
 }
@@ -328,12 +334,15 @@ a:hover {
 .subpage-close-btn {
   position: fixed;
   top: 0em;
-  right: 1.5em;
+  right: 2em;
+}
+
+.subpage-close-btn button {
   background: none;
   border: none;
-  font-size: 2em;
   cursor: pointer;
-  z-index: 1001;
+  font-size: 2em;
+  z-index: 1200;
   padding: 1px;
 }
 
@@ -687,7 +696,7 @@ a:hover {
 
   .subpage-header {
     padding-top: 0;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
 
   .subpage-title {
@@ -695,7 +704,7 @@ a:hover {
     display: block;
   }
 
-  .subpage-header h2 {
+  .subpage-header h1   {
     margin: 0;
   }
 
@@ -704,9 +713,8 @@ a:hover {
   }
 
   .subpage-close-btn {
-    top: 0;
-    right: 0.3em;
     padding-top: 6rem;
+    right: 1.5em;
   }
 
   .mobile-menu.active {
@@ -1021,4 +1029,13 @@ a:hover {
   margin: 0 auto;
   padding: 0.5em 0.7em 0.7em 0.7em;
   box-sizing: border-box;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 0;
+  unicode-bidi: isolate;
 }
