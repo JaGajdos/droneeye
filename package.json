@@ -6,14 +6,16 @@
   },
   "devDependencies": {
     "@types/three": "^0.164.1",
+    "cpx": "^1.5.0",
     "gh-pages": "^6.3.0",
     "prettier": "^3.2.5",
     "sharp": "^0.33.5",
-    "vite": "^5.2.11"
+    "vite": "^5.2.11",
+    "vite-plugin-static-copy": "^3.1.0"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cpx sitemap.xml dist/ && cpx robots.txt dist/",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   }

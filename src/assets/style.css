@@ -82,7 +82,7 @@ ul a,
   z-index: 1100;
 }
 
-a {
+a, a:visited {
   color: black !important;
 }
 
@@ -206,7 +206,17 @@ a:hover {
   left: 0;
   width: 100%;
   z-index: 1100;
-  margin-top: 1em;
+  margin-top: 2em;
+  
+}
+
+.mobile-menu-container {
+  padding: 0 1em 0 1em;
+  margin: 0 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, rgb(160, 200, 255) 0%, rgb(205, 249, 252) 50%, rgb(156, 202, 255) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobile-menu a {
@@ -219,7 +229,7 @@ a:hover {
 }
 
 .mobile-menu .margin10tlr {
-  margin: 1em 1em 0 1em;
+  margin: 1em 0;
 }
 
 .padding1 {

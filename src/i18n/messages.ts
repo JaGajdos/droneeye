@@ -276,6 +276,8 @@ export const messages = {
     legislativaTitle: 'Legislation',
 
     // Contact form
+    contactEmail: 'E-mail',
+    contactPhone: 'Phone',
     contactFormTitle: 'Why choose me?',
     contactFormFeatures0: 'Quality equipment and professional approach',
     contactFormFeatures1: 'Creativity and attention to detail',

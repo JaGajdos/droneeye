@@ -92,6 +92,7 @@ export class Menu {
         document.removeEventListener('click', closeOnClickOutside);
         const menuBtn = document.getElementById(menuId);
         if (menuBtn) menuBtn.classList.remove('menu-button-active');
+        setLoaderAnimation(true);
       });
     }
 
@@ -147,5 +148,20 @@ export class Menu {
         btn.style.transform = 'translateY(0)';
       }, 100);
     });
+  }
+}
+
+// Pomocné funkcie na animáciu loaderImg
+export function setLoaderAnimation(active: boolean) {
+  const loaderImg = document.querySelector('#loaderImg img');
+  if (loaderImg) {
+      if (active) {
+        loaderImg.classList.add('animate-image');
+      } else {
+        setTimeout(() => {
+          loaderImg.classList.remove('animate-image');
+        }, 500);
+      }
+
   }
 }

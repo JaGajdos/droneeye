@@ -3,7 +3,7 @@ import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { loadModel } from './model';
 import { addRealisticCloud, createTroikaText, loadLights, loadTexture } from './objects';
 import { BackgroundAudio } from './audio';
-import { Menu } from './menu';
+import { Menu, setLoaderAnimation } from './menu';
 import { LanguageService } from '../i18n/languageService';
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -600,6 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btn) {
     btn.addEventListener('click', () => {
       window.location.hash = key;
+      setLoaderAnimation(false);
     });
   }
 });
@@ -614,6 +615,7 @@ function openSubpageByHash() {
     });
     document.body.style.overflow = 'auto';
     document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('menu-button-active'));
+    setLoaderAnimation(true);
     return;
   }
   const btn = document.getElementById(`${hash}-button`);

@@ -1,0 +1,21 @@
+{
+  "name": "Droneye",
+  "short_name": "Droneye",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "description": "Profesionálne dronové služby – letecké zábery, video produkcia, fotografovanie, postprodukcia.",
+  "icons": [
+    {
+      "src": "src/assets/images/Logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/assets/images/Logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
