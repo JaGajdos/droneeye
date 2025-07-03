@@ -17,6 +17,7 @@
     "dev": "vite",
     "build": "vite build && cpx sitemap.xml dist/ && cpx robots.txt dist/",
     "deploy": "gh-pages -d dist",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "node optimize-images.js"
   }
 }

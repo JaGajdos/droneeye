@@ -114,10 +114,15 @@ a:hover {
   }
 }
 
-.animate-image {
-  animation: sizeChange 3s infinite;
+#loaderImg img {
+  width: 32em;
+  height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.animate-image {
+  animation: sizeChange 3s infinite;
   will-change: transform;
   transform: translateZ(0);
 }
@@ -730,8 +735,9 @@ a:hover {
   .mobile-menu.active {
     display: flex;
   }
-  .animate-image {
-    width: 20em; /* alebo iná menšia hodnota podľa potreby */
+
+  #loaderImg img {
+    width: 20em;
     height: auto;
   }
 

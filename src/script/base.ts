@@ -358,8 +358,6 @@ function loadResources() {
   // Split loading into smaller chunks
   const loadInitialResources = () => {
     loadLights(scene);
-    const texture = loadTexture(loadingManager, 'textures/sunshine-clouds-min.jpg', 1350, 900, 500);
-   // scene.add(texture);
   };
 
   const loadPath = () => {
