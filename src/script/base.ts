@@ -497,6 +497,9 @@ function hideLoader() {
 function startExperience() {
   if (!isCanvasReady) return;
 
+  // Skry clouds na pozadí
+  document.body.classList.add('clouds-hidden');
+
   hideLoader();
 
   if (startButton) {
@@ -624,3 +627,8 @@ function openSubpageByHash() {
 
 window.addEventListener('hashchange', openSubpageByHash);
 document.addEventListener('DOMContentLoaded', openSubpageByHash);
+
+// Pri reloadnutí stránky clouds zobrazíme
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.remove('clouds-hidden');
+});
