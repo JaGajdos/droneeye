@@ -101,10 +101,10 @@ const cloudConfigs: [number, number, number, number, number, number, string][] =
 // --- SCROLL TO PORTFOLIO TILE LOGIC ---
 function scrollToPortfolioTile(targetId: string) {
   setTimeout(() => {
+    document.getElementById('portfolio-button')?.click();
     const container = document.getElementById('subpage-portfolio-container');
     const tile = document.getElementById(targetId);
     if (container && tile) {
-      // Scroll the grid container, not the whole page
       const gridContainer = container.querySelector('.subpage-grid-container');
       if (gridContainer) {
         const tileRect = tile.getBoundingClientRect();
@@ -121,16 +121,16 @@ function scrollToPortfolioTile(targetId: string) {
         tile.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
-  }, 0); // Wait for subpage animation to finish
+  }, 0);
 }
 
 // Add event listeners to service tiles
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[data-portfolio-target]').forEach(link => {
     link.addEventListener('click', function (e) {
+      e.preventDefault();
       const targetId = (e.currentTarget as HTMLElement).getAttribute('data-portfolio-target');
       if (targetId) {
-        // Wait for portfolio subpage to open, then scroll
         setTimeout(() => scrollToPortfolioTile(targetId), 10);
       }
     });
@@ -157,6 +157,25 @@ window.addEventListener('DOMContentLoaded', () => {
       content.style.maxHeight = '0px';
     }
   });
+
+  // SPA navigácia pre všetky .cta-contact-btn
+  document.querySelectorAll('a.cta-contact-btn').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.pushState({}, '', '/about');
+      if (typeof (window as any).openSubpageByPath === 'function') {
+        (window as any).openSubpageByPath();
+      }
+    });
+  });
+
+  if (typeof (window as any).openSubpageByPath === 'function') {
+    (window as any).openSubpageByPath();
+  }
+
+  LanguageService.getInstance();
+
+  document.body.classList.remove('clouds-hidden');
 });
 
 function updateSize() {
@@ -586,10 +605,6 @@ setTimeout(function () {
   start();
 }, 500);
 
-document.addEventListener('DOMContentLoaded', () => {
-  LanguageService.getInstance();
-});
-
 (window as any).switchLanguage = (lang: 'sk' | 'en') => {
   const langService = LanguageService.getInstance();
   langService.setLanguage(lang, update3DText);
@@ -599,18 +614,20 @@ document.addEventListener('DOMContentLoaded', () => {
 ['sluzby', 'portfolio', 'cennik', 'legislativa', 'about'].forEach(key => {
   const btn = document.getElementById(`${key}-button`);
   if (btn) {
-    btn.addEventListener('click', () => {
-      window.location.hash = key;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.history.pushState({}, '', `/${key}`);
+      openSubpageByPath();
       setLoaderAnimation(false);
     });
   }
 });
 
-// Otvorí podstránku podľa hash v URL
-function openSubpageByHash() {
-  const hash = window.location.hash.replace('#', '');
-  if (!hash) {
-    // Ak hash je prázdny, zavri všetky podstránky
+// Otvorí podstránku podľa path v URL
+function openSubpageByPath() {
+  const path = window.location.pathname.replace('/', '');
+  if (!path) {
+    // Ak path je prázdny, zavri všetky podstránky
     document.querySelectorAll('.subpage-container').forEach((subpage) => {
       (subpage as HTMLElement).style.transform = 'translateY(100vh)';
     });
@@ -619,16 +636,11 @@ function openSubpageByHash() {
     setLoaderAnimation(true);
     return;
   }
-  const btn = document.getElementById(`${hash}-button`);
+  const btn = document.getElementById(`${path}-button`);
   if (btn) {
     (btn as HTMLElement).click();
   }
 }
+(window as any).openSubpageByPath = openSubpageByPath;
 
-window.addEventListener('hashchange', openSubpageByHash);
-document.addEventListener('DOMContentLoaded', openSubpageByHash);
-
-// Pri reloadnutí stránky clouds zobrazíme
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.remove('clouds-hidden');
-});
+window.addEventListener('popstate', openSubpageByPath);

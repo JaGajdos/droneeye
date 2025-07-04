@@ -17,12 +17,8 @@ export class BackgroundAudio {
     this.audio.preload = 'auto';
 
     if (this.isIOS()) {
-      console.log('iOS device detected, using iOS-specific initialization');
-      // iOS-špecifické nastavenia
       this.audio.playsInline = true;
       this.audio.muted = true;
-    } else {
-      console.log('Non-iOS device detected, using standard initialization');
     }
 
     this.soundIcon = document.getElementById('soundIcon') as HTMLImageElement;
@@ -38,7 +34,6 @@ export class BackgroundAudio {
         .play()
         .then(() => {
           this.isInitialized = true;
-          console.log('iOS audio started successfully');
         })
         .catch((error: any) => {
           console.log('iOS audio start failed:', error);
@@ -66,7 +61,6 @@ export class BackgroundAudio {
         .play()
         .then(() => {
           this.isInitialized = true;
-          console.log('Standard audio started successfully');
         })
         .catch((error: any) => {
           console.log('Standard audio start failed:', error);

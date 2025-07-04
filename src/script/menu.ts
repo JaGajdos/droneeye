@@ -42,7 +42,6 @@ export class Menu {
 
           document.body.style.overflow = 'hidden';
           container.style.transform = 'translateY(0)';
-          console.log('menu: ' + menuId);
           this.isSubpageOpen = true;
           if(this.backgroundAudio)
             this.backgroundAudio.pause();
@@ -65,10 +64,8 @@ export class Menu {
       }
       if (!subpageContainer.contains(target) && !target.closest('#' + menuId + '')) {
         subpageContainer.style.transform = 'translateY(100vh)';
-        // Použijeme pushState namiesto replaceState
-        history.pushState(null, '', window.location.pathname + window.location.search);
+        history.pushState(null, '', '/');
         this.isSubpageOpen = false;
-        console.log('closeOutside: ' + menuId);
         setTimeout(() => {
           document.body.style.overflow = 'auto';
         }, 500);
@@ -83,8 +80,7 @@ export class Menu {
     if (closeBtn) {
       closeBtn.addEventListener('click', () => {
         subpageContainer.style.transform = 'translateY(100vh)';
-        // Použijeme pushState namiesto replaceState
-        history.pushState(null, '', window.location.pathname + window.location.search);
+        history.pushState(null, '', '/');
         this.isSubpageOpen = false;
         setTimeout(() => {
           document.body.style.overflow = 'auto';

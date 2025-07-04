@@ -217,7 +217,7 @@ a:hover {
 
 .mobile-menu-container {
   padding: 0 1em 0 1em;
-  margin: 0 1em;
+  margin: 0 0.75em;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: linear-gradient(90deg, rgb(160, 200, 255) 0%, rgb(205, 249, 252) 50%, rgb(156, 202, 255) 100%);
@@ -313,7 +313,7 @@ a:hover {
 .subpage-grid-container {
   flex: 1;
   overflow-y: auto;
-  padding: 0.5em 1em 1em 1em;
+  padding: 0 1em 1em 1em;
   min-height: 0;
 }
 

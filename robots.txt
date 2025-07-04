@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https:/www.droneye.sk/sitemap.xml 
+Sitemap: https://www.droneye.sk/sitemap.xml 
