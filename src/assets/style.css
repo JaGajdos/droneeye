@@ -549,7 +549,7 @@ a:hover {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 #contact-form input,
@@ -641,14 +641,17 @@ a:hover {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
+.social-icons-mobile {
+  display: none;
+}
+
 .social-icons {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
   position: relative;
   z-index: 10;
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
 }
 
 .social-icon {
@@ -1077,7 +1080,19 @@ ul {
     margin: 10px 0;
     order: 3;
   }
+
   .social-icons {
+    display: none;
+  }
+
+  .social-icons-mobile {
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
     padding-bottom: 5rem;
   }
 
