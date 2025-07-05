@@ -31,10 +31,19 @@ export class LanguageService {
   }
 
   private updatePageContent() {
+    // Update regular i18n elements
     document.querySelectorAll('[data-i18n]').forEach((element) => {
       const key = element.getAttribute('data-i18n');
       if (key) {
         element.innerHTML = this.getMessage(key);
+      }
+    });
+
+    // Update placeholder elements
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+      const key = element.getAttribute('data-i18n-placeholder');
+      if (key && (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
+        element.placeholder = this.getMessage(key);
       }
     });
   }

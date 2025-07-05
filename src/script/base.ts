@@ -611,16 +611,17 @@ setTimeout(function () {
 }
 
 // Add hash to URL when menu button is clicked
-['sluzby', 'portfolio', 'cennik', 'legislativa', 'about'].forEach(key => {
-  const btn = document.getElementById(`${key}-button`);
-  if (btn) {
+['sluzby', 'portfolio', 'tim', 'cennik', 'legislativa', 'about'].forEach(key => {
+  // Select all buttons with this ID (both desktop and mobile)
+  const btns = document.querySelectorAll(`#${key}-button`);
+  btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       window.history.pushState({}, '', `/${key}`);
       openSubpageByPath();
       setLoaderAnimation(false);
     });
-  }
+  });
 });
 
 // Otvorí podstránku podľa path v URL
@@ -636,9 +637,10 @@ function openSubpageByPath() {
     setLoaderAnimation(true);
     return;
   }
-  const btn = document.getElementById(`${path}-button`);
-  if (btn) {
-    (btn as HTMLElement).click();
+  const btns = document.querySelectorAll(`#${path}-button`);
+  if (btns.length > 0) {
+    // Use the first button (desktop version) to trigger the subpage
+    (btns[0] as HTMLElement).click();
   }
 }
 (window as any).openSubpageByPath = openSubpageByPath;

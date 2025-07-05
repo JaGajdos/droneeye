@@ -19,10 +19,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.droneye.sk/cennik</loc>
+    <loc>https://www.droneye.sk/tim</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.droneye.sk/cennik</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.droneye.sk/legislativa</loc>

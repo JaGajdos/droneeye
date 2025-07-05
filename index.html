@@ -51,6 +51,15 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "name": "Tím",
+              "url": "https://www.droneye.sk/tim",
+              "description": "Náš tím a odborníci"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
               "name": "Cenová ponuka",
               "url": "https://www.droneye.sk/cennik",
               "description": "Cenník a balíčky služieb"
@@ -104,18 +113,24 @@
         {
           "@type": "ListItem",
           "position": 4,
+          "name": "Tím",
+          "item": "https://www.droneye.sk/tim"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
           "name": "Cenová ponuka",
           "item": "https://www.droneye.sk/cennik"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 6,
           "name": "Legislatíva",
           "item": "https://www.droneye.sk/legislativa"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 7,
           "name": "Kontakt",
           "item": "https://www.droneye.sk/about"
         }
@@ -168,6 +183,9 @@
         <div id="portfolio-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
           <a href="/portfolio" class="bold-base" data-i18n="portfolio">Portfólio</a>
         </div>
+        <div id="tim-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
+          <a href="/tim" class="bold-base" data-i18n="tim">Tím</a>
+        </div>
         <div id="cennik-button" class="menu-button desktop-menu-item margin10tlr padding1_5 glass-container">
           <a href="/cennik" class="bold-base" data-i18n="cennik">Cenová ponuka</a>
         </div>
@@ -190,6 +208,9 @@
             </div>
             <div id="portfolio-button" class="margin10tlr padding1_5 glass-container">
               <a href="/portfolio" class="bold-base" data-i18n="portfolio">Portfólio</a>
+            </div>
+            <div id="tim-button" class="margin10tlr padding1_5 glass-container">
+              <a href="/tim" class="bold-base" data-i18n="tim">Tím</a>
             </div>
             <div id="cennik-button" class="margin10tlr padding1_5 glass-container">
               <a href="/cennik" class="bold-base" data-i18n="cennik">Cenová ponuka</a>
@@ -241,42 +262,45 @@
           <div class="subpage-grid subpage-grid-one">
             <div class="subpage-item" style="text-align: center;">
               <h3 class="service-btn service-title-tile" data-i18n="ourServicesTitle">Naše služby</h3>
-              <div class="service-balik-list grid-1fr">
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <span class="expandable-title" id="video-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/video.svg" alt="Ikona - Video produkcia a promo videá" class="balik-icon" loading="lazy" />
-                      <span data-i18n="videoProductionTitle">Video produkcia a tvorba reklamných - promo videí</span>
-                    </span>
+              
+              <div class="service-balik-list-bg bg1">
+                <div class="service-balik-list grid-1fr">
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span class="expandable-title" id="video-expand-title" style="cursor:pointer;">
+                        <img src="src/assets/icons/video.svg" alt="Ikona - Video produkcia a promo videá" class="balik-icon" loading="lazy" />
+                        <span data-i18n="videoProductionTitle">Video produkcia a tvorba reklamných - promo videí</span>
+                      </span>
+                    </div>
+                    <div class="expandable-content" id="video-expand-content" style="display:none;">
+                      <p data-i18n="videoProductionExtra">Kompletná produkcia videí od scenára, cez natáčanie až po postprodukciu. Vytvárame reklamné, prezentačné a promo videá na mieru pre firmy, realitné kancelárie, hotely, eventy aj sociálne siete.</p>
+                    </div>
                   </div>
-                  <div class="expandable-content" id="video-expand-content" style="display:none;">
-                    <p data-i18n="videoProductionExtra">Kompletná produkcia videí od scenára, cez natáčanie až po postprodukciu. Vytvárame reklamné, prezentačné a promo videá na mieru pre firmy, realitné kancelárie, hotely, eventy aj sociálne siete.</p>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span class="expandable-title" id="photography-expand-title" style="cursor:pointer;">
+                        <img src="src/assets/icons/camera.svg" alt="Ikona - Fotografovanie" class="balik-icon" loading="lazy" />
+                        <span data-i18n="photographyTitle">Fotografovanie</span>
+                      </span>
+                    </div>
+                    <div class="expandable-content" id="photography-expand-content" style="display:none;">
+                      <p data-i18n="photographyExtra">Ponúkame profesionálne fotografovanie nehnuteľností, eventov, produktov a ďalších objektov s dôrazom na detail, kompozíciu a postprodukciu. Výsledné fotografie sú vhodné pre web, tlač aj sociálne siete.</p>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <span class="expandable-title" id="photography-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/camera.svg" alt="Ikona - Fotografovanie" class="balik-icon" loading="lazy" />
-                      <span data-i18n="photographyTitle">Fotografovanie</span>
-                    </span>
-                  </div>
-                  <div class="expandable-content" id="photography-expand-content" style="display:none;">
-                    <p data-i18n="photographyExtra">Ponúkame profesionálne fotografovanie nehnuteľností, eventov, produktov a ďalších objektov s dôrazom na detail, kompozíciu a postprodukciu. Výsledné fotografie sú vhodné pre web, tlač aj sociálne siete.</p>
-                  </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <span class="expandable-title" id="drone-expand-title" style="cursor:pointer;">
-                      <img src="src/assets/icons/droneshot.svg" alt="Ikona - Letecké zábery dronom" class="balik-icon" loading="lazy" />
-                      <span data-i18n="droneShotsTitle">Letecké zábery dronom</span>
-                    </span>
-                  </div>
-                  <div class="expandable-content" id="drone-expand-content" style="display:none;">
-                    <p data-i18n="droneShotsExtra">Zachytíme vašu nehnuteľnosť, areál, podujatie či krajinu z výšky v špičkovej kvalite. Letecké zábery sú ideálne pre prezentácie, marketing, monitoring aj dokumentáciu.</p>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span class="expandable-title" id="drone-expand-title" style="cursor:pointer;">
+                        <img src="src/assets/icons/droneshot.svg" alt="Ikona - Letecké zábery dronom" class="balik-icon" loading="lazy" />
+                        <span data-i18n="droneShotsTitle">Letecké zábery dronom</span>
+                      </span>
+                    </div>
+                    <div class="expandable-content" id="drone-expand-content" style="display:none;">
+                      <p data-i18n="droneShotsExtra">Zachytíme vašu nehnuteľnosť, areál, podujatie či krajinu z výšky v špičkovej kvalite. Letecké zábery sú ideálne pre prezentácie, marketing, monitoring aj dokumentáciu.</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              
+
               <h3 class="service-btn service-title-tile" data-i18n="ourServices1">Máte zábery a chýba vám postprodukcia?</h3>
               <p>
                 <strong class="big-text" data-i18n="ourServices2">Pošlite nám ich - my z nich vytvoríme video, ktoré upúta.</strong>
@@ -287,69 +311,71 @@
               </p>
 
               <h3 class="service-btn service-title-tile" data-i18n="specializationTitle">Špecializujeme sa na</h3>
-              <div class="service-balik-list service-balik-list-left">
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-real-estate">
-                      <img src="src/assets/icons/house.svg" alt="Ikona - Nehnuteľnosti" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads2">Nehnuteľnosti</span>
-                    </a>
+              <div class="service-balik-list-bg bg2">
+                <div class="service-balik-list service-balik-list-left">
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-real-estate">
+                        <img src="src/assets/icons/house.svg" alt="Ikona - Nehnuteľnosti" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads2">Nehnuteľnosti</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-events">
-                      <img src="src/assets/icons/event.svg" alt="Ikona - Eventy" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads3">Eventy</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-events">
+                        <img src="src/assets/icons/event.svg" alt="Ikona - Eventy" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads3">Eventy</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-hotel">
-                      <img src="src/assets/icons/hotel.svg" alt="Ikona - Hotelierstvo" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads4">Hotelierstvo</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-hotel">
+                        <img src="src/assets/icons/hotel.svg" alt="Ikona - Hotelierstvo" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads4">Hotelierstvo</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-video">
-                      <img src="src/assets/icons/culture.svg" alt="Ikona - Kultúrne podujatia" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads5">Kultúrne podujatia</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-video">
+                        <img src="src/assets/icons/culture.svg" alt="Ikona - Kultúrne podujatia" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads5">Kultúrne podujatia</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-gastronomy">
-                      <img src="src/assets/icons/advertising.svg" alt="Ikona - Reklamné videá" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads6">Reklamné videá</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-gastronomy">
+                        <img src="src/assets/icons/advertising.svg" alt="Ikona - Reklamné videá" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads6">Reklamné videá</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-houses">
-                      <img src="src/assets/icons/travel.svg" alt="Ikona - Cestovateľské videá" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads7">Cestovateľské videá</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-houses">
+                        <img src="src/assets/icons/travel.svg" alt="Ikona - Cestovateľské videá" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads7">Cestovateľské videá</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-real-estate-agent">
-                      <img src="src/assets/icons/realEstate.svg" alt="Ikona - Realitné kancelárie" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads8">Realitné kancelárie</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-real-estate-agent">
+                        <img src="src/assets/icons/realEstate.svg" alt="Ikona - Realitné kancelárie" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads8">Realitné kancelárie</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="service-balik-tile">
-                  <div class="balik-title">
-                    <a href="#" data-portfolio-target="portfolio-agro">
-                      <img src="src/assets/icons/agro.svg" alt="Ikona - Poľnohospodárstvo" class="balik-icon" loading="lazy" />
-                      <span data-i18n="ads9">Poľnohospodárstvo</span>
-                    </a>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <a href="#" data-portfolio-target="portfolio-agro">
+                        <img src="src/assets/icons/agro.svg" alt="Ikona - Poľnohospodárstvo" class="balik-icon" loading="lazy" />
+                        <span data-i18n="ads9">Poľnohospodárstvo</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -471,6 +497,69 @@
       </div>      
     </div>
 
+    <div id="subpage-tim-container" class="subpage-container">
+      <div class="subpage-content">
+        <div class="subpage-header">
+          <div class="subpage-close-btn"><button id="closeTim">×</button></div>
+          <h1 class="subpage-title" data-i18n="timTitle">Tím</h1>
+        </div>
+        <div class="subpage-grid-container">
+          <div class="subpage-grid subpage-grid-one">
+            <div class="subpage-item" style="text-align: center;">
+              <h3 class="service-btn service-title-tile" data-i18n="timIntroTitle">Náš tím</h3>
+              <p data-i18n="timIntroText">Sme tím profesionálov, ktorí sa venujú dronovým službám s vášňou a dôrazom na detail. Špecializujeme sa na videá, fotografie, letecké zábery s dronom a ďalšie dronové služby. Každý člen nášho tímu prispieva svojou odbornosťou k vytvoreniu výnimočných výsledkov pre našich klientov.</p>
+              <p>
+                <a href="/about" class="menu-button glass-container cta-contact-btn bold-base" data-i18n="pricingContactText">Kontaktujte nás</a>
+              </p>
+              
+              <h3 class="service-btn service-title-tile" data-i18n="timMembersTitle">Naši odborníci</h3>
+              <p data-i18n="timMembersIntro">Spoznajte členov nášho tímu, ktorí stoja za úspechom každého projektu.</p>
+            </div>
+          </div>
+          <br>
+          <div class="subpage-grid">
+            <div class="subpage-item team-item" id="team-miska">
+              <div class="team-content">
+                <div class="team-image">
+                  <img src="src/assets/images/miska.webp" alt="Miška - postprodukcia videí Droneye" class="team-photo" loading="lazy" />
+                </div>
+                <div class="team-text">
+                  <h3 data-i18n="miskaTitle">Miška</h3>
+                  <p>
+                    <span data-i18n="miskaDescription">Miška je naša špecialistka na postprodukciu videí. S dlhoročnými skúsenosťami v oblasti strihu, farebných korekcií a vizuálnych efektov transformuje surový materiál na pútavé príbehy. Jej kreatívny prístup a pozornosť k detailom zabezpečuje, že každé video má profesionálny vzhľad a vyvoláva správne emócie u divákov.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="subpage-item team-item" id="team-peter">
+              <div class="team-content">
+                <div class="team-image">
+                  <img src="src/assets/images/peter.webp" alt="Peter - fotograf Droneye" class="team-photo" loading="lazy" />
+                </div>
+                <div class="team-text">
+                  <h3 data-i18n="peterTitle">Peter</h3>
+                  <p>
+                    <span data-i18n="peterDescription">Peter je náš hlavný fotograf s výnimočným okom pre kompozíciu a detail. Špecializuje sa na letecké fotografie a zachytáva jedinečné momenty z výšky. Jeho technické znalosti a umelecký cit sa spájajú v fotografiách, ktoré hovoria za seba a dokonale prezentujú vaše projekty.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/droneye.sk" target="_blank" rel="nofollow" class="social-icon">
+            <img src="src/assets/images/instagram.webp" alt="Instagram Droneye" loading="lazy" />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" rel="nofollow" class="social-icon">
+            <img src="src/assets/images/facebook.webp" alt="Facebook Droneye" loading="lazy" />
+          </a>
+          <a href="https://www.youtube.com/@droneye" target="_blank" rel="nofollow" class="social-icon">
+            <img src="src/assets/images/youtube.webp" alt="YouTube Droneye" loading="lazy" />
+          </a>
+        </div>
+      </div>      
+    </div>
+
     <div id="subpage-cennik-container" class="subpage-container">
       <div class="subpage-content">
         <div class="subpage-header">
@@ -530,9 +619,9 @@
               </p>
               <p data-i18n="pricingContactEnd">Radi sa vám ozveme s návrhom, ktorý bude zodpovedať presne vašim predstavám.</p>
               <ul class="list-tight list-center">
-                <li data-i18n="pricingContactList1">Kde a kedy chcete natáčať</li>
-                <li data-i18n="pricingContactList2">Na aký účel bude materiál slúžiť</li>
-                <li data-i18n="pricingContactList3">Približný rozsah a vaše očakávania</li>
+                <li class="no-bullet-emoji" data-i18n="pricingContactList1">Kde a kedy chcete natáčať</li>
+                <li class="no-bullet-emoji" data-i18n="pricingContactList2">Na aký účel bude materiál slúžiť</li>
+                <li class="no-bullet-emoji" data-i18n="pricingContactList3">Približný rozsah a vaše očakávania</li>
               </ul>
             </div>
           </div>
@@ -563,12 +652,33 @@
               <h3 class="service-btn service-title-tile" data-i18n="legisTitle">Legislatíva a bezpečnosť</h3>
               <p data-i18n="legisIntro">Každý let s dronom prebieha v súlade s legislatívou danej krajiny a s dôrazom na bezpečnosť a profesionalitu. Sme plne vybavení na to, aby sme zabezpečili legálne a spoľahlivé letecké práce v rôznych krajinách – či už ide o marketingové zábery, technické inšpekcie alebo špeciálne lety v riadenom vzdušnom priestore.</p>
               <h3 class="service-btn service-title-tile" data-i18n="legisWhatTitle">Čo zabezpečujeme pre legálny a bezpečný let</h3>
-              <ul class="list-tight list-center">
-                <li class="no-bullet-emoji" data-i18n="legisWhat1"><b>Registrované drony a piloti</b><br>Všetky naše drony sú riadne registrované a piloti disponujú certifikáciami podľa legislatívy krajiny, v ktorej pracujeme – napríklad podľa nariadení <b>EASA v rámci EÚ</b> alebo miestnych úradov mimo EÚ.</li>
-                <li class="no-bullet-emoji" data-i18n="legisWhat2"><b>Platné poistenie zodpovednosti</b><br>Prevádzka každého dronu je krytá poistením zodpovednosti za škodu, aby bol klient plne chránený v prípade nečakaných udalostí.</li>
-                <li class="no-bullet-emoji" data-i18n="legisWhat3"><b>Legálne povolenia a notifikácie</b><br>Pri špecifických zákazkách (napr. lety v blízkosti letísk, nad ľuďmi, v obciach alebo v priemyselných areáloch) vybavujeme všetky potrebné povolenia či notifikácie miestnym leteckým úradom alebo iným regulačným orgánom.</li>
-                <li class="no-bullet-emoji" data-i18n="legisWhat4"><b>Riziková analýza a bezpečnostné protokoly</b><br>Pre technicky alebo legislatívne náročné lety vypracovávame analýzu rizík a bezpečnostný plán. V prípade potreby pracujeme v súlade s metodikami ako SORA (Specific Operations Risk Assessment).</li>
-              </ul>
+              
+              <div class="service-balik-list grid-1fr">
+                <div class="service-balik-tile">
+                  <div class="balik-title" data-i18n="legisWhat1Title">Registrované drony a piloti</div>
+                  <p data-i18n="legisWhat1">
+                    Všetky naše drony sú riadne registrované a piloti disponujú certifikáciami podľa legislatívy krajiny, v ktorej pracujeme – napríklad podľa nariadení <b>EASA v rámci EÚ</b> alebo miestnych úradov mimo EÚ.
+                  </p>
+                </div>
+                <div class="service-balik-tile">
+                  <div class="balik-title" data-i18n="legisWhat2Title">Platné poistenie zodpovednosti</div>
+                  <p data-i18n="legisWhat2">
+                    Prevádzka každého dronu je krytá poistením zodpovednosti za škodu, aby bol klient plne chránený v prípade nečakaných udalostí.
+                  </p>
+                </div>
+                <div class="service-balik-tile">
+                  <div class="balik-title" data-i18n="legisWhat3Title">Legálne povolenia a notifikácie</div>
+                  <p data-i18n="legisWhat3">
+                    Pri špecifických zákazkách (napr. lety v blízkosti letísk, nad ľuďmi, v obciach alebo v priemyselných areáloch) vybavujeme všetky potrebné povolenia či notifikácie miestnym leteckým úradom alebo iným regulačným orgánom.
+                  </p>
+                </div>
+                <div class="service-balik-tile">
+                  <div class="balik-title" data-i18n="legisWhat4Title">Riziková analýza a bezpečnostné protokoly</div>
+                  <p data-i18n="legisWhat4">
+                    Pre technicky alebo legislatívne náročné lety vypracovávame analýzu rizík a bezpečnostný plán. V prípade potreby pracujeme v súlade s metodikami ako SORA (Specific Operations Risk Assessment).
+                  </p>
+                </div>
+              </div>
               <h3 class="service-btn service-title-tile" data-i18n="legisExperienceTitle">Naše skúsenosti z viacerých krajín</h3>
               <p data-i18n="legisExperience">Realizovali sme natáčania a technické lety v rôznych legislatívnych podmienkach – od horských oblastí cez historické centrá miest až po prístavy, letiská či chránené územia. Spolupracujeme so špecialistami na legislatívu v jednotlivých štátoch, vďaka čomu vieme flexibilne reagovať na miestne podmienky a zabezpečiť plnú legislatívnu podporu – bez komplikácií pre klienta.</p>
               <h3 class="service-btn service-title-tile" data-i18n="legisWhyTitle">Prečo je to pre vás dôležité</h3>
@@ -609,41 +719,58 @@
         <div class="subpage-grid-container">
           <div class="subpage-grid subpage-grid-one">
             <div class="subpage-item" style="text-align: center;">
-                <div class="contact-info">
-                  <span class="contact-email"><span data-i18n="contactEmail">E-mail</span>: <a href="mailto:info@droneye.sk"><b>info@droneye.sk</b></a></span>
-                  <div class="social-icons-contact">
-                    <a href="https://www.instagram.com/droneye.sk" target="_blank" rel="nofollow" class="social-icon">
-                      <img src="src/assets/images/instagram.webp" alt="Instagram Droneye" loading="lazy" />
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" rel="nofollow" class="social-icon">
-                      <img src="src/assets/images/facebook.webp" alt="Facebook Droneye" loading="lazy" />
-                    </a>
-                    <a href="https://www.youtube.com/@droneye" target="_blank" rel="nofollow" class="social-icon">
-                      <img src="src/assets/images/youtube.webp" alt="YouTube Droneye" loading="lazy" />
-                    </a>
-                  </div>
-                  <span class="contact-phone"><span data-i18n="contactPhone">Telefón</span>: <a href="tel:+421950614303"><b>+421 950 614 303</b></a></span>
+              <div class="contact-info">
+                <span class="contact-email"><span data-i18n="contactEmail">E-mail</span>: <a href="mailto:info@droneye.sk"><b>info@droneye.sk</b></a></span>
+                <div class="social-icons-contact">
+                  <a href="https://www.instagram.com/droneye.sk" target="_blank" rel="nofollow" class="social-icon">
+                    <img src="src/assets/images/instagram.webp" alt="Instagram Droneye" loading="lazy" />
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=100066345406669" target="_blank" rel="nofollow" class="social-icon">
+                    <img src="src/assets/images/facebook.webp" alt="Facebook Droneye" loading="lazy" />
+                  </a>
+                  <a href="https://www.youtube.com/@droneye" target="_blank" rel="nofollow" class="social-icon">
+                    <img src="src/assets/images/youtube.webp" alt="YouTube Droneye" loading="lazy" />
+                  </a>
                 </div>
-                <h3 class="service-btn service-title-tile" data-i18n="contactFormTitle">Prečo si vybrať práve nás?</h3>
-                <ul class="list-tight list-center">
-                  <li class="no-bullet-emoji"><b data-i18n="contactFormFeatures0">Kvalitná technika a profesionálny prístup</b></li>
-                  <li class="no-bullet-emoji"><b data-i18n="contactFormFeatures1">Kreativita a dôraz na detaily</b></li>
-                  <li class="no-bullet-emoji"><b data-i18n="contactFormFeatures2">Rýchle dodanie a individuálny prístup</b></li>
-                </ul>
-                <h3 class="service-btn service-title-tile" data-i18n="contactFormCTA">Kontaktujte nás – váš príbeh začína tu.</h3>
-                <br>
+                <span class="contact-phone"><span data-i18n="contactPhone">Telefón</span>: <a href="tel:+421950614303"><b>+421 950 614 303</b></a></span>
+              </div>
+              <h3 class="service-btn service-title-tile" data-i18n="contactFormTitle">Prečo si vybrať práve nás?</h3>
+              <div class="service-balik-list-bg bg3">
+                <div class="service-balik-list grid-1fr">
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span>
+                        <span data-i18n="contactFormFeatures0">Kvalitná technika a profesionálny prístup</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span>
+                        <span data-i18n="contactFormFeatures1">Kreativita a dôraz na detaily</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="service-balik-tile">
+                    <div class="balik-title">
+                      <span>
+                        <span data-i18n="contactFormFeatures2">Rýchle dodanie a individuálny prístup</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>      
+              </div>
+
+              <h3 class="service-btn service-title-tile" data-i18n="contactFormCTA">Kontaktujte nás – váš príbeh začína tu.</h3>
+              <br>
               <form id="contact-form">
-                <label data-i18n="name">Meno:</label>
-                <input type="text" name="name" required placeholder="Meno:">
+                <input type="text" name="name" required data-i18n-placeholder="namePlaceholder" placeholder="Meno:">
             
-                <label data-i18n="email">E-mail:</label>
-                <input type="email" name="email" required placeholder="E-mail:">
+                <input type="email" name="email" required data-i18n-placeholder="emailPlaceholder" placeholder="E-mail:">
             
-                <label data-i18n="phone">Telefón:</label>
-                <input type="tel" name="phone" placeholder="Telefón:">
+                <input type="tel" name="phone" data-i18n-placeholder="phonePlaceholder" placeholder="Telefón:">
             
-                <label data-i18n="message">Správa:</label>
-                <textarea name="message" required placeholder="Správa:"></textarea>
+                <textarea name="message" required data-i18n-placeholder="messagePlaceholder" placeholder="Správa:"></textarea>
             
                 <button type="submit" data-i18n="send">Odoslať</button>
                 <div id="contact-form-success" style="display:none;" data-i18n="sendSuccess">Ďakujeme, čoskoro Vás budeme kontaktovať.</div>
@@ -661,7 +788,7 @@
 
     <script type="module" src="src/script/base.ts"></script>
     <script>
-      ['sluzby', 'portfolio', 'cennik', 'legislativa', 'about'].forEach(key => {
+      ['sluzby', 'portfolio', 'tim', 'cennik', 'legislativa', 'about'].forEach(key => {
         const btn = document.getElementById(`${key}-button`);
         if (btn) {
           btn.addEventListener('click', () => {

@@ -117,12 +117,14 @@ export class Menu {
     });
 
     const portfolioContainer = document.getElementById('subpage-portfolio-container') as HTMLDivElement;
+    const timContainer = document.getElementById('subpage-tim-container') as HTMLDivElement;
     const sluzbyContainer = document.getElementById('subpage-sluzby-container') as HTMLDivElement;
     const aboutContainer = document.getElementById('subpage-about-container') as HTMLDivElement;
     const cennikContainer = document.getElementById('subpage-cennik-container') as HTMLDivElement;
     const legislativaContainer = document.getElementById('subpage-legislativa-container') as HTMLDivElement;
 
     this.createSubpageSection(portfolioContainer, 'closePortfolio', 'portfolio-button');
+    this.createSubpageSection(timContainer, 'closeTim', 'tim-button');
     this.createSubpageSection(sluzbyContainer, 'closeSluzby', 'sluzby-button');
     this.createSubpageSection(aboutContainer, 'closeAbout', 'about-button');
     this.createSubpageSection(cennikContainer, 'closeCennik', 'cennik-button');
