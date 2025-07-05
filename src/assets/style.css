@@ -674,16 +674,6 @@ a:hover {
   height: 24px;
 }
 
-.social-icons-contact .social-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.social-icons-contact .social-icon img {
-  width: 18px;
-  height: 18px;
-}
-
 .client-category-image {
   width: 100%;
   max-height: 200px;
@@ -860,17 +850,17 @@ a:hover {
 
 .bg2 {
   background: url('images/sky1.webp') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 
 .bg3 {
   background: url('images/sky2.webp') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-  }
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
 
 .balik-title {
   font-size: 1.18em;
@@ -1155,17 +1145,4 @@ ul {
     height: 20px;
   }
 
-  .contact-info {
-    flex-direction: column;
-    width: 90%;
-    gap: 15px;
-  }
-
-  .contact-email, .contact-phone {
-    text-align: center;
-  }
-
-  .social-icons-contact {
-    margin: 10px 0;
-  }
 }
