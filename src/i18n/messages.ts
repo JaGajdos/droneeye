@@ -18,7 +18,7 @@ export const messages = {
     // 3D Text
     scrollToBegin: 'Scrolluj\na začni svoje dobrodružstvo',
     //ads1: 'Točíme\na\nfotografujeme',
-    ads1: 'Pozrite sa\nčomu sa venujeme',
+    ads1: 'Vidíme to,\nčo chcete vidieť',
     ads2: 'Nehnuteľnosti',
     ads3: 'Eventy',
     ads4: 'Hotelierstvo',
@@ -196,7 +196,7 @@ export const messages = {
     // 3D Text
     scrollToBegin: 'Scroll to begin your journey',
     //ads1: 'We film\nand\nphotograph',
-    ads1: 'Discover\nwhat we do',
+    ads1: 'We see\nwhat you want to see',
     ads2: 'Real Estate',
     ads3: 'Events',
     ads4: 'Hospitality',

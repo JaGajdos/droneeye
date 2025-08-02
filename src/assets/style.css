@@ -1011,7 +1011,7 @@ ul {
   transition: none !important;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .menu {
     padding-right: 1em;
   }
@@ -1101,21 +1101,6 @@ ul {
     order: 3;
   }
 
-  .social-icons {
-    display: none;
-  }
-
-  .social-icons-mobile {
-    padding-bottom: 5rem;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    position: relative;
-    z-index: 10;
-    padding-bottom: 5rem;
-  }
-
   .service-balik-list {
     grid-template-columns: 1fr;
     max-width: 580px;
@@ -1170,6 +1155,21 @@ ul {
     margin-right: 0.5em;
   }
 
+  .social-icons {
+    display: none;
+  }
+
+  .social-icons-mobile {
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 5rem;
+  }
+
   .social-icon {
     width: 35px;
     height: 35px;
@@ -1179,5 +1179,4 @@ ul {
     width: 20px;
     height: 20px;
   }
-
 }

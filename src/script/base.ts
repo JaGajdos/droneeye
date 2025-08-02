@@ -124,6 +124,22 @@ function scrollToPortfolioTile(targetId: string) {
   }, 0);
 }
 
+// --- CANONICAL LINK UPDATE ---
+function updateCanonical() {
+  const canonical = document.getElementById('canonicalLink') as HTMLLinkElement | null;
+  if (!canonical) return;
+  // Prefer path (SPA navigation), fallback to hash
+  let path = window.location.pathname.replace('/', '');
+  if (!path && window.location.hash) {
+    path = window.location.hash.replace('#', '');
+  }
+  let url = 'https://www.droneye.sk/';
+  if (path && ['sluzby','portfolio','tim','cennik','legislativa','about'].includes(path)) {
+    url += path;
+  }
+  canonical.setAttribute('href', url);
+}
+
 // Add event listeners to service tiles
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[data-portfolio-target]').forEach(link => {
@@ -174,9 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   LanguageService.getInstance();
+  updateCanonical();
 
   document.body.classList.remove('clouds-hidden');
 });
+window.addEventListener('hashchange', updateCanonical);
+window.addEventListener('popstate', updateCanonical);
 
 function updateSize() {
   const width = window.innerWidth;
