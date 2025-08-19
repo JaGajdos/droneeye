@@ -339,10 +339,11 @@ function loadEvents() {
       const deltaY = currentY - touchStartY;
 
       if (isMoving && !menu.isSubpageOpen) {
+        // Zmenený smer - pohyb prsta dole (deltaY > 0) posúva dron dopredu
         if (deltaY > 0) {
-          speed -= deltaY * TOUCH_SPEED;
+          speed += deltaY * TOUCH_SPEED;
         } else if (deltaY < 0) {
-          speed -= deltaY * TOUCH_SPEED;
+          speed += deltaY * TOUCH_SPEED;
         }
       }
 
